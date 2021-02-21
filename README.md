@@ -51,6 +51,17 @@ About this section. Optional. Keep this short and focus on the list.
 
 - [nba_api](https://github.com/swar/nba_api)
 
+## Advanced Stats Explained
+
+- [Player Efficiency Rating (PER)](https://en.wikipedia.org/wiki/Player_efficiency_rating)
+- [Win Shares](https://www.basketball-reference.com/about/ws.html)
+- [Value Over Replacement Player (VORP)](https://en.wikipedia.org/wiki/Value_over_replacement_player)
+- [Box Plus/Minus (BPM)](https://www.basketball-reference.com/about/bpm2.html)
+- [Effective Field Goal Percentage (eFG%)](https://www.breakthroughbasketball.com/stats/effective-field-goal-percentage.html)
+- [True Shooting Percentage (TS%)](https://en.wikipedia.org/wiki/True_shooting_percentage)
+- [Net Rating](https://www.pivotanalysis.com/post/net-rating)
+- [RAPTOR](https://fivethirtyeight.com/features/introducing-raptor-our-new-metric-for-the-modern-nba/)
+
 ## Contribute
 
 Contributions welcome! Read the [contribution guidelines](contributing.md) first.
