@@ -44,14 +44,16 @@ About this section. Optional. Keep this short and focus on the list.
 
 ## YouTube Channels
 
-- [The Athletic](https://www.youtube.com/channel/UCCl9GMgbh3IbMwyMcU3YLjA)
 - [Thinking Basketball](https://www.youtube.com/c/ThinkingBasketball/featured)
+- [The Athletic](https://www.youtube.com/channel/UCCl9GMgbh3IbMwyMcU3YLjA)
 
 ## Data Analysis Tools
 
 - [nba_api](https://github.com/swar/nba_api)
 
 ## Advanced Stats Explained
+
+- [Ben Taylor's NBA Stats 101 Series](https://youtube.com/playlist?list=PLtzZl14BrKjTJZdubjNEY5jU0fGOiy51x)
 
 - [Player Efficiency Rating (PER)](https://en.wikipedia.org/wiki/Player_efficiency_rating)
 - [Win Shares](https://www.basketball-reference.com/about/ws.html)
