@@ -20,7 +20,7 @@ About this section: Official league-operated sites. Best sources for box scores,
 
 - [NBA.com](https://www.nba.com/) - Official league site: scores, news, schedules, standings, and video.
 - [NBA Stats (stats.nba.com)](https://www.nba.com/stats/) - Official stats portal (box scores, play-by-play, shooting, tracking summaries, lineups, Hustle, L2M links, etc.).
-- [NBA Official (Officiating Hub)](https://official.nba.com/) - Coach’s Challenges, Rulebook resources, and the league’s public **Last Two Minute** (L2M) reports with call/correctness assessments.
+- [NBA Official (Officiating Hub)](https://official.nba.com/) - Coach's Challenges, Rulebook resources, and the league's public **Last Two Minute** (L2M) reports with call/correctness assessments.
 - [NBA Communications](https://pr.nba.com/) - Official press releases: transactions, awards, and league announcements.
 - [NBA Top Shot](https://www.nbatopshot.com/) - Official blockchain collectibles; occasionally useful for media assets and moment metadata.
 
@@ -34,6 +34,7 @@ High-signal analytics destinations and dashboards (some paid). Great for impact 
 - [Cleaning the Glass](https://cleaningtheglass.com/) - Subscription analytics that filter out garbage time; rich team, player, lineup views and explainers.
 - [Dunks & Threes - EPM](https://dunksandthrees.com/epm) - Public leaderboard for **Estimated Plus-Minus (EPM)** and team ratings; methodology page linked on-site.
 - [BBall Index - LEBRON](https://www.bball-index.com/lebron-database/) - Impact metric and tooling (role/skill data, leaderboards, glossary); mix of free and paid.
+- [NbaPropLab](https://nbaproplab.com) - AI-powered NBA player props analyzer with a 7-block scoring engine, spider charts, and historical hit-rate tracking.
 - [PBP Stats](https://www.pbpstats.com/) - On/Off, WOWY, lineup and possession-based stats; exposes a public API for subscribers.
 - [NBAstuffer](https://www.nbastuffer.com/) - Aggregated dashboards, pace/strength-of-schedule, lineup tools, and analytics guides.
 - [Inpredictable](http://www.inpredictable.com/) - Win probability models and tempo/variance research for NBA (and other sports).
@@ -48,7 +49,7 @@ Programmatic access and bulk data for analysis. Mind rate limits and terms of us
 - [PBP Stats API Docs](https://api.pbpstats.com/docs) - Endpoints for possessions, on/off, lineup splits, etc. (subscription).
 - [pbpstats (Python)](https://pypi.org/project/pbpstats/) - Library to parse NBA/WNBA/G League play-by-play; powers PBP Stats.
 - [balldontlie API](https://www.balldontlie.io/) - Free JSON NBA data API (games, players, stats). Great for prototypes; not 100% complete with tracking/synergy-style data.
-- [Basketball Reference Web Scraper (Python)](https://github.com/jaebradley/basketball_reference_web_scraper) - Scrape Basketball-Reference data when API access isn’t available.
+- [Basketball Reference Web Scraper (Python)](https://github.com/jaebradley/basketball_reference_web_scraper) - Scrape Basketball-Reference data when API access isn't available.
 - [Kaggle - NBA Datasets](https://www.kaggle.com/search?q=NBA+dataset) - Community-maintained season, box score, and play-by-play datasets (quality varies; check provenance).
 
 ## YouTube & Learning
@@ -85,7 +86,7 @@ Historical or lower-activity resources - good references, but not always current
 - [82Games](http://www.82games.com/) - Classic lineup/five-man and on/off archives.
 - [FiveThirtyEight NBA](https://fivethirtyeight.com/tag/nba/) - NBA coverage largely archived; RAPTOR explainer still valuable.
 - [FiveTimesFive](https://fivetimesfive-blog.com/) - Blog: thoughtful analytics write-ups (posting cadence varies).
-- [Back Picks](https://backpicks.com/) - Ben Taylor’s long-form analytics pieces and historical series.
+- [Back Picks](https://backpicks.com/) - Ben Taylor's long-form analytics pieces and historical series.
 - [NBA Match Visualizer - Single Game Example](http://nba.papiotis.info/2021-01-22/DETvsHOU) - Example link to a historic game visualization.
 
 ---
