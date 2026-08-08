@@ -1,24 +1,47 @@
 # Contribution Guidelines
 
-Please note that this project is released with a
-[Contributor Code of Conduct](code-of-conduct.md). By participating in this
-project you agree to abide by its terms.
+Please note that this project is released with a [Contributor Code of Conduct](code-of-conduct.md).
+By participating, you agree to abide by its terms.
 
----
+## Suggesting a resource
 
-Ensure your pull request adheres to the following guidelines:
+- Search the README first to avoid duplicates.
+- Prefer official documentation, primary sources, maintained projects, and stable canonical URLs.
+- Confirm that the resource is active and specifically useful for NBA data, analysis, film study,
+  research, or learning.
+- Describe what the resource provides, its access level, and any important limitation in one concise
+  sentence.
+- Identify paid, subscription, archived, model-generated, or unofficial resources accurately.
+- Do not submit affiliate or referral links, betting or fantasy picks, generic sports sites, or
+  promotional copy.
+- Add one resource per pull request when practical, and explain why it improves the list.
 
-- Make sure you take care of this
-- And this as well
-- And don't forget to check this
+## Quality bar
 
-Thank you for your suggestions!
+A listed resource should be at least one of the following:
 
-## Updating your PR
+- An authoritative league or provider source.
+- A maintained open dataset, API, library, or research tool.
+- A distinctive analytical product with clear methodology and general research value.
+- A substantive educational source that teaches basketball analytics, film, or data methods.
 
-A lot of times, making a PR adhere to the standards above can be difficult.
-If the maintainers notice anything that we'd like changed, we'll ask you to
-edit your PR before we merge it. There's no need to open a new PR, just edit
-the existing one. If you're not sure how to do that,
-[here is a guide](https://github.com/RichardLitt/knowledge/blob/master/github/amending-a-commit-guide.md)
-on the different ways you can update your PR so that we can merge it.
+Descriptions should distinguish observed data, human classifications, model outputs, evaluations,
+forecasts, and market data where relevant.
+
+## Validate your change
+
+The catalog gate requires Python 3.11 or newer and has no third-party dependencies:
+
+```sh
+python3 -m unittest discover -s tests -v
+python3 scripts/validate_readme.py README.md
+```
+
+The validator checks structure and formatting only. Before adding or materially updating a resource,
+open its canonical source and verify its current maintenance status, access level, relevant license
+or terms, and the specific claim made by the description. Include that evidence in the pull request.
+
+## Updating your pull request
+
+If maintainers request changes, update the existing pull request rather than opening a replacement.
+If you are unsure how, see this [guide to amending a commit](https://github.com/RichardLitt/knowledge/blob/master/github/amending-a-commit-guide.md).
