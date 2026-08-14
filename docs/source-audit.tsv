@@ -1,0 +1,44 @@
+name	url	category	authority	access	result	reviewed_at	note
+NBA.com	https://www.nba.com/	Official & League Data	official	public	200	2026-08-13	Terms review required for reuse
+NBA Stats (stats.nba.com)	https://www.nba.com/stats/	Official & League Data	official	public-restricted	200	2026-08-13	No published external bulk license
+NBA Official (Officiating Hub)	https://official.nba.com/	Official & League Data	official	public	200	2026-08-13	Rules and officiating evidence
+NBA Communications	https://pr.nba.com/	Official & League Data	official	public	200	2026-08-13	League announcements
+Basketball-Reference	https://www.basketball-reference.com/	Analytics & Advanced Metrics Sites	unofficial	public-restricted	200	2026-08-13	Sports Reference policy applies
+Stathead (Sports-Reference)	https://stathead.com/basketball/	Analytics & Advanced Metrics Sites	unofficial	paid	403-anti-bot	2026-08-13	Reachable product; automated status check blocked
+ESPN NBA Stats	https://www.espn.com/nba/stats	Analytics & Advanced Metrics Sites	unofficial	public	200	2026-08-13	Reference surface
+Cleaning the Glass	https://cleaningtheglass.com/	Analytics & Advanced Metrics Sites	derived	paid	200	2026-08-13	Subscription analytics
+Dunks & Threes - EPM	https://dunksandthrees.com/epm	Analytics & Advanced Metrics Sites	derived	mixed	200	2026-08-13	Public leaderboard; other access may be paid
+BBall Index - LEBRON	https://www.bball-index.com/lebron-database/	Analytics & Advanced Metrics Sites	derived	mixed	200	2026-08-13	Public and paid tooling
+PBP Stats	https://www.pbpstats.com/	Analytics & Advanced Metrics Sites	derived	mixed	200	2026-08-13	Subscriber API available
+NBAstuffer	https://www.nbastuffer.com/	Analytics & Advanced Metrics Sites	unofficial	mixed	200	2026-08-13	Aggregated research dashboards
+Inpredictable	https://www.inpredictable.com/	Analytics & Advanced Metrics Sites	derived	public	200	2026-08-13	Model and research site
+82Games	https://www.82games.com/	Analytics & Advanced Metrics Sites	derived	public	200	2026-08-13	Current and historical research
+Crafted NBA	https://craftednba.com/	Analytics & Advanced Metrics Sites	derived	mixed	200	2026-08-13	Meta-metric dashboards
+NBA RAPM (nbarapm.com)	https://www.nbarapm.com/	Analytics & Advanced Metrics Sites	derived	public	200	2026-08-13	RAPM research surface
+nba_api	https://github.com/swar/nba_api	APIs & Open Data	unofficial-client	open-source	200	2026-08-13	Client license does not license upstream data
+hoopR	https://hoopr.sportsdataverse.org/	APIs & Open Data	unofficial-aggregator	open-source	200	2026-08-13	Bulk releases; upstream rights remain separate
+sportsdataverse-py	https://py.sportsdataverse.org/	APIs & Open Data	unofficial-aggregator	open-source	200	2026-08-13	Multiple provider wrappers
+pbpstats	https://github.com/dblackrun/pbpstats	APIs & Open Data	unofficial-parser	open-source	200	2026-08-13	Derived parser; upstream rights remain separate
+PBP Stats API Docs	https://api.pbpstats.com/docs	APIs & Open Data	derived	paid	200	2026-08-13	Subscription API
+BALLDONTLIE NBA API	https://docs.balldontlie.io/	APIs & Open Data	commercial	mixed	200	2026-08-13	Free basic entities; advanced data paid
+Kaggle - NBA Datasets	https://www.kaggle.com/search?q=NBA+dataset	APIs & Open Data	community	variable	200	2026-08-13	Review each dataset independently
+Sportradar NBA API	https://developer.sportradar.com/basketball/docs/nba-ig-api-basics	Licensed Production Feeds	licensed-provider	paid	200	2026-08-13	Contract determines rights
+SportsDataIO NBA API	https://sportsdata.io/developers/api-documentation/nba	Licensed Production Feeds	commercial-provider	paid	200	2026-08-13	Subscription determines feeds and rights
+Thinking Basketball	https://www.youtube.com/ThinkingBasketball	YouTube & Learning	independent	mixed	200	2026-08-13	Film and analytics education
+The Athletic (NBA)	https://www.youtube.com/channel/UCCl9GMgbh3IbMwyMcU3YLjA	YouTube & Learning	publisher	public	200	2026-08-13	Reporting and analysis channel
+Hoops Tonight	https://www.youtube.com/channel/UCw8h_jH2gB20wcZTJiaQNCA	YouTube & Learning	independent	public	200	2026-08-13	Film and analysis channel
+Polars	https://pola.rs/	Data Analysis Libraries & Tools	primary-project	open-source	200	2026-08-13	Analytical engine
+DuckDB	https://duckdb.org/	Data Analysis Libraries & Tools	primary-project	open-source	200	2026-08-13	Analytical database
+Basketball Reference Web Scraper	https://github.com/jaebradley/basketball_reference_web_scraper	Data Analysis Libraries & Tools	legacy-client	open-source	200	2026-08-13	Upstream policy review required
+PER - Player Efficiency Rating	https://en.wikipedia.org/wiki/Player_efficiency_rating	Advanced Stats Explained	secondary	public	200	2026-08-13	General explainer
+Win Shares	https://www.basketball-reference.com/about/ws.html	Advanced Stats Explained	methodology	public-restricted	200	2026-08-13	Basketball-Reference methodology
+VORP - Value Over Replacement Player	https://en.wikipedia.org/wiki/Value_over_replacement_player	Advanced Stats Explained	secondary	public	200	2026-08-13	General explainer
+BPM - Box Plus/Minus	https://www.basketball-reference.com/about/bpm2.html	Advanced Stats Explained	methodology	public-restricted	200	2026-08-13	Basketball-Reference methodology
+TS% - True Shooting Percentage	https://en.wikipedia.org/wiki/True_shooting_percentage	Advanced Stats Explained	secondary	public	200	2026-08-13	General explainer
+eFG% - Effective Field Goal Percentage	https://www.breakthroughbasketball.com/stats/effective-field-goal-percentage.html	Advanced Stats Explained	secondary	public	200	2026-08-13	General explainer
+Net Rating	https://www.bball-index.com/is-net-rating-still-king/	Advanced Stats Explained	derived	public	200	2026-08-13	Discussion and limitations
+RAPTOR - Intro and Method	https://fivethirtyeight.com/features/introducing-raptor-our-new-metric-for-the-modern-nba/	Advanced Stats Explained	archived-methodology	public	200	2026-08-13	Archived model explainer
+EPM - Estimated Plus-Minus Methodology	https://dunksandthrees.com/about/epm	Advanced Stats Explained	methodology	public	200	2026-08-13	Current method page
+LEBRON - Metric Introduction	https://www.bball-index.com/lebron-introduction/	Advanced Stats Explained	methodology	public	200	2026-08-13	Metric introduction
+FiveThirtyEight NBA	https://fivethirtyeight.com/tag/nba/	Legacy / Archived (still useful)	archived	public	200	2026-08-13	Archived coverage
+Back Picks	https://backpicks.com/	Legacy / Archived (still useful)	independent	mixed	200	2026-08-13	Long-form historical analysis

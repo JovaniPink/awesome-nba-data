@@ -4,14 +4,18 @@
 
 Catalog structure reviewed: August 2026.
 
-External sources are reviewed when they are added or materially changed. A catalog-wide source
-recency review has not yet been recorded.
+Every catalog entry was reviewed on August 13, 2026. The dated
+[source audit](docs/source-audit.tsv) records URL behavior and access classification; the
+[source matrix](docs/source-matrix.md) keeps programmatic coverage and use constraints separate
+from link availability. A responding URL is not permission to collect, store, model, or republish
+its data.
 
 ## Contents
 
 - [Official & League Data](#official--league-data)
 - [Analytics & Advanced Metrics Sites](#analytics--advanced-metrics-sites)
 - [APIs & Open Data](#apis--open-data)
+- [Licensed Production Feeds](#licensed-production-feeds)
 - [YouTube & Learning](#youtube--learning)
 - [Data Analysis Libraries & Tools](#data-analysis-libraries--tools)
 - [Advanced Stats Explained](#advanced-stats-explained)
@@ -23,22 +27,22 @@ recency review has not yet been recorded.
 
 About this section: Official league-operated sites. Best sources for box scores, play-by-play, tracking summaries, rules/officiating and press releases.
 
-- [NBA.com](https://www.nba.com/) - Official league site: scores, news, schedules, standings, and video.
-- [NBA Stats (stats.nba.com)](https://www.nba.com/stats/) - Official stats portal (box scores, play-by-play, shooting, tracking summaries, lineups, Hustle, L2M links, etc.).
-- [NBA Official (Officiating Hub)](https://official.nba.com/) - Coach's Challenges, Rulebook resources, and the league's public **Last Two Minute** (L2M) reports with call/correctness assessments.
-- [NBA Communications](https://pr.nba.com/) - Official press releases: transactions, awards, and league announcements.
+- [NBA.com](https://www.nba.com/) - Official league site for scores, schedules, standings, news, and video; use remains subject to NBA terms.
+- [NBA Stats (stats.nba.com)](https://www.nba.com/stats/) - Official stats portal for box scores, play-by-play, shooting, tracking summaries, lineups, and Hustle data; it is not a published bulk-data license.
+- [NBA Official (Officiating Hub)](https://official.nba.com/) - Official rulebook, Coach's Challenge, and Last Two Minute report hub.
+- [NBA Communications](https://pr.nba.com/) - Official press releases for transactions, awards, schedule changes, and league announcements.
 
 ## Analytics & Advanced Metrics Sites
 
 High-signal analytics destinations and dashboards (some paid). Great for impact metrics, lineup analysis, and specialty views.
 
-- [Basketball-Reference](https://www.basketball-reference.com/) - Deep historical database with player/team pages, game logs, and advanced stats.
-- [Stathead (Sports-Reference)](https://stathead.com/basketball/) - Powerful paid research queries (player/team/game finders, splits, etc.).
-- [ESPN NBA Stats](https://www.espn.com/nba/stats) - League-wide player/team leaderboards and sortable tables.
-- [Cleaning the Glass](https://cleaningtheglass.com/) - Subscription analytics that filter out garbage time; rich team, player, lineup views and explainers.
-- [Dunks & Threes - EPM](https://dunksandthrees.com/epm) - Public leaderboard for **Estimated Plus-Minus (EPM)** and team ratings; methodology page linked on-site.
-- [BBall Index - LEBRON](https://www.bball-index.com/lebron-database/) - Impact metric and tooling (role/skill data, leaderboards, glossary); mix of free and paid.
-- [PBP Stats](https://www.pbpstats.com/) - On/Off, WOWY, lineup and possession-based stats; exposes a public API for subscribers.
+- [Basketball-Reference](https://www.basketball-reference.com/) - Unofficial historical reference for player, team, season, and game pages; automated reuse is governed by Sports Reference's data-use policy.
+- [Stathead (Sports-Reference)](https://stathead.com/basketball/) - Paid research queries for player, team, game, streak, and split analysis.
+- [ESPN NBA Stats](https://www.espn.com/nba/stats) - Unofficial league-wide player and team leaderboards with sortable tables.
+- [Cleaning the Glass](https://cleaningtheglass.com/) - Paid analytics that filter garbage time and provide team, player, and lineup views.
+- [Dunks & Threes - EPM](https://dunksandthrees.com/epm) - Derived Estimated Plus-Minus and team-rating leaderboards with a public methodology page.
+- [BBall Index - LEBRON](https://www.bball-index.com/lebron-database/) - Derived role, skill, and LEBRON tooling with a mix of public and paid access.
+- [PBP Stats](https://www.pbpstats.com/) - Derived on-off, WOWY, lineup, and possession views with a subscriber API.
 - [NBAstuffer](https://www.nbastuffer.com/) - Aggregated dashboards, pace/strength-of-schedule, lineup tools, and analytics guides.
 - [Inpredictable](https://www.inpredictable.com/) - Win probability models and tempo/variance research for NBA and other sports.
 - [82Games](https://www.82games.com/) - Lineup, five-player-unit, on/off, physicality, and game-analysis archives with current-season research.
@@ -47,26 +51,35 @@ High-signal analytics destinations and dashboards (some paid). Great for impact 
 
 ## APIs & Open Data
 
-Programmatic access and bulk data for analysis. Mind rate limits and terms of use.
+Programmatic discovery and research tools. An open client or reachable endpoint does not grant
+rights to the upstream data.
 
-- [PBP Stats API Docs](https://api.pbpstats.com/docs) - Endpoints for possessions, on/off, lineup splits, etc. (subscription).
-- [balldontlie API](https://www.balldontlie.io/) - Free JSON NBA data API (games, players, stats). Great for prototypes; not 100% complete with tracking/synergy-style data.
-- [Kaggle - NBA Datasets](https://www.kaggle.com/search?q=NBA+dataset) - Community-maintained season, box score, and play-by-play datasets (quality varies; check provenance).
+- [nba_api](https://github.com/swar/nba_api) - Unofficial MIT-licensed Python client for NBA.com endpoints; upstream schemas and endpoints change without a public stability contract.
+- [hoopR](https://hoopr.sportsdataverse.org/) - Open-source R package and bulk loaders for men's basketball data, including NBA play-by-play releases from 2002 onward.
+- [sportsdataverse-py](https://py.sportsdataverse.org/) - Open-source Python package for NBA schedules, play-by-play, box scores, rosters, and related source wrappers.
+- [pbpstats](https://github.com/dblackrun/pbpstats) - Open-source parser that derives possessions, lineups, and shot-zone context from NBA, WNBA, and G League play-by-play.
+- [PBP Stats API Docs](https://api.pbpstats.com/docs) - Paid API documentation for derived possession, lineup, on-off, and WOWY data.
+- [BALLDONTLIE NBA API](https://docs.balldontlie.io/) - API-key service with free teams, players, and games; statistics, play-by-play, lineups, injuries, and odds require paid tiers.
+- [Kaggle - NBA Datasets](https://www.kaggle.com/search?q=NBA+dataset) - Community dataset index where provenance, license, coverage, and correction behavior must be checked per dataset.
+
+## Licensed Production Feeds
+
+Commercial feeds whose contract, purchased products, and approved purpose determine permitted use.
+
+- [Sportradar NBA API](https://developer.sportradar.com/basketball/docs/nba-ig-api-basics) - Licensed B2B NBA feeds with schedules, rosters, statistics, play-by-play, change logs, and provider identifiers.
+- [SportsDataIO NBA API](https://sportsdata.io/developers/api-documentation/nba) - Commercial NBA feeds for scores, statistics, play-by-play, injuries, projections, and betting data with subscription-specific access.
 
 ## YouTube & Learning
 
 - [Thinking Basketball](https://www.youtube.com/ThinkingBasketball) - Film + stats breakdowns, metric explainers, historical series.
 - [The Athletic (NBA)](https://www.youtube.com/channel/UCCl9GMgbh3IbMwyMcU3YLjA) - Reporting and analysis.
-- [Basketball Index (channel)](https://www.youtube.com/@BasketballIndex) - Occasional metric and player/role breakdowns.
 - [Hoops Tonight](https://www.youtube.com/channel/UCw8h_jH2gB20wcZTJiaQNCA) - Analytics, history, and film breakdowns.
 
 ## Data Analysis Libraries & Tools
 
-- [nba_api](https://github.com/swar/nba_api) - Python client for NBA.com statistics endpoints with documented request helpers.
-- [hoopR](https://hoopR.sportsdataverse.org/) - R package for loading NBA and other basketball data from SportsDataverse sources.
-- [hoopR-py](https://py.sportsdataverse.org/) - Python package for loading basketball data from SportsDataverse sources.
-- [pbpstats](https://pypi.org/project/pbpstats/) - Python package for parsing possessions, lineups, and shot zones from NBA, WNBA, and G League play-by-play.
-- [Basketball Reference Web Scraper](https://github.com/jaebradley/basketball_reference_web_scraper) - Python package for collecting selected Basketball-Reference data when an API is unavailable.
+- [Polars](https://pola.rs/) - Open-source DataFrame engine suited to typed, lazy transformations over Parquet and other analytical formats.
+- [DuckDB](https://duckdb.org/) - Open-source analytical database for local SQL over Parquet and reproducible research snapshots.
+- [Basketball Reference Web Scraper](https://github.com/jaebradley/basketball_reference_web_scraper) - Unofficial Python scraper retained for legacy research; Sports Reference policy review is required before automated use.
 
 ## Advanced Stats Explained
 
@@ -86,7 +99,6 @@ Programmatic access and bulk data for analysis. Mind rate limits and terms of us
 Historical or lower-activity resources - good references, but not always current.
 
 - [FiveThirtyEight NBA](https://fivethirtyeight.com/tag/nba/) - NBA coverage largely archived; RAPTOR explainer still valuable.
-- [FiveTimesFive](https://fivetimesfive-blog.com/) - Blog: thoughtful analytics write-ups (posting cadence varies).
 - [Back Picks](https://backpicks.com/) - Ben Taylor's long-form analytics pieces and historical series.
 
 ---
@@ -105,6 +117,6 @@ python3 scripts/validate_readme.py README.md
 
 GitHub Actions runs the same checks on Python 3.11 and Python 3.14 for every pull request and push to
 `main`. The validator checks Contents order and anchors, required files, relative links, unique HTTPS
-resource URLs, and entry formatting. A passing result does not prove that external URLs respond,
-that a source is still maintained, or that its access and licensing terms are unchanged; those
-require human review.
+resource URLs, entry formatting, and exact coverage in the dated source audit. A passing result does
+not prove permission, maintenance quality, or fit for a particular use; those require the source
+matrix and an explicit terms review.

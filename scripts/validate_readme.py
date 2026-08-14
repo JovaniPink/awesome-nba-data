@@ -4,6 +4,8 @@
 from __future__ import annotations
 
 import argparse
+import csv
+import io
 import re
 import sys
 from dataclasses import dataclass
@@ -24,6 +26,17 @@ STRUCTURE_REVIEW_RE = re.compile(
     r"\d{4}\.$",
     re.MULTILINE,
 )
+AUDIT_COLUMNS = (
+    "name",
+    "url",
+    "category",
+    "authority",
+    "access",
+    "result",
+    "reviewed_at",
+    "note",
+)
+AUDIT_DATE_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
 
 
 @dataclass(frozen=True)
@@ -151,8 +164,70 @@ def validate_document(text: str, repository_root: Path) -> ValidationResult:
     )
 
 
+def validate_source_audit(readme_text: str, audit_text: str) -> tuple[str, ...]:
+    """Require one dated audit row for every external resource in the README."""
+
+    errors: list[str] = []
+    resources = {
+        match.group(2): match.group(1)
+        for line in readme_text.splitlines()
+        if (match := RESOURCE_ENTRY_RE.fullmatch(line))
+    }
+    reader = csv.DictReader(io.StringIO(audit_text), delimiter="\t")
+    if tuple(reader.fieldnames or ()) != AUDIT_COLUMNS:
+        return (
+            "source audit columns must be exactly " + ", ".join(AUDIT_COLUMNS),
+        )
+
+    audited: dict[str, str] = {}
+    for row_number, row in enumerate(reader, start=2):
+        url = row["url"].strip()
+        name = row["name"].strip()
+        if not url.startswith("https://"):
+            errors.append(f"source audit row {row_number}: URL must use HTTPS: {url}")
+        if url in audited:
+            errors.append(f"source audit row {row_number}: duplicate URL: {url}")
+        audited[url] = name
+        if not AUDIT_DATE_RE.fullmatch(row["reviewed_at"].strip()):
+            errors.append(
+                f"source audit row {row_number}: reviewed_at must use YYYY-MM-DD"
+            )
+        for field in ("category", "authority", "access", "result", "note"):
+            if not row[field].strip():
+                errors.append(f"source audit row {row_number}: {field} must not be empty")
+
+    missing = sorted(set(resources) - set(audited))
+    extra = sorted(set(audited) - set(resources))
+    if missing:
+        errors.append("source audit is missing README URLs: " + ", ".join(missing))
+    if extra:
+        errors.append("source audit contains non-catalog URLs: " + ", ".join(extra))
+    for url in sorted(set(resources) & set(audited)):
+        if resources[url] != audited[url]:
+            errors.append(
+                f"source audit name for {url!r} must be {resources[url]!r}, "
+                f"found {audited[url]!r}"
+            )
+
+    return tuple(errors)
+
+
 def validate_readme(readme_path: Path) -> ValidationResult:
-    return validate_document(readme_path.read_text(encoding="utf-8"), readme_path.parent)
+    text = readme_path.read_text(encoding="utf-8")
+    result = validate_document(text, readme_path.parent)
+    audit_path = readme_path.parent / "docs" / "source-audit.tsv"
+    audit_errors: tuple[str, ...]
+    if audit_path.is_file():
+        audit_errors = validate_source_audit(
+            text, audit_path.read_text(encoding="utf-8")
+        )
+    else:
+        audit_errors = ("required source audit is missing: docs/source-audit.tsv",)
+    return ValidationResult(
+        errors=result.errors + audit_errors,
+        resource_count=result.resource_count,
+        contents_count=result.contents_count,
+    )
 
 
 def parse_args() -> argparse.Namespace:
