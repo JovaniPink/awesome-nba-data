@@ -4,7 +4,11 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from scripts.validate_readme import github_anchor, validate_document
+from scripts.validate_readme import (
+    github_anchor,
+    validate_document,
+    validate_source_audit,
+)
 
 
 VALID_README = """# Awesome Test [![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
@@ -94,6 +98,27 @@ class DocumentValidationTests(unittest.TestCase):
 
         self.assertTrue(result.errors)
         self.assertEqual(result.resource_count, 0)
+
+    def test_source_audit_covers_every_catalog_resource_exactly_once(self) -> None:
+        audit = (
+            "name\turl\tcategory\tauthority\taccess\tresult\treviewed_at\tnote\n"
+            "Example\thttps://example.com/\tOfficial & League Data\tprimary\tpublic"
+            "\t200\t2026-08-13\tReviewed source\n"
+        )
+
+        self.assertEqual(validate_source_audit(VALID_README, audit), ())
+
+    def test_source_audit_rejects_missing_and_extra_rows(self) -> None:
+        audit = (
+            "name\turl\tcategory\tauthority\taccess\tresult\treviewed_at\tnote\n"
+            "Extra\thttps://extra.example/\tOther\tunknown\tunknown"
+            "\t200\t2026-08-13\tNot in catalog\n"
+        )
+
+        errors = validate_source_audit(VALID_README, audit)
+
+        self.assertTrue(any("missing README URLs" in error for error in errors))
+        self.assertTrue(any("non-catalog URLs" in error for error in errors))
 
 
 if __name__ == "__main__":
