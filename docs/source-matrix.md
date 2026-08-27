@@ -31,6 +31,7 @@ Availability, a package license, an API key, or a successful probe is never suff
 
 ## Audit changes
 
+- 2026-08-27: Rechecked both new official pages in a browser and recorded their direct automated HTTP 403 behavior as an access restriction, not dead-link evidence.
 - 2026-08-27: Added the official NBA injury-report and player-transactions references after a source-specific review; existing matrix rows were not re-audited.
 - Removed FiveTimesFive because the site did not respond during the bounded review.
 - Removed the Basketball Index YouTube URL because it returned 404.

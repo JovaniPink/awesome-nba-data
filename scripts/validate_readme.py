@@ -10,23 +10,44 @@ import re
 import sys
 from dataclasses import dataclass
 from pathlib import Path
+from typing import Final, TypeAlias
 
-AWESOME_BADGE = "[![Awesome](https://awesome.re/badge.svg)](https://awesome.re)"
-EXCLUDED_CONTENTS_SECTIONS = {"Contribute", "Contributing", "Footnotes"}
-HEADING_RE = re.compile(r"^(#{1,6})\s+(.+?)\s*$", re.MULTILINE)
-CONTENTS_ENTRY_RE = re.compile(r"^- \[([^]]+)]\(#([^)]+)\)$")
-MARKDOWN_LINK_RE = re.compile(r"(?<!!)\[([^]]+)]\(([^)]+)\)")
-RESOURCE_BULLET_RE = re.compile(r"^\s*- \[[^]]+]\(https?://")
-RESOURCE_ENTRY_RE = re.compile(
+Section: TypeAlias = tuple[str, int]
+ContentsEntry: TypeAlias = tuple[str, str]
+
+AWESOME_BADGE: Final[str] = (
+    "[![Awesome](https://awesome.re/badge.svg)](https://awesome.re)"
+)
+EXCLUDED_CONTENTS_SECTIONS: Final[frozenset[str]] = frozenset(
+    {"Contribute", "Contributing", "Footnotes"}
+)
+REQUIRED_FILES: Final[tuple[str, ...]] = (
+    "LICENSE",
+    "code-of-conduct.md",
+    "contributing.md",
+)
+HEADING_RE: Final[re.Pattern[str]] = re.compile(
+    r"^(#{1,6})\s+(.+?)\s*$", re.MULTILINE
+)
+CONTENTS_ENTRY_RE: Final[re.Pattern[str]] = re.compile(
+    r"^- \[([^]]+)]\(#([^)]+)\)$"
+)
+MARKDOWN_LINK_RE: Final[re.Pattern[str]] = re.compile(
+    r"(?<!!)\[([^]]+)]\(([^)]+)\)"
+)
+RESOURCE_BULLET_RE: Final[re.Pattern[str]] = re.compile(
+    r"^\s*- \[[^]]+]\(https?://"
+)
+RESOURCE_ENTRY_RE: Final[re.Pattern[str]] = re.compile(
     r"^\s*- \[([^]]+)]\((https?://[^)]+)\)(?:\s+-\s+(.+))?$"
 )
-STRUCTURE_REVIEW_RE = re.compile(
+STRUCTURE_REVIEW_RE: Final[re.Pattern[str]] = re.compile(
     r"^Catalog structure reviewed: "
     r"(January|February|March|April|May|June|July|August|September|October|November|December) "
     r"\d{4}\.$",
     re.MULTILINE,
 )
-AUDIT_COLUMNS = (
+AUDIT_COLUMNS: Final[tuple[str, ...]] = (
     "name",
     "url",
     "category",
@@ -36,7 +57,7 @@ AUDIT_COLUMNS = (
     "reviewed_at",
     "note",
 )
-AUDIT_DATE_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
+AUDIT_DATE_RE: Final[re.Pattern[str]] = re.compile(r"^\d{4}-\d{2}-\d{2}$")
 
 
 @dataclass(frozen=True)
@@ -54,13 +75,23 @@ def github_anchor(heading: str) -> str:
     return re.sub(r"\s", "-", normalized)
 
 
-def _level_two_sections(text: str) -> list[tuple[str, int]]:
+def _level_two_sections(text: str) -> list[Section]:
     return [
         (title, match.start())
         for match in HEADING_RE.finditer(text)
         if len(match.group(1)) == 2
         for title in [match.group(2)]
     ]
+
+
+def _non_ascii_code_points(text: str) -> tuple[str, ...]:
+    """Return sorted Unicode code points for non-ASCII characters in text."""
+
+    return tuple(
+        f"U+{ord(character):04X}"
+        for character in sorted(set(text))
+        if not character.isascii()
+    )
 
 
 def validate_document(text: str, repository_root: Path) -> ValidationResult:
@@ -70,6 +101,14 @@ def validate_document(text: str, repository_root: Path) -> ValidationResult:
     h1_titles = [match.group(2) for match in headings if len(match.group(1)) == 1]
     sections = _level_two_sections(text)
     section_titles = [title for title, _ in sections]
+
+    for line_number, line in enumerate(lines, start=1):
+        non_ascii_code_points = _non_ascii_code_points(line)
+        if non_ascii_code_points:
+            errors.append(
+                f"line {line_number}: document must use ASCII characters; found "
+                f"{', '.join(non_ascii_code_points)}"
+            )
 
     if len(h1_titles) != 1:
         errors.append(f"expected exactly one level-one heading, found {len(h1_titles)}")
@@ -85,7 +124,7 @@ def validate_document(text: str, repository_root: Path) -> ValidationResult:
     if duplicates:
         errors.append(f"duplicate level-two sections: {', '.join(duplicates)}")
 
-    contents_entries: list[tuple[str, str]] = []
+    contents_entries: list[ContentsEntry] = []
     if sections and sections[0][0] == "Contents":
         contents_start = sections[0][1]
         contents_end = sections[1][1] if len(sections) > 1 else len(text)
@@ -153,7 +192,7 @@ def validate_document(text: str, repository_root: Path) -> ValidationResult:
         if path and not (repository_root / path).is_file():
             errors.append(f"relative link for '{label}' points to missing file: {path}")
 
-    for required_file in ("LICENSE", "code-of-conduct.md", "contributing.md"):
+    for required_file in REQUIRED_FILES:
         if not (repository_root / required_file).is_file():
             errors.append(f"required repository file is missing: {required_file}")
 
