@@ -4,11 +4,11 @@
 
 Catalog structure reviewed: August 2026.
 
-Every catalog entry was reviewed on August 13, 2026. The dated
-[source audit](docs/source-audit.tsv) records URL behavior and access classification; the
-[source matrix](docs/source-matrix.md) keeps programmatic coverage and use constraints separate
-from link availability. A responding URL is not permission to collect, store, model, or republish
-its data.
+Catalog entries present on August 13, 2026, were reviewed on that date. Later additions carry
+their own `reviewed_at` dates in the dated [source audit](docs/source-audit.tsv), which records URL
+behavior and access classification. The [source matrix](docs/source-matrix.md) keeps programmatic
+coverage and use constraints separate from link availability. A responding URL is not permission
+to collect, store, model, or republish its data.
 
 ## Contents
 
@@ -31,6 +31,8 @@ About this section: Official league-operated sites. Best sources for box scores,
 - [NBA Stats (stats.nba.com)](https://www.nba.com/stats/) - Official stats portal for box scores, play-by-play, shooting, tracking summaries, lineups, and Hustle data; it is not a published bulk-data license.
 - [NBA Official (Officiating Hub)](https://official.nba.com/) - Official rulebook, Coach's Challenge, and Last Two Minute report hub.
 - [NBA Communications](https://pr.nba.com/) - Official press releases for transactions, awards, schedule changes, and league announcements.
+- [NBA Injury Report: 2025-26 Season](https://official.nba.com/nba-injury-report-2025-26-season/) - Official, season-specific reports containing participation statuses and stated reasons that teams update throughout reporting windows; this changing web reference is not a historical bulk-data API.
+- [NBA Player Transactions](https://www.nba.com/players/transactions) - Official filterable transaction reference for signings, waivers, trades, and other roster moves; the public page does not establish a documented bulk-data license.
 
 ## Analytics & Advanced Metrics Sites
 

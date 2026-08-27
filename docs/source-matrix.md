@@ -1,6 +1,6 @@
 # NBA programmatic source matrix
 
-_Reviewed: 2026-08-13_
+_Baseline reviewed: 2026-08-13. Later additions are dated under Audit changes._
 
 This matrix is a discovery and governance aid, not legal advice or an approval record. `Unknown`
 means the reviewed public material did not establish permission for NBA Lab's exact private,
@@ -9,6 +9,8 @@ practice-credit, market-adjacent use. No source below is approved for live NBA L
 | Source | Observed coverage | Access and cadence | Bulk and identifiers | Storage / redistribution | Modeling | Market-adjacent use | NBA Lab status |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | NBA.com / NBA Stats | Official schedules, scores, box scores, play-by-play, shooting, lineup, and tracking summaries; endpoint history varies | Public web surfaces; no published external API stability or bulk contract | Per-request NBA identifiers; no documented supported bulk export | Restricted by NBA terms; comprehensive regularly updated databases require consent | Unknown for the intended workflow | NBA terms prohibit use of NBA Statistics in connection with gambling activity | **Not approved** |
+| NBA Injury Report: 2025-26 Season | Official team-reported participation status and reasons for injuries, illnesses, other medical conditions, or rest | Season-specific public page; reports change continually during reporting windows | Document-oriented; no documented supported bulk export or stable historical API | Unknown for the intended workflow; public access does not establish redistribution permission | Unknown | Unknown | **Not approved** |
+| NBA Player Transactions | Official filterable reference for signings, waivers, trades, and other roster moves | Public web interface with dynamically loaded results; no published bulk contract | Page and filter oriented; no documented supported bulk export or identifier contract | Unknown for the intended workflow; public access does not establish redistribution permission | Unknown | Unknown | **Not approved** |
 | `nba_api` | Community mappings for NBA.com Stats and live-data endpoints | Open-source client; upstream endpoints change or disappear | Request-oriented; uses NBA identifiers | MIT applies to client code, not upstream NBA data | Inherits upstream uncertainty | Inherits upstream uncertainty | **Probe only** |
 | hoopR / SportsDataverse NBA releases | Processed NBA play-by-play advertised from 2002 onward; source families include ESPN and NBA Stats | Public R package and seasonal data releases; current site shows 2002-2026 loaders | Bulk release assets; mixed NBA/ESPN identifiers | Package code is open; dataset-specific upstream rights remain unknown | Unknown | Unknown | **Not approved** |
 | `sportsdataverse-py` | NBA schedules, play-by-play, box scores, rosters, standings, and source wrappers | Public Python package; source-specific refresh behavior | Wrapper and loader surfaces; mixed provider identifiers | Package license does not grant upstream data rights | Unknown | Unknown | **Not approved** |
@@ -29,9 +31,9 @@ Availability, a package license, an API key, or a successful probe is never suff
 
 ## Audit changes
 
+- 2026-08-27: Added the official NBA injury-report and player-transactions references after a source-specific review; existing matrix rows were not re-audited.
 - Removed FiveTimesFive because the site did not respond during the bounded review.
 - Removed the Basketball Index YouTube URL because it returned 404.
 - Replaced the ambiguous `hoopR-py` label with the maintained `sportsdataverse-py` project.
 - Moved source clients and loaders into `APIs & Open Data`; moved Polars and DuckDB into tools.
 - Added Sportradar and SportsDataIO as explicitly licensed production-feed candidates.
-

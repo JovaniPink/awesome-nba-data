@@ -3,6 +3,8 @@ NBA.com	https://www.nba.com/	Official & League Data	official	public	200	2026-08-
 NBA Stats (stats.nba.com)	https://www.nba.com/stats/	Official & League Data	official	public-restricted	200	2026-08-13	No published external bulk license
 NBA Official (Officiating Hub)	https://official.nba.com/	Official & League Data	official	public	200	2026-08-13	Rules and officiating evidence
 NBA Communications	https://pr.nba.com/	Official & League Data	official	public	200	2026-08-13	League announcements
+NBA Injury Report: 2025-26 Season	https://official.nba.com/nba-injury-report-2025-26-season/	Official & League Data	official	public-restricted	200	2026-08-27	Season-specific changing reference; no historical bulk API
+NBA Player Transactions	https://www.nba.com/players/transactions	Official & League Data	official	public-restricted	200	2026-08-27	Filterable web reference; no documented bulk-data license
 Basketball-Reference	https://www.basketball-reference.com/	Analytics & Advanced Metrics Sites	unofficial	public-restricted	200	2026-08-13	Sports Reference policy applies
 Stathead (Sports-Reference)	https://stathead.com/basketball/	Analytics & Advanced Metrics Sites	unofficial	paid	403-anti-bot	2026-08-13	Reachable product; automated status check blocked
 ESPN NBA Stats	https://www.espn.com/nba/stats	Analytics & Advanced Metrics Sites	unofficial	public	200	2026-08-13	Reference surface
