@@ -10,6 +10,7 @@ validator and hosted workflow protect its structure without pretending to review
 ```sh
 python3 -m unittest discover -s tests -v
 python3 scripts/validate_readme.py README.md
+python3 scripts/build_resource_index.py --check
 ```
 
 The validation code uses only the Python standard library and supports Python 3.11 or newer.
@@ -24,6 +25,8 @@ The validation code uses only the Python standard library and supports Python 3.
 - List a canonical resource URL once, in its strongest category.
 - Preserve canonical sources and accurately label paid, archived, unofficial, model-generated, and
   license-restricted resources.
+- Keep `catalog/resources.v1.json` synchronized with the README. Stable resource identifiers are
+  derived from canonical URLs; changing a URL creates a new evidence identity.
 - Do not treat a repository-structure review as a catalog-wide source recency review.
 
 ## Evidence boundary
