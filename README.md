@@ -64,6 +64,7 @@ rights to the upstream data.
 - [pbpstats](https://github.com/dblackrun/pbpstats) - Open-source parser that derives possessions, lineups, and shot-zone context from NBA, WNBA, and G League play-by-play.
 - [PBP Stats API Docs](https://api.pbpstats.com/docs) - Paid API documentation for derived possession, lineup, on-off, and WOWY data.
 - [BALLDONTLIE NBA API](https://docs.balldontlie.io/) - API-key service with free teams, players, and games; statistics, play-by-play, lineups, injuries, and odds require paid tiers.
+- [Bet Better NBA model outputs](https://betbetter.world/predicted-scores/nba) - Free CSV/JSON of model score predictions (margin, total, win probability) plus results-only [power rankings](https://betbetter.world/power-rankings/nba); fixed documented columns, no key, CC BY 4.0; in-season only.
 - [Kaggle - NBA Datasets](https://www.kaggle.com/search?q=NBA+dataset) - Community dataset index where provenance, license, coverage, and correction behavior must be checked per dataset.
 
 ## Licensed Production Feeds
