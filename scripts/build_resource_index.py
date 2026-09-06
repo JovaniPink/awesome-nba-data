@@ -25,23 +25,6 @@ def _slug(value: str) -> str:
     return re.sub(r"[^a-z0-9]+", "-", value.lower()).strip("-")
 
 
-def _access_status(description: str) -> str:
-    normalized = description.lower()
-    if any(term in normalized for term in ("restricted", "limited to active")):
-        return "restricted"
-    if any(
-        term in normalized
-        for term in ("paid", "subscription", "commercial", "licensed")
-    ):
-        return "licensed"
-    if any(
-        term in normalized
-        for term in ("api key", "registration", "registered", "requires an account")
-    ):
-        return "registration-required"
-    return "open-access"
-
-
 def _resource_object(
     *,
     project_id: str,
@@ -54,7 +37,7 @@ def _resource_object(
 ) -> dict[str, Any]:
     resource_key = hashlib.sha256(url.encode("utf-8")).hexdigest()[:16]
     return {
-        "schemaVersion": "1.0",
+        "schemaVersion": "1.1",
         "id": f"{project_id}:source:r-{resource_key}",
         "projectId": project_id,
         "legacyIds": [],
@@ -81,8 +64,8 @@ def _resource_object(
         "source": {
             "canonicalUrl": url,
             "publisher": name,
-            "authorityRole": "secondary-source",
-            "accessStatus": _access_status(description),
+            "authorityRole": "unknown",
+            "accessStatus": "unknown",
             "license": "Resource-specific terms apply; catalog inclusion grants no license.",
             "methodologyWarnings": [
                 "Review the publisher methodology, access conditions, license, retrieval date, review date, and as-of meaning before use."
@@ -129,7 +112,7 @@ def build_projection() -> dict[str, Any]:
         raise ValueError("Resource identifiers are not unique.")
 
     return {
-        "schemaVersion": "1.0",
+        "schemaVersion": "1.1",
         "projectId": project_id,
         "generatedFrom": "README.md",
         "projectionDate": projection_date,

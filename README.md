@@ -10,7 +10,7 @@ behavior and access classification. The [source matrix](docs/source-matrix.md) k
 coverage and use constraints separate from link availability. A responding URL is not permission
 to collect, store, model, or republish its data.
 
-The [machine-readable resource index](catalog/resources.v1.json) assigns stable public identifiers while preserving the catalog boundary: inclusion is curation, not endorsement, permission, maintenance proof, or model fitness proof. See the [resource index contract](docs/knowledge-resource-index.md) before using an entry in a model or lab.
+The [machine-readable resource index](catalog/resources.v1.json) assigns stable public identifiers while preserving the catalog boundary: inclusion is curation, not endorsement, permission, maintenance proof, or model fitness proof. The index uses schema version 1.1 and retains unknown access and source authority until reviewed evidence is supplied. See the [resource index contract](docs/knowledge-resource-index.md) before using an entry in a model or lab.
 
 ## Contents
 
