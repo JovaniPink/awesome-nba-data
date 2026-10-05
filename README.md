@@ -53,6 +53,8 @@ High-signal analytics destinations and dashboards (some paid). Great for impact 
 - [Crafted NBA](https://craftednba.com/) - Player/team dashboards and meta-metrics (DARKO, DRIP, LEBRON, RAPTOR, CraftedPM), comparisons, and roles.
 - [NBA RAPM (nbarapm.com)](https://www.nbarapm.com/) - Career and rolling **RAPM** plus cross-metric peak summaries.
 
+- [Ultimate Big Board - NBA draft rankings](https://ultimatebigboard.com/nba/2027/methodology/) - Unofficial aggregate mock-draft rankings with explained methodology, free CSV downloads and dated captures; these represent analyst opinions, not observed performance or draft outcomes, and access grants no blanket upstream reuse rights.
+
 ## APIs & Open Data
 
 Programmatic discovery and research tools. An open client or reachable endpoint does not grant

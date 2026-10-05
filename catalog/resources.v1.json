@@ -857,6 +857,53 @@
       },
       "editorialStatus": "published",
       "evidenceStatus": "unreviewed",
+      "id": "awesome-nba-data:source:r-e101f23adadef835",
+      "kind": "source",
+      "legacyIds": [],
+      "limitations": [
+        "Catalog inclusion is curation, not endorsement, permission, maintenance proof, or model fitness proof.",
+        "This record does not establish a dataset vintage, retrieval snapshot, license grant, or current availability."
+      ],
+      "projectId": "awesome-nba-data",
+      "provenance": {
+        "methodIds": [],
+        "sourceIds": []
+      },
+      "relationships": [],
+      "schemaVersion": "1.1",
+      "semantics": {
+        "domains": [
+          "sports"
+        ],
+        "entities": [],
+        "tags": [
+          "catalog-resource"
+        ],
+        "topics": [
+          "analytics-advanced-metrics-sites"
+        ]
+      },
+      "source": {
+        "accessStatus": "unknown",
+        "authorityRole": "unknown",
+        "canonicalUrl": "https://ultimatebigboard.com/nba/2027/methodology/",
+        "license": "Resource-specific terms apply; catalog inclusion grants no license.",
+        "methodologyWarnings": [
+          "Review the publisher methodology, access conditions, license, retrieval date, review date, and as-of meaning before use."
+        ],
+        "publisher": "Ultimate Big Board - NBA draft rankings"
+      },
+      "summary": "Unofficial aggregate mock-draft rankings with explained methodology, free CSV downloads and dated captures; these represent analyst opinions, not observed performance or draft outcomes, and access grants no blanket upstream reuse rights.",
+      "title": "Ultimate Big Board - NBA draft rankings",
+      "visibility": "public"
+    },
+    {
+      "corrections": [],
+      "dates": {
+        "createdAt": "2026-08-30"
+      },
+      "editorialStatus": "published",
+      "evidenceStatus": "unreviewed",
       "id": "awesome-nba-data:source:r-460f4b131846d2e2",
       "kind": "source",
       "legacyIds": [],
