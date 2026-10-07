@@ -1139,6 +1139,53 @@
       },
       "editorialStatus": "published",
       "evidenceStatus": "unreviewed",
+      "id": "awesome-nba-data:source:r-03cb5877091d9b7d",
+      "kind": "source",
+      "legacyIds": [],
+      "limitations": [
+        "Catalog inclusion is curation, not endorsement, permission, maintenance proof, or model fitness proof.",
+        "This record does not establish a dataset vintage, retrieval snapshot, license grant, or current availability."
+      ],
+      "projectId": "awesome-nba-data",
+      "provenance": {
+        "methodIds": [],
+        "sourceIds": []
+      },
+      "relationships": [],
+      "schemaVersion": "1.1",
+      "semantics": {
+        "domains": [
+          "sports"
+        ],
+        "entities": [],
+        "tags": [
+          "catalog-resource"
+        ],
+        "topics": [
+          "apis-open-data"
+        ]
+      },
+      "source": {
+        "accessStatus": "unknown",
+        "authorityRole": "unknown",
+        "canonicalUrl": "https://www.realtimesportsapi.com/apis/nba",
+        "license": "Resource-specific terms apply; catalog inclusion grants no license.",
+        "methodologyWarnings": [
+          "Review the publisher methodology, access conditions, license, retrieval date, review date, and as-of meaning before use."
+        ],
+        "publisher": "Realtime Sports API - NBA"
+      },
+      "summary": "Commercial API-key service for NBA scores, play-by-play, box scores, rosters, injuries, and news, aggregated from public sources and typically 20-30 seconds behind live with no SLA; the free tier allows 125 calls per month and webhooks require a paid plan.",
+      "title": "Realtime Sports API - NBA",
+      "visibility": "public"
+    },
+    {
+      "corrections": [],
+      "dates": {
+        "createdAt": "2026-08-30"
+      },
+      "editorialStatus": "published",
+      "evidenceStatus": "unreviewed",
       "id": "awesome-nba-data:source:r-4fcafd0773e0c699",
       "kind": "source",
       "legacyIds": [],
