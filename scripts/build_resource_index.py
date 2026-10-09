@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+from datetime import date
 import hashlib
 import json
 import re
@@ -79,6 +80,9 @@ def build_projection() -> dict[str, Any]:
     project_id = config["projectId"]
     domains = config["domains"]
     projection_date = config["projectionDate"]
+    creation_dates = config.get("creationDates")
+    if not isinstance(creation_dates, dict):
+        raise ValueError("creationDates must map canonical URLs to explicit creation dates.")
     section = ""
     resources: list[dict[str, Any]] = []
 
@@ -93,11 +97,19 @@ def build_projection() -> dict[str, Any]:
         if not section:
             raise ValueError("Resource entry appears before a level-two section.")
         name, url, description = resource.groups()
+        if url not in creation_dates:
+            raise ValueError(f"Missing explicit catalog creation date for {url}")
+        created_at = creation_dates[url]
+        try:
+            if not isinstance(created_at, str) or date.fromisoformat(created_at).isoformat() != created_at:
+                raise ValueError
+        except ValueError as error:
+            raise ValueError(f"Invalid catalog creation date for {url}") from error
         resources.append(
             _resource_object(
                 project_id=project_id,
                 domains=domains,
-                projection_date=projection_date,
+                projection_date=created_at,
                 section=section,
                 name=name,
                 url=url,

@@ -44,3 +44,10 @@ review.
 - Keep deprecated or archived resources in the dedicated legacy section.
 - Run both canonical commands before opening or updating a pull request.
 - Do not change the repository license without explicit owner approval.
+
+## Resource creation metadata
+
+- Record each new canonical URL's inclusion-commit date in `catalog/resource-index.config.json`
+  under `creationDates`; regenerate the index afterward. Missing or invalid dates fail generation.
+- Preserve existing identities' recorded dates and the historical `projectionDate`. Creation dates
+  do not establish retrieval, dataset vintage, publisher publication date, or independent review.
