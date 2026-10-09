@@ -13,6 +13,14 @@ python3 scripts/build_resource_index.py --check
 
 Changing a display name or description preserves the identifier. Changing the canonical URL creates a new identifier so downstream users cannot silently treat a different source location as the same evidence object.
 
+## Catalog creation dates
+
+Each canonical URL must have an explicit ISO calendar date in `creationDates` in
+`catalog/resource-index.config.json`. Add the date when committing a new catalog entry;
+the generator rejects missing dates and invalid calendar dates. Preserve existing identities'
+recorded dates. `dates.createdAt` records catalog inclusion, independently of the historical
+`projectionDate`, publisher dates, dataset vintage, retrieval, and source-review status.
+
 ## Source assessments and version compatibility
 
 The projection and its source objects use schemaVersion `1.1`. Access and source authority are

@@ -52,6 +52,7 @@ High-signal analytics destinations and dashboards (some paid). Great for impact 
 - [82Games](https://www.82games.com/) - Lineup, five-player-unit, on/off, physicality, and game-analysis archives with current-season research.
 - [Crafted NBA](https://craftednba.com/) - Player/team dashboards and meta-metrics (DARKO, DRIP, LEBRON, RAPTOR, CraftedPM), comparisons, and roles.
 - [NBA RAPM (nbarapm.com)](https://www.nbarapm.com/) - Career and rolling **RAPM** plus cross-metric peak summaries.
+- [Ultimate Big Board - NBA draft rankings](https://ultimatebigboard.com/nba/2027/methodology/) - Unofficial aggregate mock-draft rankings with explained methodology, a changing live CSV and fixed dated captures; these represent analyst opinions, not observed performance or draft outcomes, and access grants no blanket upstream reuse rights.
 
 ## APIs & Open Data
 
@@ -64,6 +65,7 @@ rights to the upstream data.
 - [pbpstats](https://github.com/dblackrun/pbpstats) - Open-source parser that derives possessions, lineups, and shot-zone context from NBA, WNBA, and G League play-by-play.
 - [PBP Stats API Docs](https://api.pbpstats.com/docs) - Paid API documentation for derived possession, lineup, on-off, and WOWY data.
 - [BALLDONTLIE NBA API](https://docs.balldontlie.io/) - API-key service with free teams, players, and games; statistics, play-by-play, lineups, injuries, and odds require paid tiers.
+- [Realtime Sports API - NBA](https://www.realtimesportsapi.com/apis/nba) - Commercial API-key service for NBA scores, play-by-play, box scores, rosters, injuries, and news, aggregated from public sources rather than an official league feed and typically 20-30 seconds behind live with no SLA; the free tier allows 125 calls per month, webhooks require a paid plan, and redistribution requires authorization under the service terms.
 - [Kaggle - NBA Datasets](https://www.kaggle.com/search?q=NBA+dataset) - Community dataset index where provenance, license, coverage, and correction behavior must be checked per dataset.
 
 ## Licensed Production Feeds
