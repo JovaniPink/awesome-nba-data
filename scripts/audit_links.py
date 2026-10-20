@@ -91,8 +91,9 @@ def public_connection(address, timeout=TIMEOUT, source_address=None):
             raise UnsafeDestination("Destination resolves to a non-public address")
     last_error = None
     for family, socktype, protocol, _, sockaddr in resolved:
-        sock = socket.socket(family, socktype, protocol)
+        sock = None
         try:
+            sock = socket.socket(family, socktype, protocol)
             sock.settimeout(timeout)
             if source_address:
                 sock.bind(source_address)
@@ -101,7 +102,8 @@ def public_connection(address, timeout=TIMEOUT, source_address=None):
             return sock
         except OSError as error:
             last_error = error
-            sock.close()
+            if sock is not None:
+                sock.close()
     raise last_error
 
 

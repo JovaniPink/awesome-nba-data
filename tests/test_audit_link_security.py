@@ -1,5 +1,6 @@
 """Exercise the production opener with controlled DNS, sockets and TLS; no network."""
 
+import errno
 import io
 import os
 from pathlib import Path
@@ -178,6 +179,35 @@ class DestinationSecurityTests(unittest.TestCase):
         self.assertTrue(first.closed)
         self.assertTrue(second.closed)
         self.assertEqual(second.connected, answer(PUBLIC_V6)[4])
+
+    def test_socket_creation_failure_tries_remaining_public_address(self):
+        sock = FakeSocket(response())
+        self.dns.side_effect = None
+        self.dns.return_value = [answer(PUBLIC_V6), answer(PUBLIC)]
+        self.sockets.side_effect = [
+            OSError(errno.EAFNOSUPPORT, "IPv6 unavailable"), sock,
+        ]
+        result = self.audit_url()
+        self.assertEqual(result["classification"], "reachable")
+        self.assertEqual(sock.connected, (PUBLIC, 443))
+        self.assertEqual(self.sockets.call_count, 2)
+        self.dns.assert_called_once()
+        self.assertTrue(sock.closed)
+        self.assertEqual(self.tls_hosts, ["publisher.example"])
+
+    def test_all_socket_creation_failures_return_transport_error(self):
+        self.dns.side_effect = None
+        self.dns.return_value = [answer(PUBLIC_V6), answer(PUBLIC)]
+        self.sockets.side_effect = [
+            OSError(errno.EAFNOSUPPORT, "IPv6 unavailable"),
+            OSError(errno.EMFILE, "Socket limit reached"),
+        ]
+        result = self.audit_url()
+        self.assertEqual(result["classification"], "transport-error")
+        self.assertIn("Socket limit reached", result["error"])
+        self.assertEqual(self.sockets.call_count, 2)
+        self.dns.assert_called_once()
+        self.assertEqual(self.tls_hosts, [])
 
     def test_proxy_tunnel_is_rejected_before_dns(self):
         connection = audit.PublicHTTPSConnection("proxy.example")
