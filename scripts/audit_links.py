@@ -10,6 +10,7 @@ from datetime import datetime, timezone
 import hashlib
 import http.client
 import io
+import ipaddress
 import json
 from pathlib import Path
 import socket
@@ -34,6 +35,99 @@ def host(url: str) -> str:
     return (urllib.parse.urlsplit(url).hostname or "").lower().removeprefix("www.")
 
 
+class UnsafeDestination(ValueError):
+    """A request refused locally, before sending HTTP to its destination."""
+
+
+def validate_url(url: str) -> None:
+    # Reject syntax that URL parsers, DNS, and HTTP could interpret differently.
+    if any(ord(char) <= 32 or ord(char) >= 127 for char in url):
+        raise UnsafeDestination("URL must use printable ASCII without whitespace")
+    try:
+        parsed = urllib.parse.urlsplit(url)
+        if (
+            parsed.scheme != "https"
+            or not parsed.hostname
+            or parsed.username is not None
+            or parsed.password is not None
+            or parsed.port not in (None, 443)
+            or "%" in parsed.netloc
+            or "\\" in parsed.netloc
+        ):
+            raise UnsafeDestination("Only credential-free HTTPS on port 443 is allowed")
+    except ValueError as error:
+        raise UnsafeDestination(str(error)) from error
+
+
+def is_public_address(value: str) -> bool:
+    address = ipaddress.ip_address(value)
+    if not address.is_global or address.is_multicast or address.is_reserved:
+        return False
+    # Keep conservative behavior across Python 3.11/3.14 registry differences.
+    if address.version == 4:
+        return not any(address in ipaddress.ip_network(net) for net in (
+            "192.0.0.0/24", "192.88.99.0/24",
+        ))
+    # Exclude mapped, translation, transition, scoped and special-purpose IPv6.
+    return (
+        "%" not in value
+        and address in ipaddress.ip_network("2000::/3")
+        and not any(address in ipaddress.ip_network(net) for net in (
+            "2001::/23", "2002::/16", "3fff::/20",
+        ))
+    )
+
+
+def public_connection(address, timeout=TIMEOUT, source_address=None):
+    hostname, port = address
+    if port != 443:
+        raise UnsafeDestination("Only port 443 is allowed")
+    resolved = socket.getaddrinfo(hostname, port, type=socket.SOCK_STREAM)
+    if not resolved:
+        raise OSError("DNS returned no addresses")
+    # Validate the entire answer before opening any socket, including mixed A/AAAA.
+    for family, socktype, protocol, _, sockaddr in resolved:
+        if family not in (socket.AF_INET, socket.AF_INET6) or not is_public_address(sockaddr[0]):
+            raise UnsafeDestination("Destination resolves to a non-public address")
+    last_error = None
+    for family, socktype, protocol, _, sockaddr in resolved:
+        sock = None
+        try:
+            sock = socket.socket(family, socktype, protocol)
+            sock.settimeout(timeout)
+            if source_address:
+                sock.bind(source_address)
+            # Numeric sockaddr from the checked DNS answer: no second lookup.
+            sock.connect(sockaddr)
+            return sock
+        except OSError as error:
+            last_error = error
+            if sock is not None:
+                sock.close()
+    raise last_error
+
+
+class PublicHTTPSConnection(http.client.HTTPSConnection):
+    def connect(self):
+        if self._tunnel_host:
+            raise UnsafeDestination("Proxy tunnels are disabled")
+        self._create_connection = public_connection
+        # Retains standard certificate verification and original-host TLS SNI.
+        super().connect()
+
+
+class PublicHTTPSHandler(urllib.request.HTTPSHandler):
+    def https_open(self, req):
+        return self.do_open(PublicHTTPSConnection, req)
+
+
+def build_public_opener(redirects):
+    # Neither environment nor system proxies may resolve destinations for us.
+    return urllib.request.build_opener(
+        urllib.request.ProxyHandler({}), PublicHTTPSHandler(), redirects
+    )
+
+
 class RedirectRecorder(urllib.request.HTTPRedirectHandler):
     max_redirections = 5
     max_repeats = 1
@@ -51,15 +145,7 @@ class RedirectRecorder(urllib.request.HTTPRedirectHandler):
 
     def redirect_request(self, req, fp, code, msg, headers, newurl):
         self.chain.append({"status": code, "from": req.full_url, "to": newurl})
-        parsed = urllib.parse.urlsplit(newurl)
-        if parsed.scheme != "https" or parsed.username or parsed.password:
-            raise urllib.error.HTTPError(
-                req.full_url,
-                code,
-                "Refusing non-HTTPS or credential-bearing redirect",
-                headers,
-                fp,
-            )
+        validate_url(newurl)
         redirected = super().redirect_request(req, fp, code, msg, headers, newurl)
         # Python 3.11's handler defaults redirected HEAD requests to GET.
         # Preserve HEAD so body limits and the reported method stay accurate.
@@ -68,7 +154,7 @@ class RedirectRecorder(urllib.request.HTTPRedirectHandler):
         return redirected
 
 
-def request(url: str, method: str, opener_factory=urllib.request.build_opener) -> dict:
+def request(url: str, method: str, opener_factory=build_public_opener) -> dict:
     redirects = RedirectRecorder()
     result = {
         "method": method,
@@ -78,13 +164,18 @@ def request(url: str, method: str, opener_factory=urllib.request.build_opener) -
         "redirectChain": redirects.chain,
         "error": None,
     }
-    req = urllib.request.Request(url, method=method, headers={"User-Agent": USER_AGENT})
     try:
+        validate_url(url)
+        req = urllib.request.Request(url, method=method, headers={"User-Agent": USER_AGENT})
         with opener_factory(redirects).open(req, timeout=TIMEOUT) as response:
             result.update(httpStatus=response.status, finalUrl=response.geturl())
             if method == "GET":
                 # Never download full datasets just to check a catalog link.
                 result["sampleBytes"] = len(response.read(MAX_BODY_BYTES))
+    except UnsafeDestination as error:
+        result.update(error=str(error), securityBlocked=True)
+        if redirects.chain:
+            result["finalUrl"] = redirects.chain[-1]["to"]
     except urllib.error.HTTPError as error:
         result.update(
             httpStatus=error.code, finalUrl=error.geturl(), error=str(error.reason)
@@ -112,6 +203,8 @@ def request(url: str, method: str, opener_factory=urllib.request.build_opener) -
 
 
 def classify(attempt: dict) -> str:
+    if attempt.get("securityBlocked"):
+        return "security-blocked"
     status = attempt["httpStatus"]
     if status is None or (status < 300 and attempt["error"]):
         return "transport-error"
@@ -207,7 +300,7 @@ def main(argv=None) -> int:
             results = list(pool.map(audit_resource, catalog["resources"]))
         counts = dict(sorted(Counter(r["classification"] for r in results).items()))
         report = {
-            "schemaVersion": "1.0",
+            "schemaVersion": "1.1",
             "projectId": catalog["projectId"],
             "catalogSha256": catalog_hash,
             "startedAt": started,
@@ -218,6 +311,7 @@ def main(argv=None) -> int:
                 "timeoutSeconds": TIMEOUT,
                 "transientRetries": 1,
                 "maxGetBytes": MAX_BODY_BYTES,
+                "destinationPolicy": "public-addresses-only; HTTPS port 443; no proxies",
             },
             "summary": counts,
             "resources": results,

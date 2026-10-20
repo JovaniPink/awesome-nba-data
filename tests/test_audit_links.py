@@ -183,7 +183,7 @@ class LinkAuditTests(unittest.TestCase):
         result, scenario = self.run_scenario(
             {("HEAD", URL): [(302, "http://publisher.example/data")]}
         )
-        self.assertEqual(result["classification"], "redirect-error")
+        self.assertEqual(result["classification"], "security-blocked")
         self.assertEqual(len(scenario.calls), 1)
 
     def test_cross_domain_hop_is_flagged_even_if_it_returns(self):
@@ -214,7 +214,7 @@ class LinkAuditTests(unittest.TestCase):
                     audit.main(["--catalog", str(catalog), "--output", str(output)]), 0
                 )
             report = json.loads(output.read_text())
-            self.assertEqual(report["schemaVersion"], "1.0")
+            self.assertEqual(report["schemaVersion"], "1.1")
             self.assertEqual(report["summary"], {"reachable": 1})
             self.assertEqual(catalog.read_text(), original)
 
