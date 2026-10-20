@@ -97,7 +97,14 @@ information. Clear evidence, courteous review, and small follow-up corrections a
 Run `python3 scripts/audit_links.py --output /tmp/catalog-link-audit.json` from the
 repository root. This standard-library command reads the generated catalog, uses four
 workers with 20-second socket timeouts, retries a transient failure once per resource,
-and falls back from unsupported, blocked, or missing HEAD responses to GET (at most 64 KiB).
+and falls back from unsupported, blocked, or missing HEAD responses, HEAD timeouts,
+and any HEAD 5xx server response to GET (at most 64 KiB). Transient HEAD failures use
+at most one retry before fallback; the retry budget is shared with GET and never resets
+when changing methods. This permits at most three attempts per resource, excluding
+redirect hops. A recovered HEAD does not trigger GET. Other transport failures (such
+as DNS or certificate errors), rate limits, and security-policy refusals do not trigger
+GET fallback. Timeout attempts carry `timedOut: true`, and all failed HEAD attempts
+remain in the report even when GET succeeds.
 Redirects are limited to five hops. Initial requests, redirects, retries, and GET
 fallbacks allow only credential-free HTTPS on port 443 and public IP destinations.
 
