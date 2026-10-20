@@ -168,6 +168,27 @@ class DestinationSecurityTests(unittest.TestCase):
                 self.sockets.assert_called_once()
                 self.assertTrue(sock.closed)
 
+    def test_get_after_exhausted_head_failure_revalidates_private_dns(self):
+        for timeout in (False, True):
+            with self.subTest(timeout=timeout):
+                first = FakeSocket(response(503))
+                second = FakeSocket(response(503))
+                if timeout:
+                    class TimeoutBody(io.BytesIO):
+                        def readline(self, *args):
+                            raise TimeoutError("HEAD timed out")
+                    first.makefile = second.makefile = lambda *args: TimeoutBody()
+                self.dns.side_effect = [[answer(PUBLIC)], [answer(PUBLIC)], [answer("169.254.169.254")]]
+                self.sockets.reset_mock()
+                self.sockets.side_effect = [first, second]
+                result = audit.audit_resource(
+                    {"id": "test", "source": {"canonicalUrl": URL}}, sleep=lambda _: None,
+                )
+                self.assertEqual(result["classification"], "security-blocked")
+                self.assertEqual([a["method"] for a in result["attempts"]], ["HEAD", "HEAD", "GET"])
+                self.assertEqual(self.sockets.call_count, 2)
+                self.assertTrue(first.closed and second.closed)
+
     def test_failed_connect_closes_socket_before_public_address_fallback(self):
         first = FakeSocket(response())
         second = FakeSocket(response())

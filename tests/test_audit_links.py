@@ -4,6 +4,8 @@ from contextlib import redirect_stdout
 from email.message import Message
 import io
 import json
+import socket
+import ssl
 from pathlib import Path
 import sys
 import tempfile
@@ -136,7 +138,7 @@ class LinkAuditTests(unittest.TestCase):
                 )
                 self.assertEqual(result["classification"], expected)
                 self.assertEqual(
-                    len(scenario.calls), 2 if code in (404, 410, 503) else 1
+                    len(scenario.calls), 3 if code == 503 else 2 if code in (404, 410) else 1
                 )
 
     def test_head_404_does_not_override_successful_get(self):
@@ -147,14 +149,95 @@ class LinkAuditTests(unittest.TestCase):
         self.assertEqual(result["method"], "GET")
         self.assertEqual(len(scenario.calls), 2)
 
-    def test_timeout_retries_once_and_preserves_errors(self):
-        result, scenario = self.run_scenario(
-            {("HEAD", URL): [TimeoutError("timed out")]}
-        )
+    def test_timeout_retries_once_then_get_preserves_all_errors(self):
+        result, scenario = self.run_scenario({
+            ("HEAD", URL): [TimeoutError("HEAD timed out")],
+            ("GET", URL): [TimeoutError("GET timed out")],
+        })
         self.assertEqual(result["classification"], "transport-error")
-        self.assertEqual(len(scenario.calls), 2)
-        self.assertIn("timed out", result["error"])
-        self.assertEqual(len(result["attempts"]), 2)
+        self.assertEqual(scenario.calls, [("HEAD", URL), ("HEAD", URL), ("GET", URL)])
+        self.assertIn("GET timed out", result["error"])
+        self.assertEqual(len(result["attempts"]), 3)
+        self.assertIn("HEAD timed out", result["attempts"][0]["error"])
+
+    def test_exhausted_head_timeouts_fall_back_to_bounded_get(self):
+        for error in (TimeoutError("read timed out"), urllib.error.URLError(TimeoutError("connect timed out"))):
+            with self.subTest(error=error):
+                result, scenario = self.run_scenario({
+                    ("HEAD", URL): [error], ("GET", URL): [(200, None)],
+                })
+                self.assertEqual(scenario.calls, [("HEAD", URL), ("HEAD", URL), ("GET", URL)])
+                self.assertEqual(result["classification"], "reachable")
+                self.assertEqual(result["method"], "GET")
+                self.assertTrue(all(a["timedOut"] for a in result["attempts"][:2]))
+                self.assertEqual(result["attempts"][-1]["sampleBytes"], audit.MAX_BODY_BYTES)
+                self.assertEqual(scenario.bodies[-1].bytes_read, audit.MAX_BODY_BYTES)
+                self.assertTrue(scenario.bodies[-1].closed)
+
+    def test_head_server_errors_fall_back_after_applicable_retry(self):
+        for status in (500, 501, 502, 503, 504, 505, 599):
+            with self.subTest(status=status):
+                result, scenario = self.run_scenario({
+                    ("HEAD", URL): [(status, None)], ("GET", URL): [(200, None)],
+                })
+                head_count = 2 if status in audit.TRANSIENT_STATUS else 1
+                self.assertEqual(scenario.calls, [("HEAD", URL)] * head_count + [("GET", URL)])
+                self.assertEqual([a["httpStatus"] for a in result["attempts"]], [status] * head_count + [200])
+                self.assertEqual(result["classification"], "reachable")
+                self.assertEqual(scenario.bodies[-1].bytes_read, audit.MAX_BODY_BYTES)
+                self.assertTrue(all(body.closed for body in scenario.bodies))
+
+    def test_get_failure_does_not_reset_consumed_retry_budget(self):
+        for outcome, expected in (
+            ((503, None), "server-error"),
+            ((404, None), "missing"),
+            ((429, None), "rate-limited"),
+            (TimeoutError("GET timed out"), "transport-error"),
+        ):
+            with self.subTest(outcome=outcome):
+                result, scenario = self.run_scenario({
+                    ("HEAD", URL): [(503, None)], ("GET", URL): [outcome],
+                })
+                self.assertEqual(scenario.calls, [("HEAD", URL), ("HEAD", URL), ("GET", URL)])
+                self.assertEqual(result["classification"], expected)
+                self.assertEqual(result["method"], "GET")
+                self.assertEqual(len(result["attempts"]), 3)
+
+    def test_unused_retry_budget_can_recover_get_timeout(self):
+        result, scenario = self.run_scenario({
+            ("HEAD", URL): [(505, None)],
+            ("GET", URL): [TimeoutError("GET timed out"), (200, None)],
+        })
+        self.assertEqual(scenario.calls, [("HEAD", URL), ("GET", URL), ("GET", URL)])
+        self.assertEqual(result["classification"], "reachable")
+        self.assertTrue(result["attempts"][1]["timedOut"])
+
+    def test_non_timeout_transport_errors_do_not_trigger_get(self):
+        for error, attempts in (
+            (urllib.error.URLError(socket.gaierror("DNS failure")), 1),
+            (urllib.error.URLError(ssl.SSLCertVerificationError("bad certificate")), 1),
+            (ConnectionResetError("connection reset"), 2),
+            (urllib.error.URLError("timed out"), 1),
+        ):
+            with self.subTest(error=error):
+                result, scenario = self.run_scenario({("HEAD", URL): [error]})
+                self.assertEqual(result["classification"], "transport-error")
+                self.assertEqual(scenario.calls, [("HEAD", URL)] * attempts)
+                self.assertFalse(any(a.get("timedOut") for a in result["attempts"]))
+
+    def test_timeout_fallback_preserves_failed_redirect_evidence(self):
+        target = "https://other.example/data"
+        result, scenario = self.run_scenario({
+            ("HEAD", URL): [(302, target)],
+            ("HEAD", target): [TimeoutError("redirect target timed out")],
+            ("GET", URL): [(200, None)],
+        })
+        self.assertEqual(result["classification"], "reachable")
+        self.assertEqual(result["finalUrl"], URL)
+        self.assertTrue(result["crossDomainRedirect"])
+        self.assertEqual(result["attempts"][0]["finalUrl"], target)
+        self.assertEqual(len(result["attempts"][0]["redirectChain"]), 1)
+        self.assertEqual(scenario.calls[-1], ("GET", URL))
 
     def test_transient_recovery_retains_failed_attempt(self):
         result, _ = self.run_scenario({("HEAD", URL): [(503, None), (200, None)]})

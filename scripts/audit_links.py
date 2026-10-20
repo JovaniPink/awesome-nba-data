@@ -188,6 +188,8 @@ def request(url: str, method: str, opener_factory=build_public_opener) -> dict:
         http.client.HTTPException,
     ) as error:
         result["error"] = str(error)
+        reason = error.reason if isinstance(error, urllib.error.URLError) else error
+        result["timedOut"] = isinstance(reason, TimeoutError)
         result["transient"] = isinstance(
             error,
             (TimeoutError, socket.timeout, ConnectionError, http.client.HTTPException),
@@ -236,7 +238,13 @@ def audit_resource(resource: dict, requester=request, sleep=time.sleep) -> dict:
             retry_remaining = False
             sleep(1)
             continue
-        if method == "HEAD" and status in (403, 404, 405, 410, 501):
+        # Some publishers time out or return 5xx for HEAD while GET works.
+        # Keep the existing retry budget shared across both methods.
+        if method == "HEAD" and (
+            status in (403, 404, 405, 410)
+            or (status is not None and 500 <= status < 600)
+            or attempt.get("timedOut")
+        ):
             method = "GET"
             continue
         break
