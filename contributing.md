@@ -52,15 +52,32 @@ Run `python3 scripts/audit_links.py --output /tmp/catalog-link-audit.json` from 
 repository root. This standard-library command reads the generated catalog, uses four
 workers with 20-second socket timeouts, retries a transient failure once per resource,
 and falls back from unsupported, blocked, or missing HEAD responses to GET (at most 64 KiB).
-Redirects are limited to five hops and HTTPS destinations without credentials.
+Redirects are limited to five hops. Initial requests, redirects, retries, and GET
+fallbacks allow only credential-free HTTPS on port 443 and public IP destinations.
 
-The version 1.0 JSON report includes the input catalog hash, timestamps, resource IDs,
+The version 1.1 JSON report includes the input catalog hash, timestamps, resource IDs,
 HTTP statuses, redirect chains, final URLs, errors, and all request attempts. A readable
 summary is also printed. `reachable` means HTTP success only: the command does not
 verify page content, data accuracy, rights, freshness, or completeness. Inspect redirects,
 especially changes of host, for unrelated landing pages. Authentication blocks, rate
 limits, missing responses, server failures, and transport errors remain separate results.
-A 403 or timeout is not evidence that a resource is dead.
+A 403 or timeout is not evidence that a resource is dead. `security-blocked` means
+local policy refused the destination before sending HTTP to it; it is not a publisher
+HTTP response. Version 1.1 adds this classification and the destination policy setting;
+historical version 1.0 reports remain unchanged.
+
+The connector checks every resolved IPv4/IPv6 address and rejects the entire DNS answer
+if any address is non-public. It connects directly to a validated numeric address to
+avoid a second DNS lookup, retaining the original hostname for Host, TLS SNI, and
+certificate verification. Private, loopback, link-local/metadata, shared, multicast,
+reserved, and IPv6 transition/translation destinations are refused. Environment and
+system proxies are disabled; there is no insecure bypass option.
+
+This policy intentionally refuses nonstandard ports and some special-purpose ranges.
+It is an application-level restriction, not network isolation: DNS still uses the system
+resolver, and local routing/firewalls remain outside the tool's control. Run audits in
+a restricted environment when processing untrusted catalogs. The tool does not execute
+page content or qualify the security of third-party services.
 
 Exit status 0 means a report was written, even if resources need review; status 1 means
 invalid input or a failed audit/report write. Supply an existing output directory. This
