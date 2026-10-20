@@ -2,6 +2,12 @@
 
 > A curated list of up-to-date NBA data sources, analytics sites, APIs, tools, and explainers. Each item includes a short description and a reliable URL.
 
+Maintained by [Jovani Pink](https://github.com/JovaniPink), with support from The Measured
+Studios and community contributors. This public catalog helps people discover useful
+sources for NBA data and analysis and understand their limitations. Everyone is welcome to
+[suggest a source, report a correction, or contribute](#contributing); no coding is
+required to open an issue. See [reuse and attribution](LICENSING.md).
+
 Catalog structure reviewed: August 2026.
 
 Catalog entries present on August 13, 2026, were reviewed on that date. Later additions carry
@@ -110,18 +116,8 @@ Historical or lower-activity resources - good references, but not always current
 
 ## Contributing
 
-Spotted a dead link, better mirror, or a new high-signal resource? Pull requests are welcome. Keep
-additions current, specific, and non-promotional; see [contributing.md](contributing.md).
-
-Before opening a pull request, run the dependency-free catalog gate with Python 3.11 or newer:
-
-```sh
-python3 -m unittest discover -s tests -v
-python3 scripts/validate_readme.py README.md
-```
-
-GitHub Actions runs the same checks on Python 3.11 and Python 3.14 for every pull request and push to
-`main`. The validator checks Contents order and anchors, required files, relative links, unique HTTPS
-resource URLs, entry formatting, and exact coverage in the dated source audit. A passing result does
-not prove permission, maintenance quality, or fit for a particular use; those require the source
-matrix and an explicit terms review.
+Help make this catalog more useful: suggest a source, report a broken link, improve a
+limitation, or clarify an explanation. First-time contributors are welcome, and opening
+an issue does not require coding. Start with the [contribution guide](contributing.md).
+We review evidence and disclose affiliations; inclusion is not endorsement or a grant
+of rights to third-party data. Please follow our [Code of Conduct](code-of-conduct.md).

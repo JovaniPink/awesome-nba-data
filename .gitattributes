@@ -1,1 +1,4 @@
 * text=auto eol=lf
+
+# Preserve the publisher legal text, including its trailing blank line.
+licenses/CC-BY-4.0.txt whitespace=-blank-at-eof
