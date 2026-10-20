@@ -33,7 +33,7 @@ About this section: Official league-operated sites. Best sources for box scores,
 - [NBA Stats (stats.nba.com)](https://www.nba.com/stats/) - Official stats portal for box scores, play-by-play, shooting, tracking summaries, lineups, and Hustle data; it is not a published bulk-data license.
 - [NBA Official (Officiating Hub)](https://official.nba.com/) - Official rulebook, Coach's Challenge, and Last Two Minute report hub.
 - [NBA Communications](https://pr.nba.com/) - Official press releases for transactions, awards, schedule changes, and league announcements.
-- [NBA Injury Report: 2025-26 Season](https://official.nba.com/nba-injury-report-2025-26-season/) - Official, season-specific reports containing participation statuses and stated reasons that teams update throughout reporting windows; this changing web reference is not a historical bulk-data API.
+- [NBA Injury Report: 2026-27 Season](https://official.nba.com/nba-injury-report-2026-27-season/) - Official, season-specific reports containing participation statuses and stated reasons that teams update throughout reporting windows; this changing web reference is not a historical bulk-data API.
 - [NBA Player Transactions](https://www.nba.com/players/transactions) - Official filterable transaction reference for signings, waivers, trades, and other roster moves; the public page does not establish a documented bulk-data license.
 
 ## Analytics & Advanced Metrics Sites
@@ -96,7 +96,6 @@ Commercial feeds whose contract, purchased products, and approved purpose determ
 - [TS% - True Shooting Percentage](https://en.wikipedia.org/wiki/True_shooting_percentage) - Overview of scoring efficiency that incorporates field goals, three-pointers, and free throws.
 - [eFG% - Effective Field Goal Percentage](https://www.breakthroughbasketball.com/stats/effective-field-goal-percentage.html) - Explanation of field-goal percentage adjusted for the added value of three-pointers.
 - [Net Rating](https://www.bball-index.com/is-net-rating-still-king/) - Discussion of team or lineup point differential per 100 possessions and its limitations.
-- [RAPTOR - Intro and Method](https://fivethirtyeight.com/features/introducing-raptor-our-new-metric-for-the-modern-nba/) - Archived FiveThirtyEight explainer for its historical player-impact model.
 - [EPM - Estimated Plus-Minus Methodology](https://dunksandthrees.com/about/epm) - Dunks & Threes methodology for its player-impact estimate.
 - [LEBRON - Metric Introduction](https://www.bball-index.com/lebron-introduction/) - Basketball Index introduction to its player-impact metric and design goals.
 
@@ -104,7 +103,7 @@ Commercial feeds whose contract, purchased products, and approved purpose determ
 
 Historical or lower-activity resources - good references, but not always current.
 
-- [FiveThirtyEight NBA](https://fivethirtyeight.com/tag/nba/) - NBA coverage largely archived; RAPTOR explainer still valuable.
+- [FiveThirtyEight Historical RAPTOR Data](https://github.com/fivethirtyeight/data/tree/master/nba-raptor) - Archived player-impact estimates and CSV field documentation; historical coverage uses different model inputs across eras, including box-score estimates before modern tracking data, and is not a current-season feed or a substitute for the unavailable original methodology article.
 - [Back Picks](https://backpicks.com/) - Ben Taylor's long-form analytics pieces and historical series.
 
 ---
