@@ -55,6 +55,7 @@ High-signal analytics destinations and dashboards (some paid). Great for impact 
 - [PBP Stats](https://www.pbpstats.com/) - Derived on-off, WOWY, lineup, and possession views with a subscriber API.
 - [NBAstuffer](https://www.nbastuffer.com/) - Aggregated dashboards, pace/strength-of-schedule, lineup tools, and analytics guides.
 - [Inpredictable](https://www.inpredictable.com/) - Win probability models and tempo/variance research for NBA and other sports.
+- [Thinking Basketball (formerly Back Picks)](https://thinkingbasketball.net/) - Ben Taylor's basketball analysis, historical series, and statistical tools; access is mixed, with some articles requiring Patreon membership.
 - [82Games](https://www.82games.com/) - Lineup, five-player-unit, on/off, physicality, and game-analysis archives with current-season research.
 - [Crafted NBA](https://craftednba.com/) - Player/team dashboards and meta-metrics (DARKO, DRIP, LEBRON, RAPTOR, CraftedPM), comparisons, and roles.
 - [NBA RAPM (nbarapm.com)](https://www.nbarapm.com/) - Career and rolling **RAPM** plus cross-metric peak summaries.
@@ -100,7 +101,7 @@ Commercial feeds whose contract, purchased products, and approved purpose determ
 - [VORP - Value Over Replacement Player](https://en.wikipedia.org/wiki/Value_over_replacement_player) - Overview of the box-score estimate of points contributed relative to a replacement player.
 - [BPM - Box Plus/Minus](https://www.basketball-reference.com/about/bpm2.html) - Basketball-Reference methodology for estimating player contribution per 100 possessions from box-score data.
 - [TS% - True Shooting Percentage](https://en.wikipedia.org/wiki/True_shooting_percentage) - Overview of scoring efficiency that incorporates field goals, three-pointers, and free throws.
-- [eFG% - Effective Field Goal Percentage](https://www.breakthroughbasketball.com/stats/effective-field-goal-percentage.html) - Explanation of field-goal percentage adjusted for the added value of three-pointers.
+- [eFG% - Effective Field Goal Percentage](https://www.breakthroughbasketball.com/stats/effective-field-goal-percentage) - Explanation of field-goal percentage adjusted for the added value of three-pointers.
 - [Net Rating](https://www.bball-index.com/is-net-rating-still-king/) - Discussion of team or lineup point differential per 100 possessions and its limitations.
 - [EPM - Estimated Plus-Minus Methodology](https://dunksandthrees.com/about/epm) - Dunks & Threes methodology for its player-impact estimate.
 - [LEBRON - Metric Introduction](https://www.bball-index.com/lebron-introduction/) - Basketball Index introduction to its player-impact metric and design goals.
@@ -110,7 +111,6 @@ Commercial feeds whose contract, purchased products, and approved purpose determ
 Historical or lower-activity resources - good references, but not always current.
 
 - [FiveThirtyEight Historical RAPTOR Data](https://github.com/fivethirtyeight/data/tree/master/nba-raptor) - Archived player-impact estimates and CSV field documentation; historical coverage uses different model inputs across eras, including box-score estimates before modern tracking data, and is not a current-season feed or a substitute for the unavailable original methodology article.
-- [Back Picks](https://backpicks.com/) - Ben Taylor's long-form analytics pieces and historical series.
 
 ---
 
