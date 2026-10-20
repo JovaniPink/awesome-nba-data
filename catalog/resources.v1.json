@@ -712,6 +712,53 @@
     {
       "corrections": [],
       "dates": {
+        "createdAt": "2026-10-20"
+      },
+      "editorialStatus": "published",
+      "evidenceStatus": "unreviewed",
+      "id": "awesome-nba-data:source:r-ca74207430a0449e",
+      "kind": "source",
+      "legacyIds": [],
+      "limitations": [
+        "Catalog inclusion is curation, not endorsement, permission, maintenance proof, or model fitness proof.",
+        "This record does not establish a dataset vintage, retrieval snapshot, license grant, or current availability."
+      ],
+      "projectId": "awesome-nba-data",
+      "provenance": {
+        "methodIds": [],
+        "sourceIds": []
+      },
+      "relationships": [],
+      "schemaVersion": "1.1",
+      "semantics": {
+        "domains": [
+          "sports"
+        ],
+        "entities": [],
+        "tags": [
+          "catalog-resource"
+        ],
+        "topics": [
+          "analytics-advanced-metrics-sites"
+        ]
+      },
+      "source": {
+        "accessStatus": "unknown",
+        "authorityRole": "unknown",
+        "canonicalUrl": "https://thinkingbasketball.net/",
+        "license": "Resource-specific terms apply; catalog inclusion grants no license.",
+        "methodologyWarnings": [
+          "Review the publisher methodology, access conditions, license, retrieval date, review date, and as-of meaning before use."
+        ],
+        "publisher": "Thinking Basketball (formerly Back Picks)"
+      },
+      "summary": "Ben Taylor's basketball analysis, historical series, and statistical tools; access is mixed, with some articles requiring Patreon membership.",
+      "title": "Thinking Basketball (formerly Back Picks)",
+      "visibility": "public"
+    },
+    {
+      "corrections": [],
+      "dates": {
         "createdAt": "2026-08-30"
       },
       "editorialStatus": "published",
@@ -1887,11 +1934,11 @@
     {
       "corrections": [],
       "dates": {
-        "createdAt": "2026-08-30"
+        "createdAt": "2026-10-20"
       },
       "editorialStatus": "published",
       "evidenceStatus": "unreviewed",
-      "id": "awesome-nba-data:source:r-03b41d29f2ae34a4",
+      "id": "awesome-nba-data:source:r-eb6700273e904903",
       "kind": "source",
       "legacyIds": [],
       "limitations": [
@@ -1920,7 +1967,7 @@
       "source": {
         "accessStatus": "unknown",
         "authorityRole": "unknown",
-        "canonicalUrl": "https://www.breakthroughbasketball.com/stats/effective-field-goal-percentage.html",
+        "canonicalUrl": "https://www.breakthroughbasketball.com/stats/effective-field-goal-percentage",
         "license": "Resource-specific terms apply; catalog inclusion grants no license.",
         "methodologyWarnings": [
           "Review the publisher methodology, access conditions, license, retrieval date, review date, and as-of meaning before use."
@@ -2117,53 +2164,6 @@
       },
       "summary": "Archived player-impact estimates and CSV field documentation; historical coverage uses different model inputs across eras, including box-score estimates before modern tracking data, and is not a current-season feed or a substitute for the unavailable original methodology article.",
       "title": "FiveThirtyEight Historical RAPTOR Data",
-      "visibility": "public"
-    },
-    {
-      "corrections": [],
-      "dates": {
-        "createdAt": "2026-08-30"
-      },
-      "editorialStatus": "published",
-      "evidenceStatus": "unreviewed",
-      "id": "awesome-nba-data:source:r-3a38915bb54b54e2",
-      "kind": "source",
-      "legacyIds": [],
-      "limitations": [
-        "Catalog inclusion is curation, not endorsement, permission, maintenance proof, or model fitness proof.",
-        "This record does not establish a dataset vintage, retrieval snapshot, license grant, or current availability."
-      ],
-      "projectId": "awesome-nba-data",
-      "provenance": {
-        "methodIds": [],
-        "sourceIds": []
-      },
-      "relationships": [],
-      "schemaVersion": "1.1",
-      "semantics": {
-        "domains": [
-          "sports"
-        ],
-        "entities": [],
-        "tags": [
-          "catalog-resource"
-        ],
-        "topics": [
-          "legacy-archived-still-useful"
-        ]
-      },
-      "source": {
-        "accessStatus": "unknown",
-        "authorityRole": "unknown",
-        "canonicalUrl": "https://backpicks.com/",
-        "license": "Resource-specific terms apply; catalog inclusion grants no license.",
-        "methodologyWarnings": [
-          "Review the publisher methodology, access conditions, license, retrieval date, review date, and as-of meaning before use."
-        ],
-        "publisher": "Back Picks"
-      },
-      "summary": "Ben Taylor's long-form analytics pieces and historical series.",
-      "title": "Back Picks",
       "visibility": "public"
     }
   ],
