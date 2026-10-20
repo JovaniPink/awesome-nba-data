@@ -55,13 +55,22 @@ Contributor-supplied identity dates remain attached to their original commits.
 Original contributor PRs, Renovate onboarding, and open issues are unchanged. No merge,
 contributor feedback, license change, paid API access, or dataset import is part of this
 integration. Source descriptions based on public documentation do not establish
-independently tested authenticated behavior. Hosted CI on these local integration commits
-has not run.
+independently tested authenticated behavior. Hosted CI had not run at the initial local integration checkpoint; see the follow-up below.
 
 ## Final integration check
 
-- Offline unit suite: 38 tests passed; README validation, generated-index check, and whitespace check passed.
+- Offline unit suite: 39 tests passed; README validation, generated-index check, and whitespace check passed.
 - Final automated scan: 46 entries; blocked/authentication-required: 1, reachable: 41, redirected: 4.
 - Observation interval: `2026-10-20T19:31:13+00:00` through `2026-10-20T19:31:19+00:00`.
 - [Full link-audit JSON](link-audits/2026-10-20.json) includes the matching catalog SHA-256 and per-request evidence.
 - Redirects and blocks remain review observations, not proof of content relevance or dead links.
+
+## Draft PR CI follow-up
+
+The [first hosted run](https://github.com/JovaniPink/awesome-nba-data/actions/runs/39485006311)
+passed Python 3.14 but failed four redirect scenarios on Python 3.11. Its standard-library
+redirect handler changed HEAD to GET. The correction explicitly preserves HEAD, keeping
+the recorded method accurate and preventing unexpected body retrieval. Controlled tests
+now check both HEAD and GET across 301, 302, 303, 307, and 308 redirects, including body
+limits and response closure. All 39 local tests and canonical checks pass after this fix;
+the draft PR checks record the hosted result for each subsequent commit.

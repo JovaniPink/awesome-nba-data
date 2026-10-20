@@ -60,7 +60,12 @@ class RedirectRecorder(urllib.request.HTTPRedirectHandler):
                 headers,
                 fp,
             )
-        return super().redirect_request(req, fp, code, msg, headers, newurl)
+        redirected = super().redirect_request(req, fp, code, msg, headers, newurl)
+        # Python 3.11's handler defaults redirected HEAD requests to GET.
+        # Preserve HEAD so body limits and the reported method stay accurate.
+        if redirected is not None and req.get_method() == "HEAD":
+            redirected.method = "HEAD"
+        return redirected
 
 
 def request(url: str, method: str, opener_factory=urllib.request.build_opener) -> dict:

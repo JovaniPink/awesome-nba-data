@@ -85,6 +85,27 @@ class LinkAuditTests(unittest.TestCase):
             result["redirectChain"], [{"from": URL, "to": target, "status": 301}]
         )
 
+    def test_redirects_preserve_method_and_bound_body_reads(self):
+        target = "https://publisher.example/new"
+        for method in ("HEAD", "GET"):
+            for status in (301, 302, 303, 307, 308):
+                with self.subTest(method=method, status=status):
+                    scenario = Scenario(
+                        {
+                            (method, URL): [(status, target)],
+                            (method, target): [(200, None)],
+                        }
+                    )
+                    result = scenario.request(URL, method)
+                    self.assertEqual(result["httpStatus"], 200)
+                    self.assertEqual(scenario.calls, [(method, URL), (method, target)])
+                    self.assertEqual(scenario.bodies[0].bytes_read, 0)
+                    self.assertEqual(
+                        scenario.bodies[1].bytes_read,
+                        audit.MAX_BODY_BYTES if method == "GET" else 0,
+                    )
+                    self.assertTrue(all(body.closed for body in scenario.bodies))
+
     def test_head_rejection_falls_back_to_bounded_get(self):
         result, scenario = self.run_scenario(
             {("HEAD", URL): [(405, None)], ("GET", URL): [(200, None)]}
