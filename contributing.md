@@ -1,7 +1,24 @@
 # Contribution Guidelines
 
-Please note that this project is released with a [Contributor Code of Conduct](code-of-conduct.md).
-By participating, you agree to abide by its terms.
+Welcome! This is a community-maintained catalog for NBA data and analysis, stewarded by
+Jovani Pink with support from The Measured Studios. You do not need to be a programmer
+or an expert to help. Useful corrections and carefully described sources matter more
+than a large submission.
+
+Please follow our [Code of Conduct](code-of-conduct.md). We welcome students, researchers,
+practitioners, educators, and curious newcomers.
+
+## Start with an issue or a pull request
+
+- [Suggest a resource](https://github.com/JovaniPink/awesome-nba-data/issues/new?template=suggest-resource.md): include the canonical URL, what it provides, and why it helps. No coding or local setup is required.
+- [Report a correction or broken link](https://github.com/JovaniPink/awesome-nba-data/issues/new?template=correction.md): explain what you observed and when. A login block or timeout may be temporary.
+- Improve a description, explain a limitation, clarify documentation, or contribute a focused tooling fix.
+- If you are ready to edit files, open a pull request. If validation is unfamiliar, explain that in the PR and ask for help.
+
+Disclose if you own, work for, or are paid by a suggested resource. Affiliation does not
+bar a useful submission; undisclosed promotion, referral links, paid placement, and
+unsupported claims do. Maintainers make independent inclusion decisions and may edit,
+defer, or decline a suggestion. Inclusion does not endorse a provider.
 
 ## Suggesting a resource
 
@@ -28,23 +45,52 @@ A listed resource should be at least one of the following:
 Descriptions should distinguish observed data, human classifications, model outputs, evaluations,
 forecasts, and market data where relevant.
 
+## Make a catalog pull request
+
+1. Fork the repository and create a branch for one focused change.
+2. Edit `README.md` in the most appropriate existing category. Use an original concise description and a canonical HTTPS URL; do not copy publisher marketing text.
+3. For a new canonical URL, add an ISO date (`YYYY-MM-DD`) under `creationDates` in `catalog/resource-index.config.json`. Use the date of the commit that first includes the entry in your contribution. Do not backdate it, alter existing dates, or advance catalog-wide review dates. A changed canonical URL is a new identity; keep the old date mapping as history.
+4. Regenerate the resource index with `python3 scripts/build_resource_index.py`. Do not hand-edit generated records.
+5. Update `docs/source-audit.tsv` for added, removed, or changed entries. Match its tab-separated columns; record the observed status, check date, and evidence without inventing a successful check. If a changed source appears in `docs/source-matrix.md`, update that row too. Ask for help if a field is unclear.
+6. Commit the README, date metadata, regenerated index, and any related audit changes together. Open a PR using the template.
+
 ## Validate your change
 
-The catalog gate requires Python 3.11 or newer and has no third-party dependencies:
+From the repository root, use Python 3.11 or newer. No third-party packages are required:
 
 ```sh
+python3 scripts/build_resource_index.py
 python3 -m unittest discover -s tests -v
 python3 scripts/validate_readme.py README.md
+python3 scripts/build_resource_index.py --check
+git diff --check
 ```
 
-The validator checks structure and formatting only. Before adding or materially updating a resource,
-open its canonical source and verify its current maintenance status, access level, relevant license
-or terms, and the specific claim made by the description. Include that evidence in the pull request.
+For a tooling-only change, regeneration should leave the index unchanged. Review the diff
+before committing; do not include downloaded datasets, private research, credentials,
+API keys, personal records, or unrelated generated files.
+
+These checks verify repository structure and consistency. Separately inspect the public
+publisher page and provide the URLs and date supporting your description, access terms,
+update claims, and limitations. Do not bypass access controls or buy access for a submission.
+Disclose material AI assistance and verify every claim yourself; generated text is not evidence.
 
 ## Updating your pull request
 
 If maintainers request changes, update the existing pull request rather than opening a replacement.
 If you are unsure how, see this [guide to amending a commit](https://github.com/RichardLitt/knowledge/blob/master/github/amending-a-commit-guide.md).
+
+## Rights and credit
+
+Content contributions use CC BY 4.0; code contributions use MIT. You retain ownership.
+Submit original work or material you have permission to contribute under the applicable
+terms. Identify third-party text and required attribution. Earlier contributions keep
+their existing grants; see [LICENSING.md](LICENSING.md) and [NOTICE.md](NOTICE.md).
+
+We credit contributions in commit history and PR records. If a contribution is included
+through a separate integration PR, we link back to the original submission and preserve
+attribution. You may suggest the public name or handle to use; avoid adding private contact
+information. Clear evidence, courteous review, and small follow-up corrections are welcome.
 
 ## Manual external-link audit
 
