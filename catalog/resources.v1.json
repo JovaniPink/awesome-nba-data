@@ -195,11 +195,11 @@
     {
       "corrections": [],
       "dates": {
-        "createdAt": "2026-08-30"
+        "createdAt": "2026-10-20"
       },
       "editorialStatus": "published",
       "evidenceStatus": "unreviewed",
-      "id": "awesome-nba-data:source:r-1f3e0e44c5cec003",
+      "id": "awesome-nba-data:source:r-0709ba5d2bc45120",
       "kind": "source",
       "legacyIds": [],
       "limitations": [
@@ -228,15 +228,15 @@
       "source": {
         "accessStatus": "unknown",
         "authorityRole": "unknown",
-        "canonicalUrl": "https://official.nba.com/nba-injury-report-2025-26-season/",
+        "canonicalUrl": "https://official.nba.com/nba-injury-report-2026-27-season/",
         "license": "Resource-specific terms apply; catalog inclusion grants no license.",
         "methodologyWarnings": [
           "Review the publisher methodology, access conditions, license, retrieval date, review date, and as-of meaning before use."
         ],
-        "publisher": "NBA Injury Report: 2025-26 Season"
+        "publisher": "NBA Injury Report: 2026-27 Season"
       },
       "summary": "Official, season-specific reports containing participation statuses and stated reasons that teams update throughout reporting windows; this changing web reference is not a historical bulk-data API.",
-      "title": "NBA Injury Report: 2025-26 Season",
+      "title": "NBA Injury Report: 2026-27 Season",
       "visibility": "public"
     },
     {
@@ -1985,53 +1985,6 @@
       },
       "editorialStatus": "published",
       "evidenceStatus": "unreviewed",
-      "id": "awesome-nba-data:source:r-6069c3321be7f4b9",
-      "kind": "source",
-      "legacyIds": [],
-      "limitations": [
-        "Catalog inclusion is curation, not endorsement, permission, maintenance proof, or model fitness proof.",
-        "This record does not establish a dataset vintage, retrieval snapshot, license grant, or current availability."
-      ],
-      "projectId": "awesome-nba-data",
-      "provenance": {
-        "methodIds": [],
-        "sourceIds": []
-      },
-      "relationships": [],
-      "schemaVersion": "1.1",
-      "semantics": {
-        "domains": [
-          "sports"
-        ],
-        "entities": [],
-        "tags": [
-          "catalog-resource"
-        ],
-        "topics": [
-          "advanced-stats-explained"
-        ]
-      },
-      "source": {
-        "accessStatus": "unknown",
-        "authorityRole": "unknown",
-        "canonicalUrl": "https://fivethirtyeight.com/features/introducing-raptor-our-new-metric-for-the-modern-nba/",
-        "license": "Resource-specific terms apply; catalog inclusion grants no license.",
-        "methodologyWarnings": [
-          "Review the publisher methodology, access conditions, license, retrieval date, review date, and as-of meaning before use."
-        ],
-        "publisher": "RAPTOR - Intro and Method"
-      },
-      "summary": "Archived FiveThirtyEight explainer for its historical player-impact model.",
-      "title": "RAPTOR - Intro and Method",
-      "visibility": "public"
-    },
-    {
-      "corrections": [],
-      "dates": {
-        "createdAt": "2026-08-30"
-      },
-      "editorialStatus": "published",
-      "evidenceStatus": "unreviewed",
       "id": "awesome-nba-data:source:r-3e644526746a8fcf",
       "kind": "source",
       "legacyIds": [],
@@ -2122,11 +2075,11 @@
     {
       "corrections": [],
       "dates": {
-        "createdAt": "2026-08-30"
+        "createdAt": "2026-10-20"
       },
       "editorialStatus": "published",
       "evidenceStatus": "unreviewed",
-      "id": "awesome-nba-data:source:r-78d771bfb38e2615",
+      "id": "awesome-nba-data:source:r-6d41d064689585f2",
       "kind": "source",
       "legacyIds": [],
       "limitations": [
@@ -2155,15 +2108,15 @@
       "source": {
         "accessStatus": "unknown",
         "authorityRole": "unknown",
-        "canonicalUrl": "https://fivethirtyeight.com/tag/nba/",
+        "canonicalUrl": "https://github.com/fivethirtyeight/data/tree/master/nba-raptor",
         "license": "Resource-specific terms apply; catalog inclusion grants no license.",
         "methodologyWarnings": [
           "Review the publisher methodology, access conditions, license, retrieval date, review date, and as-of meaning before use."
         ],
-        "publisher": "FiveThirtyEight NBA"
+        "publisher": "FiveThirtyEight Historical RAPTOR Data"
       },
-      "summary": "NBA coverage largely archived; RAPTOR explainer still valuable.",
-      "title": "FiveThirtyEight NBA",
+      "summary": "Archived player-impact estimates and CSV field documentation; historical coverage uses different model inputs across eras, including box-score estimates before modern tracking data, and is not a current-season feed or a substitute for the unavailable original methodology article.",
+      "title": "FiveThirtyEight Historical RAPTOR Data",
       "visibility": "public"
     },
     {

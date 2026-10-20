@@ -3,7 +3,7 @@ NBA.com	https://www.nba.com/	Official & League Data	official	public	200	2026-08-
 NBA Stats (stats.nba.com)	https://www.nba.com/stats/	Official & League Data	official	public-restricted	200	2026-08-13	No published external bulk license
 NBA Official (Officiating Hub)	https://official.nba.com/	Official & League Data	official	public	200	2026-08-13	Rules and officiating evidence
 NBA Communications	https://pr.nba.com/	Official & League Data	official	public	200	2026-08-13	League announcements
-NBA Injury Report: 2025-26 Season	https://official.nba.com/nba-injury-report-2025-26-season/	Official & League Data	official	public-restricted	403-anti-bot	2026-08-27	Browser-visible season page; automated request blocked; no historical bulk API
+NBA Injury Report: 2026-27 Season	https://official.nba.com/nba-injury-report-2026-27-season/	Official & League Data	official	public-restricted	200	2026-10-20	Season page and title verified; automated HTTP GET succeeded; no historical bulk API
 NBA Player Transactions	https://www.nba.com/players/transactions	Official & League Data	official	public-restricted	403-anti-bot	2026-08-27	Browser-visible dynamic page; automated request blocked; no documented bulk-data license
 Basketball-Reference	https://www.basketball-reference.com/	Analytics & Advanced Metrics Sites	unofficial	public-restricted	200	2026-08-13	Sports Reference policy applies
 Stathead (Sports-Reference)	https://stathead.com/basketball/	Analytics & Advanced Metrics Sites	unofficial	paid	403-anti-bot	2026-08-13	Reachable product; automated status check blocked
@@ -39,10 +39,9 @@ BPM - Box Plus/Minus	https://www.basketball-reference.com/about/bpm2.html	Advanc
 TS% - True Shooting Percentage	https://en.wikipedia.org/wiki/True_shooting_percentage	Advanced Stats Explained	secondary	public	200	2026-08-13	General explainer
 eFG% - Effective Field Goal Percentage	https://www.breakthroughbasketball.com/stats/effective-field-goal-percentage.html	Advanced Stats Explained	secondary	public	200	2026-08-13	General explainer
 Net Rating	https://www.bball-index.com/is-net-rating-still-king/	Advanced Stats Explained	derived	public	200	2026-08-13	Discussion and limitations
-RAPTOR - Intro and Method	https://fivethirtyeight.com/features/introducing-raptor-our-new-metric-for-the-modern-nba/	Advanced Stats Explained	archived-methodology	public	200	2026-08-13	Archived model explainer
 EPM - Estimated Plus-Minus Methodology	https://dunksandthrees.com/about/epm	Advanced Stats Explained	methodology	public	200	2026-08-13	Current method page
 LEBRON - Metric Introduction	https://www.bball-index.com/lebron-introduction/	Advanced Stats Explained	methodology	public	200	2026-08-13	Metric introduction
-FiveThirtyEight NBA	https://fivethirtyeight.com/tag/nba/	Legacy / Archived (still useful)	archived	public	200	2026-08-13	Archived coverage
 Back Picks	https://backpicks.com/	Legacy / Archived (still useful)	independent	mixed	200	2026-08-13	Long-form historical analysis
 Ultimate Big Board - NBA draft rankings	https://ultimatebigboard.com/nba/2027/methodology/	Analytics & Advanced Metrics Sites	unofficial-aggregate	public	200	2026-10-09	Owner-submitted resource; analyst-opinion rankings, changing live CSV and fixed dated captures; saved NBA CSV has 85 rows, generated 2026-10-01 and captured 2026-10-02; no blanket upstream reuse license.
 Realtime Sports API - NBA	https://www.realtimesportsapi.com/apis/nba	APIs & Open Data	commercial	mixed	200	2026-10-09	Owner-submitted resource; unofficial public-source aggregation, typically 20-30 s behind live, no SLA; free tier 125 calls/month, webhooks paid; redistribution requires authorization; authenticated API behavior not qualified.
+FiveThirtyEight Historical RAPTOR Data	https://github.com/fivethirtyeight/data/tree/master/nba-raptor	Legacy / Archived (still useful)	archived-model-data	public	200	2026-10-20	Publisher CSV archive and field documentation; model inputs differ across eras; original article redirects to unrelated content

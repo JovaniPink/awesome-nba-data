@@ -51,6 +51,8 @@
     "https://fivethirtyeight.com/tag/nba/": "2026-08-30",
     "https://backpicks.com/": "2026-08-30",
     "https://ultimatebigboard.com/nba/2027/methodology/": "2026-10-09",
-    "https://www.realtimesportsapi.com/apis/nba": "2026-10-09"
+    "https://www.realtimesportsapi.com/apis/nba": "2026-10-09",
+    "https://official.nba.com/nba-injury-report-2026-27-season/": "2026-10-20",
+    "https://github.com/fivethirtyeight/data/tree/master/nba-raptor": "2026-10-20"
   }
 }

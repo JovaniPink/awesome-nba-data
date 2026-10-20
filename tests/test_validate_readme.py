@@ -64,8 +64,8 @@ PUBLISHABLE_TEXT_FILES: Final[tuple[str, ...]] = (
 
 RELEASE_SOURCE_CONTRACTS: Final[tuple[ReleaseSourceContract, ...]] = (
     {
-        "name": "NBA Injury Report: 2025-26 Season",
-        "url": "https://official.nba.com/nba-injury-report-2025-26-season/",
+        "name": "NBA Injury Report: 2026-27 Season",
+        "url": "https://official.nba.com/nba-injury-report-2026-27-season/",
         "section": "Official & League Data",
         "readme_phrases": (
             "season-specific reports",
@@ -76,11 +76,11 @@ RELEASE_SOURCE_CONTRACTS: Final[tuple[ReleaseSourceContract, ...]] = (
         "audit_category": "Official & League Data",
         "audit_authority": "official",
         "audit_access": "public-restricted",
-        "audit_result": "403-anti-bot",
-        "audit_reviewed_at": "2026-08-27",
+        "audit_result": "200",
+        "audit_reviewed_at": "2026-10-20",
         "audit_note_phrases": (
-            "Browser-visible season page",
-            "automated request blocked",
+            "Season page and title verified",
+            "automated HTTP GET succeeded",
             "no historical bulk API",
         ),
         "matrix_phrases": (
@@ -98,9 +98,7 @@ RELEASE_SOURCE_CONTRACTS: Final[tuple[ReleaseSourceContract, ...]] = (
             "Official filterable transaction reference",
             "does not establish a documented bulk-data license",
         ),
-        "forbidden_readme_phrases": (
-            "establishes a documented bulk-data license",
-        ),
+        "forbidden_readme_phrases": ("establishes a documented bulk-data license",),
         "audit_category": "Official & League Data",
         "audit_authority": "official",
         "audit_access": "public-restricted",
@@ -210,7 +208,9 @@ def _release_source_contract_errors(
 
 class GithubAnchorTests(unittest.TestCase):
     def test_matches_github_heading_style(self) -> None:
-        self.assertEqual(github_anchor("Official & League Data"), "official--league-data")
+        self.assertEqual(
+            github_anchor("Official & League Data"), "official--league-data"
+        )
 
 
 class DocumentValidationTests(unittest.TestCase):
@@ -241,7 +241,9 @@ class DocumentValidationTests(unittest.TestCase):
 
         result = validate_document(invalid, self.root)
 
-        self.assertTrue(any("Contents entries must match" in error for error in result.errors))
+        self.assertTrue(
+            any("Contents entries must match" in error for error in result.errors)
+        )
         self.assertTrue(any("must use HTTPS" in error for error in result.errors))
         self.assertTrue(any("start uppercase" in error for error in result.errors))
         self.assertTrue(any("end with a period" in error for error in result.errors))
@@ -258,7 +260,9 @@ class DocumentValidationTests(unittest.TestCase):
         result = validate_document(invalid, self.root)
 
         self.assertTrue(any("must match" in error for error in result.errors))
-        self.assertTrue(any("duplicate resource URL" in error for error in result.errors))
+        self.assertTrue(
+            any("duplicate resource URL" in error for error in result.errors)
+        )
 
     def test_reports_missing_relative_links(self) -> None:
         invalid = VALID_README + "\n[Missing](docs/missing.md)\n"
@@ -328,9 +332,7 @@ class ReleaseSourceContractTests(unittest.TestCase):
         readme = self.readme.replace(
             "not a historical bulk-data API", "is a historical bulk-data API"
         )
-        audit = self.audit.replace(
-            "\t403-anti-bot\t2026-08-27", "\t200\t2026-08-27", 1
-        )
+        audit = self.audit.replace("\t200\t2026-10-20", "\t403-anti-bot\t2026-10-20", 1)
         matrix = self.matrix.replace(
             "public access does not establish redistribution permission",
             "public access establishes redistribution permission",
