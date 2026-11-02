@@ -71,6 +71,7 @@ it does not imply ownership transfer, endorsement, or co-authorship of maintaine
 | Issue | Contributor | Suggestion and disclosure |
 | --- | --- | --- |
 | [22](https://github.com/JovaniPink/awesome-nba-data/issues/22) | @uguraltunbas | Clutch forecast evaluation; disclosed operating the service and AI assistance. |
+| [24](https://github.com/JovaniPink/awesome-nba-data/issues/24) | @symonovserhii | Keel Stats analytical reference; disclosed being part of its team. |
 
 ## External sources
 
