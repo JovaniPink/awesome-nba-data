@@ -65,7 +65,7 @@ class Scenario(urllib.request.HTTPSHandler):
 class LinkAuditTests(unittest.TestCase):
     def run_scenario(self, routes):
         scenario = Scenario(routes)
-        result = audit.audit_resource(
+        result = audit._audit_resource(
             RESOURCE, requester=scenario.request, sleep=lambda _: None
         )
         return result, scenario
@@ -297,7 +297,7 @@ class LinkAuditTests(unittest.TestCase):
                     audit.main(["--catalog", str(catalog), "--output", str(output)]), 0
                 )
             report = json.loads(output.read_text())
-            self.assertEqual(report["schemaVersion"], "1.1")
+            self.assertEqual(report["schemaVersion"], "1.2")
             self.assertEqual(report["summary"], {"reachable": 1})
             self.assertEqual(catalog.read_text(), original)
 

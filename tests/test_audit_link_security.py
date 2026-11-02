@@ -73,7 +73,7 @@ class DestinationSecurityTests(unittest.TestCase):
         self.enterContext(patch.object(ssl.SSLContext, "wrap_socket", wrap))
 
     def audit_url(self, url=URL):
-        return audit.audit_resource(
+        return audit._audit_resource(
             {"id": "test", "source": {"canonicalUrl": url}},
             sleep=lambda _: self.fail("Policy failures must not be retried"),
         )
@@ -159,7 +159,7 @@ class DestinationSecurityTests(unittest.TestCase):
                 self.dns.side_effect = [[answer(PUBLIC)], [answer("10.0.0.1")]]
                 self.sockets.reset_mock()
                 self.sockets.side_effect = [sock]
-                result = audit.audit_resource(
+                result = audit._audit_resource(
                     {"id": "test", "source": {"canonicalUrl": URL}},
                     sleep=lambda _: None,
                 )
@@ -181,7 +181,7 @@ class DestinationSecurityTests(unittest.TestCase):
                 self.dns.side_effect = [[answer(PUBLIC)], [answer(PUBLIC)], [answer("169.254.169.254")]]
                 self.sockets.reset_mock()
                 self.sockets.side_effect = [first, second]
-                result = audit.audit_resource(
+                result = audit._audit_resource(
                     {"id": "test", "source": {"canonicalUrl": URL}}, sleep=lambda _: None,
                 )
                 self.assertEqual(result["classification"], "security-blocked")

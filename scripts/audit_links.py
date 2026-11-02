@@ -12,8 +12,10 @@ import http.client
 import io
 import ipaddress
 import json
+import math
 from pathlib import Path
 import socket
+import subprocess
 import sys
 import time
 import urllib.error
@@ -22,6 +24,7 @@ import urllib.request
 
 ROOT = Path(__file__).resolve().parents[1]
 TIMEOUT = 20
+RESOURCE_DEADLINE_SECONDS = 20
 MAX_BODY_BYTES = 65536
 TRANSIENT_STATUS = {500, 502, 503, 504}
 USER_AGENT = "CatalogLinkAudit/1.0 (manual resource availability review)"
@@ -205,6 +208,10 @@ def request(url: str, method: str, opener_factory=build_public_opener) -> dict:
 
 
 def classify(attempt: dict) -> str:
+    if attempt.get("deadlineExceeded"):
+        return "deadline-exceeded"
+    if attempt.get("workerFailed"):
+        return "worker-error"
     if attempt.get("securityBlocked"):
         return "security-blocked"
     status = attempt["httpStatus"]
@@ -225,17 +232,24 @@ def classify(attempt: dict) -> str:
     return "http-error"
 
 
-def audit_resource(resource: dict, requester=request, sleep=time.sleep) -> dict:
+def _audit_resource(resource: dict, requester=request, sleep=time.sleep, emit=None) -> dict:
+    """HTTP engine, run only in the supervised child (or offline unit fixtures)."""
     url = resource["source"]["canonicalUrl"]
     attempts = []
     retry_remaining = True
     method = "HEAD"
     while True:
+        if emit:
+            emit({"type": "phase", "phase": "request", "method": method})
         attempt = requester(url, method)
         attempts.append(attempt)
+        if emit:
+            emit({"type": "attempt", "attempt": attempt})
         status = attempt["httpStatus"]
         if retry_remaining and (status in TRANSIENT_STATUS or attempt.get("transient")):
             retry_remaining = False
+            if emit:
+                emit({"type": "phase", "phase": "retry-backoff", "method": method})
             sleep(1)
             continue
         # Some publishers time out or return 5xx for HEAD while GET works.
@@ -248,12 +262,17 @@ def audit_resource(resource: dict, requester=request, sleep=time.sleep) -> dict:
             method = "GET"
             continue
         break
+    return _resource_result(resource, attempts)
+
+
+def _resource_result(resource: dict, attempts: list[dict]) -> dict:
+    attempt = attempts[-1]
     result = {
         "resourceId": resource["id"],
-        "url": url,
+        "url": resource["source"]["canonicalUrl"],
         "observedAt": attempt["observedAt"],
-        "method": method,
-        "httpStatus": status,
+        "method": attempt["method"],
+        "httpStatus": attempt["httpStatus"],
         "finalUrl": attempt["finalUrl"],
         "redirectChain": attempt["redirectChain"],
         "error": attempt["error"],
@@ -267,6 +286,97 @@ def audit_resource(resource: dict, requester=request, sleep=time.sleep) -> dict:
         "attempts": attempts,
     }
     return result
+
+
+def _worker_main() -> int:
+    """Private JSON-lines protocol; never execute anything supplied by the URL."""
+    def emit(event):
+        print(json.dumps(event, ensure_ascii=True), flush=True)
+    resource = json.load(sys.stdin)
+    result = _audit_resource(resource, emit=emit)
+    emit({"type": "result", "result": result})
+    return 0
+
+
+def _incomplete_attempt(resource, method, phase, error, *, expired=False):
+    return {
+        "method": method, "observedAt": now(), "httpStatus": None,
+        "finalUrl": resource["source"]["canonicalUrl"], "redirectChain": [],
+        "error": error, "deadlineExceeded": expired, "workerFailed": not expired,
+        "timedOut": expired, "incomplete": True, "phase": phase,
+    }
+
+
+def _supervise_resource(resource: dict, command: list[str], deadline_seconds: float) -> dict:
+    """Stop and reap DNS/HTTP work rather than abandoning a timed-out thread."""
+    if not math.isfinite(deadline_seconds) or deadline_seconds <= 0:
+        raise ValueError("Resource deadline must be finite and positive")
+    expires = time.monotonic() + deadline_seconds
+    expired = False
+    try:
+        process = subprocess.Popen(
+            command, stdin=subprocess.PIPE, stdout=subprocess.PIPE,
+            stderr=subprocess.DEVNULL, text=True, encoding="utf-8",
+        )
+    except OSError as error:
+        return _resource_result(resource, [_incomplete_attempt(
+            resource, "HEAD", "startup", f"Audit worker could not start (OS error {error.errno})",
+        )])
+    try:
+        try:
+            output, _ = process.communicate(
+                json.dumps(resource, ensure_ascii=True),
+                timeout=max(0, expires - time.monotonic()),
+            )
+            expired = time.monotonic() >= expires
+        except subprocess.TimeoutExpired:
+            expired = True
+            process.kill()
+            output, _ = process.communicate()
+    finally:
+        # Includes interruption/error paths; no detached DNS/reader thread survives.
+        if process.poll() is None:
+            process.kill()
+        process.wait()
+        for stream in (process.stdin, process.stdout):
+            if stream is not None:
+                stream.close()
+
+    attempts = []
+    phase, method = "startup", "HEAD"
+    result = None
+    for line in output.splitlines():
+        try:
+            event = json.loads(line)
+        except (ValueError, TypeError):
+            continue  # A killed process may leave one incomplete final line.
+        if event.get("type") == "attempt":
+            attempts.append(event["attempt"])
+        elif event.get("type") == "phase":
+            phase, method = event["phase"], event["method"]
+        elif event.get("type") == "result":
+            result = event["result"]
+    if not expired and process.returncode == 0 and result is not None:
+        return result
+
+    # Preserve completed attempts, without inventing a response or redirect target
+    # for an interrupted request. No retry or GET fallback follows this result.
+    attempts.append(_incomplete_attempt(
+        resource, method, phase,
+        (f"Overall resource deadline exceeded ({deadline_seconds:g}s)"
+         if expired else "Audit worker failed before completing a result"),
+        expired=expired,
+    ))
+    return _resource_result(resource, attempts)
+
+
+def audit_resource(resource: dict) -> dict:
+    # Isolated Python ignores caller PYTHONPATH/startup customization. The worker
+    # executes this trusted file, never a command or path taken from a catalog.
+    return _supervise_resource(
+        resource, [sys.executable, "-I", str(Path(__file__).resolve()), "--_worker"],
+        RESOURCE_DEADLINE_SECONDS,
+    )
 
 
 def load_catalog(path: Path) -> dict:
@@ -308,7 +418,7 @@ def main(argv=None) -> int:
             results = list(pool.map(audit_resource, catalog["resources"]))
         counts = dict(sorted(Counter(r["classification"] for r in results).items()))
         report = {
-            "schemaVersion": "1.1",
+            "schemaVersion": "1.2",
             "projectId": catalog["projectId"],
             "catalogSha256": catalog_hash,
             "startedAt": started,
@@ -317,6 +427,8 @@ def main(argv=None) -> int:
             "settings": {
                 "workers": 4,
                 "timeoutSeconds": TIMEOUT,
+                "resourceDeadlineSeconds": RESOURCE_DEADLINE_SECONDS,
+                "deadlineScope": "per resource; startup, DNS, connect, TLS, redirects, reads, retries and backoff",
                 "transientRetries": 1,
                 "maxGetBytes": MAX_BODY_BYTES,
                 "destinationPolicy": "public-addresses-only; HTTPS port 443; no proxies",
@@ -346,4 +458,6 @@ def main(argv=None) -> int:
 
 
 if __name__ == "__main__":
+    if sys.argv[1:] == ["--_worker"]:
+        raise SystemExit(_worker_main())
     raise SystemExit(main())
