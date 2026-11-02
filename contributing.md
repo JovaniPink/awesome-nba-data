@@ -96,7 +96,10 @@ information. Clear evidence, courteous review, and small follow-up corrections a
 
 Run `python3 scripts/audit_links.py --output /tmp/catalog-link-audit.json` from the
 repository root. This standard-library command reads the generated catalog, uses four
-workers with 20-second socket timeouts, retries a transient failure once per resource,
+workers. Each resource gets one 20-second overall budget, including interpreter startup,
+DNS, connect, TLS, redirects, headers/body reads, retry backoff, and HEAD-to-GET
+fallback. Socket timeouts also remain 20 seconds. The checker retries a transient
+failure once per resource,
 and falls back from unsupported, blocked, or missing HEAD responses, HEAD timeouts,
 and any HEAD 5xx server response to GET (at most 64 KiB). Transient HEAD failures use
 at most one retry before fallback; the retry budget is shared with GET and never resets
@@ -108,7 +111,7 @@ remain in the report even when GET succeeds.
 Redirects are limited to five hops. Initial requests, redirects, retries, and GET
 fallbacks allow only credential-free HTTPS on port 443 and public IP destinations.
 
-The version 1.1 JSON report includes the input catalog hash, timestamps, resource IDs,
+The version 1.2 JSON report includes the input catalog hash, timestamps, resource IDs,
 HTTP statuses, redirect chains, final URLs, errors, and all request attempts. A readable
 summary is also printed. `reachable` means HTTP success only: the command does not
 verify page content, data accuracy, rights, freshness, or completeness. Inspect redirects,
@@ -117,7 +120,14 @@ limits, missing responses, server failures, and transport errors remain separate
 A 403 or timeout is not evidence that a resource is dead. `security-blocked` means
 local policy refused the destination before sending HTTP to it; it is not a publisher
 HTTP response. Version 1.1 adds this classification and the destination policy setting;
-historical version 1.0 reports remain unchanged.
+historical version 1.0 and 1.1 reports remain unchanged. Version 1.2 adds the
+`resourceDeadlineSeconds` and `deadlineScope` settings, `deadline-exceeded` and
+`worker-error` classifications, and an incomplete terminal attempt when work is stopped.
+Completed attempt evidence is retained, including earlier redirects and failures. An
+interrupted request has no invented HTTP status or final redirect target; its terminal
+record uses the canonical URL and marks its phase and `incomplete: true`. A deadline
+result ends processing for that resource: it never resets the budget, retries or falls
+back to GET. Neither new classification means the source is dead.
 
 The connector checks every resolved IPv4/IPv6 address and rejects the entire DNS answer
 if any address is non-public. It connects directly to a validated numeric address to
@@ -125,6 +135,17 @@ avoid a second DNS lookup, retaining the original hostname for Host, TLS SNI, an
 certificate verification. Private, loopback, link-local/metadata, shared, multicast,
 reserved, and IPv6 transition/translation destinations are refused. Environment and
 system proxies are disabled; there is no insecure bypass option.
+
+The parent runs each resource in a separate isolated Python process with a fixed
+command and JSON input, and kills and reaps it when its monotonic budget expires.
+This stops blocked DNS and slow-drip reads without leaving background work behind;
+returning from a timed-out thread alone would not do that. Four supervisors limit
+concurrent resource processes to four. The deadline is counted before process launch,
+but operating-system process creation and termination/scheduling overhead may add
+time beyond the budget; this is not a hard real-time guarantee. No signal alarm or
+fork from the thread pool is used. Process failure is reported, never retried through
+an unprotected in-process path. The internal worker mode and HTTP engine are private
+implementation/test seams, not standalone audit entry points.
 
 This policy intentionally refuses nonstandard ports and some special-purpose ranges.
 It is an application-level restriction, not network isolation: DNS still uses the system
