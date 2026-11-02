@@ -1314,10 +1314,10 @@
         "methodologyWarnings": [
           "Review the publisher methodology, access conditions, license, retrieval date, review date, and as-of meaning before use."
         ],
-        "publisher": "Sports Odds API (BetRivers, Unibet & 22 more books)"
+        "publisher": "Sports Odds API (Apify)"
       },
-      "summary": "Unofficial paid Apify Actor, also callable as a remote MCP tool, that reads public Kambi sportsbook feeds and returns current NBA moneyline, spread, and total prices (or a game's full board, including player props and alternate lines) from up to 24 books such as BetRivers and Unibet, with the best price per outcome; each run is a point-in-time market snapshot, so keep your own retrieval timestamps for line history, and each book's terms apply.",
-      "title": "Sports Odds API (BetRivers, Unibet & 22 more books)",
+      "summary": "Unofficial paid Apify Actor for point-in-time NBA sportsbook prices from public Kambi feeds; operator coverage varies, and full-board mode is limited to 12 operators per run. Requires an Apify account; historical analysis needs saved retrieval timestamps, each provider's terms apply, and authenticated output accuracy has not been independently qualified.",
+      "title": "Sports Odds API (Apify)",
       "visibility": "public"
     },
     {
