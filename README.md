@@ -73,6 +73,7 @@ rights to the upstream data.
 - [PBP Stats API Docs](https://api.pbpstats.com/docs) - Paid API documentation for derived possession, lineup, on-off, and WOWY data.
 - [BALLDONTLIE NBA API](https://docs.balldontlie.io/) - API-key service with free teams, players, and games; statistics, play-by-play, lineups, injuries, and odds require paid tiers.
 - [Realtime Sports API - NBA](https://www.realtimesportsapi.com/apis/nba) - Commercial API-key service for NBA scores, play-by-play, box scores, rosters, injuries, and news, aggregated from public sources rather than an official league feed and typically 20-30 seconds behind live with no SLA; the free tier allows 125 calls per month, webhooks require a paid plan, and redistribution requires authorization under the service terms.
+- [Sports Odds API (Apify)](https://apify.com/publicrecords/sports-odds-api) - Unofficial paid Apify Actor for point-in-time NBA sportsbook prices from public Kambi feeds; operator coverage varies, and full-board mode is limited to 12 operators per run. Requires an Apify account; historical analysis needs saved retrieval timestamps, each provider's terms apply, and authenticated output accuracy has not been independently qualified.
 - [Kaggle - NBA Datasets](https://www.kaggle.com/search?q=NBA+dataset) - Community dataset index where provenance, license, coverage, and correction behavior must be checked per dataset.
 
 ## Licensed Production Feeds
