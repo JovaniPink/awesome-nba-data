@@ -55,6 +55,7 @@ High-signal analytics destinations and dashboards (some paid). Great for impact 
 - [PBP Stats](https://www.pbpstats.com/) - Derived on-off, WOWY, lineup, and possession views with a subscriber API.
 - [NBAstuffer](https://www.nbastuffer.com/) - Aggregated dashboards, pace/strength-of-schedule, lineup tools, and analytics guides.
 - [Inpredictable](https://www.inpredictable.com/) - Win probability models and tempo/variance research for NBA and other sports.
+- [Clutch forecast evaluation](https://clutchledger.com/accuracy/) - Public NBA forecast grading and calibration with separately labeled backtests and linked hash receipts; probabilities blend a model with market prices, app features include paid tiers, and only Clutch's own numbers carry its stated CC BY 4.0 grant. Full-history timing and forecast performance have not been independently audited.
 - [Thinking Basketball (formerly Back Picks)](https://thinkingbasketball.net/) - Ben Taylor's basketball analysis, historical series, and statistical tools; access is mixed, with some articles requiring Patreon membership.
 - [82Games](https://www.82games.com/) - Lineup, five-player-unit, on/off, physicality, and game-analysis archives with current-season research.
 - [Crafted NBA](https://craftednba.com/) - Player/team dashboards and meta-metrics (DARKO, DRIP, LEBRON, RAPTOR, CraftedPM), comparisons, and roles.
