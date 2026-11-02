@@ -1,0 +1,1172 @@
+{
+  "schemaVersion": "1.0",
+  "projectId": "awesome-nba-data",
+  "catalogSha256": "6877264e4a402ef30dc6a0eac005e23fc6f50cc92e21bb01f8497e5f10d6a200",
+  "startedAt": "2026-10-20T19:31:13+00:00",
+  "completedAt": "2026-10-20T19:31:19+00:00",
+  "boundary": "Transport observations only; HTTP success does not establish relevant content, rights, freshness, completeness, or quality.",
+  "settings": {
+    "workers": 4,
+    "timeoutSeconds": 20,
+    "transientRetries": 1,
+    "maxGetBytes": 65536
+  },
+  "summary": {
+    "blocked/authentication-required": 1,
+    "reachable": 41,
+    "redirected": 4
+  },
+  "resources": [
+    {
+      "resourceId": "awesome-nba-data:source:r-e78466be5cd0d44f",
+      "url": "https://www.nba.com/",
+      "observedAt": "2026-10-20T19:31:13+00:00",
+      "method": "HEAD",
+      "httpStatus": 200,
+      "finalUrl": "https://www.nba.com/",
+      "redirectChain": [],
+      "error": null,
+      "classification": "reachable",
+      "crossDomainRedirect": false,
+      "contentReview": "not-performed",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "observedAt": "2026-10-20T19:31:13+00:00",
+          "httpStatus": 200,
+          "finalUrl": "https://www.nba.com/",
+          "redirectChain": [],
+          "error": null
+        }
+      ]
+    },
+    {
+      "resourceId": "awesome-nba-data:source:r-d98fede98556e68a",
+      "url": "https://www.nba.com/stats/",
+      "observedAt": "2026-10-20T19:31:13+00:00",
+      "method": "HEAD",
+      "httpStatus": 200,
+      "finalUrl": "https://www.nba.com/stats/players/traditional",
+      "redirectChain": [
+        {
+          "status": 308,
+          "from": "https://www.nba.com/stats/",
+          "to": "https://www.nba.com/stats"
+        },
+        {
+          "status": 308,
+          "from": "https://www.nba.com/stats",
+          "to": "https://www.nba.com/stats/players/traditional"
+        }
+      ],
+      "error": null,
+      "classification": "redirected",
+      "crossDomainRedirect": false,
+      "contentReview": "not-performed",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "observedAt": "2026-10-20T19:31:13+00:00",
+          "httpStatus": 200,
+          "finalUrl": "https://www.nba.com/stats/players/traditional",
+          "redirectChain": [
+            {
+              "status": 308,
+              "from": "https://www.nba.com/stats/",
+              "to": "https://www.nba.com/stats"
+            },
+            {
+              "status": 308,
+              "from": "https://www.nba.com/stats",
+              "to": "https://www.nba.com/stats/players/traditional"
+            }
+          ],
+          "error": null
+        }
+      ]
+    },
+    {
+      "resourceId": "awesome-nba-data:source:r-9a7f801352410462",
+      "url": "https://official.nba.com/",
+      "observedAt": "2026-10-20T19:31:13+00:00",
+      "method": "HEAD",
+      "httpStatus": 200,
+      "finalUrl": "https://official.nba.com/",
+      "redirectChain": [],
+      "error": null,
+      "classification": "reachable",
+      "crossDomainRedirect": false,
+      "contentReview": "not-performed",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "observedAt": "2026-10-20T19:31:13+00:00",
+          "httpStatus": 200,
+          "finalUrl": "https://official.nba.com/",
+          "redirectChain": [],
+          "error": null
+        }
+      ]
+    },
+    {
+      "resourceId": "awesome-nba-data:source:r-3063054135fc11e3",
+      "url": "https://pr.nba.com/",
+      "observedAt": "2026-10-20T19:31:13+00:00",
+      "method": "HEAD",
+      "httpStatus": 200,
+      "finalUrl": "https://pr.nba.com/",
+      "redirectChain": [],
+      "error": null,
+      "classification": "reachable",
+      "crossDomainRedirect": false,
+      "contentReview": "not-performed",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "observedAt": "2026-10-20T19:31:13+00:00",
+          "httpStatus": 200,
+          "finalUrl": "https://pr.nba.com/",
+          "redirectChain": [],
+          "error": null
+        }
+      ]
+    },
+    {
+      "resourceId": "awesome-nba-data:source:r-0709ba5d2bc45120",
+      "url": "https://official.nba.com/nba-injury-report-2026-27-season/",
+      "observedAt": "2026-10-20T19:31:13+00:00",
+      "method": "HEAD",
+      "httpStatus": 200,
+      "finalUrl": "https://official.nba.com/nba-injury-report-2026-27-season/",
+      "redirectChain": [],
+      "error": null,
+      "classification": "reachable",
+      "crossDomainRedirect": false,
+      "contentReview": "not-performed",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "observedAt": "2026-10-20T19:31:13+00:00",
+          "httpStatus": 200,
+          "finalUrl": "https://official.nba.com/nba-injury-report-2026-27-season/",
+          "redirectChain": [],
+          "error": null
+        }
+      ]
+    },
+    {
+      "resourceId": "awesome-nba-data:source:r-dcbb662defbaebe3",
+      "url": "https://www.nba.com/players/transactions",
+      "observedAt": "2026-10-20T19:31:13+00:00",
+      "method": "HEAD",
+      "httpStatus": 200,
+      "finalUrl": "https://www.nba.com/players/transactions",
+      "redirectChain": [],
+      "error": null,
+      "classification": "reachable",
+      "crossDomainRedirect": false,
+      "contentReview": "not-performed",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "observedAt": "2026-10-20T19:31:13+00:00",
+          "httpStatus": 200,
+          "finalUrl": "https://www.nba.com/players/transactions",
+          "redirectChain": [],
+          "error": null
+        }
+      ]
+    },
+    {
+      "resourceId": "awesome-nba-data:source:r-7462fd1a585f3d76",
+      "url": "https://www.basketball-reference.com/",
+      "observedAt": "2026-10-20T19:31:13+00:00",
+      "method": "HEAD",
+      "httpStatus": 200,
+      "finalUrl": "https://www.basketball-reference.com/",
+      "redirectChain": [],
+      "error": null,
+      "classification": "reachable",
+      "crossDomainRedirect": false,
+      "contentReview": "not-performed",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "observedAt": "2026-10-20T19:31:13+00:00",
+          "httpStatus": 200,
+          "finalUrl": "https://www.basketball-reference.com/",
+          "redirectChain": [],
+          "error": null
+        }
+      ]
+    },
+    {
+      "resourceId": "awesome-nba-data:source:r-4a9848e25b158757",
+      "url": "https://stathead.com/basketball/",
+      "observedAt": "2026-10-20T19:31:13+00:00",
+      "method": "GET",
+      "httpStatus": 403,
+      "finalUrl": "https://www.sports-reference.com/stathead/basketball/",
+      "redirectChain": [
+        {
+          "status": 301,
+          "from": "https://stathead.com/basketball/",
+          "to": "https://www.sports-reference.com/stathead/basketball/"
+        }
+      ],
+      "error": "Forbidden",
+      "classification": "blocked/authentication-required",
+      "crossDomainRedirect": true,
+      "contentReview": "not-performed",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "observedAt": "2026-10-20T19:31:13+00:00",
+          "httpStatus": 403,
+          "finalUrl": "https://www.sports-reference.com/stathead/basketball/",
+          "redirectChain": [
+            {
+              "status": 301,
+              "from": "https://stathead.com/basketball/",
+              "to": "https://www.sports-reference.com/stathead/basketball/"
+            }
+          ],
+          "error": "Forbidden"
+        },
+        {
+          "method": "GET",
+          "observedAt": "2026-10-20T19:31:13+00:00",
+          "httpStatus": 403,
+          "finalUrl": "https://www.sports-reference.com/stathead/basketball/",
+          "redirectChain": [
+            {
+              "status": 301,
+              "from": "https://stathead.com/basketball/",
+              "to": "https://www.sports-reference.com/stathead/basketball/"
+            }
+          ],
+          "error": "Forbidden"
+        }
+      ]
+    },
+    {
+      "resourceId": "awesome-nba-data:source:r-9c10909ae2787fbf",
+      "url": "https://www.espn.com/nba/stats",
+      "observedAt": "2026-10-20T19:31:13+00:00",
+      "method": "HEAD",
+      "httpStatus": 200,
+      "finalUrl": "https://www.espn.com/nba/stats",
+      "redirectChain": [],
+      "error": null,
+      "classification": "reachable",
+      "crossDomainRedirect": false,
+      "contentReview": "not-performed",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "observedAt": "2026-10-20T19:31:13+00:00",
+          "httpStatus": 200,
+          "finalUrl": "https://www.espn.com/nba/stats",
+          "redirectChain": [],
+          "error": null
+        }
+      ]
+    },
+    {
+      "resourceId": "awesome-nba-data:source:r-1fc9c4c83034bde7",
+      "url": "https://cleaningtheglass.com/",
+      "observedAt": "2026-10-20T19:31:13+00:00",
+      "method": "HEAD",
+      "httpStatus": 200,
+      "finalUrl": "https://cleaningtheglass.com/",
+      "redirectChain": [],
+      "error": null,
+      "classification": "reachable",
+      "crossDomainRedirect": false,
+      "contentReview": "not-performed",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "observedAt": "2026-10-20T19:31:13+00:00",
+          "httpStatus": 200,
+          "finalUrl": "https://cleaningtheglass.com/",
+          "redirectChain": [],
+          "error": null
+        }
+      ]
+    },
+    {
+      "resourceId": "awesome-nba-data:source:r-33d4d34d975ca795",
+      "url": "https://dunksandthrees.com/epm",
+      "observedAt": "2026-10-20T19:31:13+00:00",
+      "method": "HEAD",
+      "httpStatus": 200,
+      "finalUrl": "https://dunksandthrees.com/epm",
+      "redirectChain": [],
+      "error": null,
+      "classification": "reachable",
+      "crossDomainRedirect": false,
+      "contentReview": "not-performed",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "observedAt": "2026-10-20T19:31:13+00:00",
+          "httpStatus": 200,
+          "finalUrl": "https://dunksandthrees.com/epm",
+          "redirectChain": [],
+          "error": null
+        }
+      ]
+    },
+    {
+      "resourceId": "awesome-nba-data:source:r-582ff88422cbb160",
+      "url": "https://www.bball-index.com/lebron-database/",
+      "observedAt": "2026-10-20T19:31:13+00:00",
+      "method": "HEAD",
+      "httpStatus": 200,
+      "finalUrl": "https://www.bball-index.com/lebron-database/",
+      "redirectChain": [],
+      "error": null,
+      "classification": "reachable",
+      "crossDomainRedirect": false,
+      "contentReview": "not-performed",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "observedAt": "2026-10-20T19:31:13+00:00",
+          "httpStatus": 200,
+          "finalUrl": "https://www.bball-index.com/lebron-database/",
+          "redirectChain": [],
+          "error": null
+        }
+      ]
+    },
+    {
+      "resourceId": "awesome-nba-data:source:r-0e76f74950981260",
+      "url": "https://www.pbpstats.com/",
+      "observedAt": "2026-10-20T19:31:13+00:00",
+      "method": "HEAD",
+      "httpStatus": 200,
+      "finalUrl": "https://www.pbpstats.com/",
+      "redirectChain": [],
+      "error": null,
+      "classification": "reachable",
+      "crossDomainRedirect": false,
+      "contentReview": "not-performed",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "observedAt": "2026-10-20T19:31:13+00:00",
+          "httpStatus": 200,
+          "finalUrl": "https://www.pbpstats.com/",
+          "redirectChain": [],
+          "error": null
+        }
+      ]
+    },
+    {
+      "resourceId": "awesome-nba-data:source:r-f43bd3508ddafdf6",
+      "url": "https://www.nbastuffer.com/",
+      "observedAt": "2026-10-20T19:31:14+00:00",
+      "method": "HEAD",
+      "httpStatus": 200,
+      "finalUrl": "https://www.nbastuffer.com/",
+      "redirectChain": [],
+      "error": null,
+      "classification": "reachable",
+      "crossDomainRedirect": false,
+      "contentReview": "not-performed",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "observedAt": "2026-10-20T19:31:14+00:00",
+          "httpStatus": 200,
+          "finalUrl": "https://www.nbastuffer.com/",
+          "redirectChain": [],
+          "error": null
+        }
+      ]
+    },
+    {
+      "resourceId": "awesome-nba-data:source:r-d47912d24ba9f27e",
+      "url": "https://www.inpredictable.com/",
+      "observedAt": "2026-10-20T19:31:14+00:00",
+      "method": "HEAD",
+      "httpStatus": 200,
+      "finalUrl": "https://www.inpredictable.com/",
+      "redirectChain": [],
+      "error": null,
+      "classification": "reachable",
+      "crossDomainRedirect": false,
+      "contentReview": "not-performed",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "observedAt": "2026-10-20T19:31:14+00:00",
+          "httpStatus": 200,
+          "finalUrl": "https://www.inpredictable.com/",
+          "redirectChain": [],
+          "error": null
+        }
+      ]
+    },
+    {
+      "resourceId": "awesome-nba-data:source:r-0f3ac71086c7bef2",
+      "url": "https://www.82games.com/",
+      "observedAt": "2026-10-20T19:31:14+00:00",
+      "method": "HEAD",
+      "httpStatus": 200,
+      "finalUrl": "https://www.82games.com/",
+      "redirectChain": [],
+      "error": null,
+      "classification": "reachable",
+      "crossDomainRedirect": false,
+      "contentReview": "not-performed",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "observedAt": "2026-10-20T19:31:14+00:00",
+          "httpStatus": 200,
+          "finalUrl": "https://www.82games.com/",
+          "redirectChain": [],
+          "error": null
+        }
+      ]
+    },
+    {
+      "resourceId": "awesome-nba-data:source:r-4cc853f4989ed5df",
+      "url": "https://craftednba.com/",
+      "observedAt": "2026-10-20T19:31:14+00:00",
+      "method": "HEAD",
+      "httpStatus": 200,
+      "finalUrl": "https://craftednba.com/",
+      "redirectChain": [],
+      "error": null,
+      "classification": "reachable",
+      "crossDomainRedirect": false,
+      "contentReview": "not-performed",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "observedAt": "2026-10-20T19:31:14+00:00",
+          "httpStatus": 200,
+          "finalUrl": "https://craftednba.com/",
+          "redirectChain": [],
+          "error": null
+        }
+      ]
+    },
+    {
+      "resourceId": "awesome-nba-data:source:r-8016c59a01fa127a",
+      "url": "https://www.nbarapm.com/",
+      "observedAt": "2026-10-20T19:31:14+00:00",
+      "method": "HEAD",
+      "httpStatus": 200,
+      "finalUrl": "https://nbarapm.com/",
+      "redirectChain": [
+        {
+          "status": 308,
+          "from": "https://www.nbarapm.com/",
+          "to": "https://nbarapm.com/"
+        }
+      ],
+      "error": null,
+      "classification": "redirected",
+      "crossDomainRedirect": false,
+      "contentReview": "not-performed",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "observedAt": "2026-10-20T19:31:14+00:00",
+          "httpStatus": 200,
+          "finalUrl": "https://nbarapm.com/",
+          "redirectChain": [
+            {
+              "status": 308,
+              "from": "https://www.nbarapm.com/",
+              "to": "https://nbarapm.com/"
+            }
+          ],
+          "error": null
+        }
+      ]
+    },
+    {
+      "resourceId": "awesome-nba-data:source:r-e101f23adadef835",
+      "url": "https://ultimatebigboard.com/nba/2027/methodology/",
+      "observedAt": "2026-10-20T19:31:14+00:00",
+      "method": "HEAD",
+      "httpStatus": 200,
+      "finalUrl": "https://ultimatebigboard.com/nba/2027/methodology/",
+      "redirectChain": [],
+      "error": null,
+      "classification": "reachable",
+      "crossDomainRedirect": false,
+      "contentReview": "not-performed",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "observedAt": "2026-10-20T19:31:14+00:00",
+          "httpStatus": 200,
+          "finalUrl": "https://ultimatebigboard.com/nba/2027/methodology/",
+          "redirectChain": [],
+          "error": null
+        }
+      ]
+    },
+    {
+      "resourceId": "awesome-nba-data:source:r-460f4b131846d2e2",
+      "url": "https://github.com/swar/nba_api",
+      "observedAt": "2026-10-20T19:31:14+00:00",
+      "method": "HEAD",
+      "httpStatus": 200,
+      "finalUrl": "https://github.com/swar/nba_api",
+      "redirectChain": [],
+      "error": null,
+      "classification": "reachable",
+      "crossDomainRedirect": false,
+      "contentReview": "not-performed",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "observedAt": "2026-10-20T19:31:14+00:00",
+          "httpStatus": 200,
+          "finalUrl": "https://github.com/swar/nba_api",
+          "redirectChain": [],
+          "error": null
+        }
+      ]
+    },
+    {
+      "resourceId": "awesome-nba-data:source:r-6f87a7e71888eff8",
+      "url": "https://hoopr.sportsdataverse.org/",
+      "observedAt": "2026-10-20T19:31:15+00:00",
+      "method": "HEAD",
+      "httpStatus": 200,
+      "finalUrl": "https://hoopr.sportsdataverse.org/",
+      "redirectChain": [],
+      "error": null,
+      "classification": "reachable",
+      "crossDomainRedirect": false,
+      "contentReview": "not-performed",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "observedAt": "2026-10-20T19:31:15+00:00",
+          "httpStatus": 200,
+          "finalUrl": "https://hoopr.sportsdataverse.org/",
+          "redirectChain": [],
+          "error": null
+        }
+      ]
+    },
+    {
+      "resourceId": "awesome-nba-data:source:r-78bdceeea3299db7",
+      "url": "https://py.sportsdataverse.org/",
+      "observedAt": "2026-10-20T19:31:15+00:00",
+      "method": "HEAD",
+      "httpStatus": 200,
+      "finalUrl": "https://py.sportsdataverse.org/",
+      "redirectChain": [],
+      "error": null,
+      "classification": "reachable",
+      "crossDomainRedirect": false,
+      "contentReview": "not-performed",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "observedAt": "2026-10-20T19:31:15+00:00",
+          "httpStatus": 200,
+          "finalUrl": "https://py.sportsdataverse.org/",
+          "redirectChain": [],
+          "error": null
+        }
+      ]
+    },
+    {
+      "resourceId": "awesome-nba-data:source:r-c3086a878c73c3e2",
+      "url": "https://github.com/dblackrun/pbpstats",
+      "observedAt": "2026-10-20T19:31:15+00:00",
+      "method": "HEAD",
+      "httpStatus": 200,
+      "finalUrl": "https://github.com/dblackrun/pbpstats",
+      "redirectChain": [],
+      "error": null,
+      "classification": "reachable",
+      "crossDomainRedirect": false,
+      "contentReview": "not-performed",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "observedAt": "2026-10-20T19:31:15+00:00",
+          "httpStatus": 200,
+          "finalUrl": "https://github.com/dblackrun/pbpstats",
+          "redirectChain": [],
+          "error": null
+        }
+      ]
+    },
+    {
+      "resourceId": "awesome-nba-data:source:r-ea23e0f0c5fd9d07",
+      "url": "https://api.pbpstats.com/docs",
+      "observedAt": "2026-10-20T19:31:15+00:00",
+      "method": "HEAD",
+      "httpStatus": 200,
+      "finalUrl": "https://api.pbpstats.com/docs",
+      "redirectChain": [],
+      "error": null,
+      "classification": "reachable",
+      "crossDomainRedirect": false,
+      "contentReview": "not-performed",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "observedAt": "2026-10-20T19:31:15+00:00",
+          "httpStatus": 200,
+          "finalUrl": "https://api.pbpstats.com/docs",
+          "redirectChain": [],
+          "error": null
+        }
+      ]
+    },
+    {
+      "resourceId": "awesome-nba-data:source:r-d2ad35a1f56ed617",
+      "url": "https://docs.balldontlie.io/",
+      "observedAt": "2026-10-20T19:31:15+00:00",
+      "method": "HEAD",
+      "httpStatus": 200,
+      "finalUrl": "https://docs.balldontlie.io/",
+      "redirectChain": [],
+      "error": null,
+      "classification": "reachable",
+      "crossDomainRedirect": false,
+      "contentReview": "not-performed",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "observedAt": "2026-10-20T19:31:15+00:00",
+          "httpStatus": 200,
+          "finalUrl": "https://docs.balldontlie.io/",
+          "redirectChain": [],
+          "error": null
+        }
+      ]
+    },
+    {
+      "resourceId": "awesome-nba-data:source:r-03cb5877091d9b7d",
+      "url": "https://www.realtimesportsapi.com/apis/nba",
+      "observedAt": "2026-10-20T19:31:15+00:00",
+      "method": "HEAD",
+      "httpStatus": 200,
+      "finalUrl": "https://www.realtimesportsapi.com/apis/nba",
+      "redirectChain": [],
+      "error": null,
+      "classification": "reachable",
+      "crossDomainRedirect": false,
+      "contentReview": "not-performed",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "observedAt": "2026-10-20T19:31:15+00:00",
+          "httpStatus": 200,
+          "finalUrl": "https://www.realtimesportsapi.com/apis/nba",
+          "redirectChain": [],
+          "error": null
+        }
+      ]
+    },
+    {
+      "resourceId": "awesome-nba-data:source:r-4fcafd0773e0c699",
+      "url": "https://www.kaggle.com/search?q=NBA+dataset",
+      "observedAt": "2026-10-20T19:31:16+00:00",
+      "method": "GET",
+      "httpStatus": 200,
+      "finalUrl": "https://www.kaggle.com/search?q=NBA+dataset",
+      "redirectChain": [],
+      "error": null,
+      "classification": "reachable",
+      "crossDomainRedirect": false,
+      "contentReview": "not-performed",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "observedAt": "2026-10-20T19:31:15+00:00",
+          "httpStatus": 404,
+          "finalUrl": "https://www.kaggle.com/search?q=NBA+dataset",
+          "redirectChain": [],
+          "error": "Not Found"
+        },
+        {
+          "method": "GET",
+          "observedAt": "2026-10-20T19:31:16+00:00",
+          "httpStatus": 200,
+          "finalUrl": "https://www.kaggle.com/search?q=NBA+dataset",
+          "redirectChain": [],
+          "error": null,
+          "sampleBytes": 5302
+        }
+      ]
+    },
+    {
+      "resourceId": "awesome-nba-data:source:r-8a21b47622f6d54b",
+      "url": "https://developer.sportradar.com/basketball/docs/nba-ig-api-basics",
+      "observedAt": "2026-10-20T19:31:15+00:00",
+      "method": "HEAD",
+      "httpStatus": 200,
+      "finalUrl": "https://developer.sportradar.com/basketball/docs/nba-ig-api-basics",
+      "redirectChain": [],
+      "error": null,
+      "classification": "reachable",
+      "crossDomainRedirect": false,
+      "contentReview": "not-performed",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "observedAt": "2026-10-20T19:31:15+00:00",
+          "httpStatus": 200,
+          "finalUrl": "https://developer.sportradar.com/basketball/docs/nba-ig-api-basics",
+          "redirectChain": [],
+          "error": null
+        }
+      ]
+    },
+    {
+      "resourceId": "awesome-nba-data:source:r-74b899cb82d57788",
+      "url": "https://sportsdata.io/developers/api-documentation/nba",
+      "observedAt": "2026-10-20T19:31:15+00:00",
+      "method": "HEAD",
+      "httpStatus": 200,
+      "finalUrl": "https://sportsdata.io/developers/api-documentation/nba",
+      "redirectChain": [],
+      "error": null,
+      "classification": "reachable",
+      "crossDomainRedirect": false,
+      "contentReview": "not-performed",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "observedAt": "2026-10-20T19:31:15+00:00",
+          "httpStatus": 200,
+          "finalUrl": "https://sportsdata.io/developers/api-documentation/nba",
+          "redirectChain": [],
+          "error": null
+        }
+      ]
+    },
+    {
+      "resourceId": "awesome-nba-data:source:r-fd3163763db68bad",
+      "url": "https://www.youtube.com/ThinkingBasketball",
+      "observedAt": "2026-10-20T19:31:15+00:00",
+      "method": "HEAD",
+      "httpStatus": 200,
+      "finalUrl": "https://www.youtube.com/ThinkingBasketball",
+      "redirectChain": [],
+      "error": null,
+      "classification": "reachable",
+      "crossDomainRedirect": false,
+      "contentReview": "not-performed",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "observedAt": "2026-10-20T19:31:15+00:00",
+          "httpStatus": 200,
+          "finalUrl": "https://www.youtube.com/ThinkingBasketball",
+          "redirectChain": [],
+          "error": null
+        }
+      ]
+    },
+    {
+      "resourceId": "awesome-nba-data:source:r-d7e56167f378fcee",
+      "url": "https://www.youtube.com/channel/UCCl9GMgbh3IbMwyMcU3YLjA",
+      "observedAt": "2026-10-20T19:31:16+00:00",
+      "method": "HEAD",
+      "httpStatus": 200,
+      "finalUrl": "https://www.youtube.com/channel/UCCl9GMgbh3IbMwyMcU3YLjA",
+      "redirectChain": [],
+      "error": null,
+      "classification": "reachable",
+      "crossDomainRedirect": false,
+      "contentReview": "not-performed",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "observedAt": "2026-10-20T19:31:16+00:00",
+          "httpStatus": 200,
+          "finalUrl": "https://www.youtube.com/channel/UCCl9GMgbh3IbMwyMcU3YLjA",
+          "redirectChain": [],
+          "error": null
+        }
+      ]
+    },
+    {
+      "resourceId": "awesome-nba-data:source:r-fe234a2c966c542b",
+      "url": "https://www.youtube.com/channel/UCw8h_jH2gB20wcZTJiaQNCA",
+      "observedAt": "2026-10-20T19:31:16+00:00",
+      "method": "HEAD",
+      "httpStatus": 200,
+      "finalUrl": "https://www.youtube.com/channel/UCw8h_jH2gB20wcZTJiaQNCA",
+      "redirectChain": [],
+      "error": null,
+      "classification": "reachable",
+      "crossDomainRedirect": false,
+      "contentReview": "not-performed",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "observedAt": "2026-10-20T19:31:16+00:00",
+          "httpStatus": 200,
+          "finalUrl": "https://www.youtube.com/channel/UCw8h_jH2gB20wcZTJiaQNCA",
+          "redirectChain": [],
+          "error": null
+        }
+      ]
+    },
+    {
+      "resourceId": "awesome-nba-data:source:r-4f038eb8504025d0",
+      "url": "https://pola.rs/",
+      "observedAt": "2026-10-20T19:31:16+00:00",
+      "method": "HEAD",
+      "httpStatus": 200,
+      "finalUrl": "https://pola.rs/",
+      "redirectChain": [],
+      "error": null,
+      "classification": "reachable",
+      "crossDomainRedirect": false,
+      "contentReview": "not-performed",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "observedAt": "2026-10-20T19:31:16+00:00",
+          "httpStatus": 200,
+          "finalUrl": "https://pola.rs/",
+          "redirectChain": [],
+          "error": null
+        }
+      ]
+    },
+    {
+      "resourceId": "awesome-nba-data:source:r-e567e1e36a985882",
+      "url": "https://duckdb.org/",
+      "observedAt": "2026-10-20T19:31:16+00:00",
+      "method": "HEAD",
+      "httpStatus": 200,
+      "finalUrl": "https://duckdb.org/",
+      "redirectChain": [],
+      "error": null,
+      "classification": "reachable",
+      "crossDomainRedirect": false,
+      "contentReview": "not-performed",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "observedAt": "2026-10-20T19:31:16+00:00",
+          "httpStatus": 200,
+          "finalUrl": "https://duckdb.org/",
+          "redirectChain": [],
+          "error": null
+        }
+      ]
+    },
+    {
+      "resourceId": "awesome-nba-data:source:r-264af391a9ade18c",
+      "url": "https://github.com/jaebradley/basketball_reference_web_scraper",
+      "observedAt": "2026-10-20T19:31:16+00:00",
+      "method": "HEAD",
+      "httpStatus": 200,
+      "finalUrl": "https://github.com/jaebradley/basketball_reference_web_scraper",
+      "redirectChain": [],
+      "error": null,
+      "classification": "reachable",
+      "crossDomainRedirect": false,
+      "contentReview": "not-performed",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "observedAt": "2026-10-20T19:31:16+00:00",
+          "httpStatus": 200,
+          "finalUrl": "https://github.com/jaebradley/basketball_reference_web_scraper",
+          "redirectChain": [],
+          "error": null
+        }
+      ]
+    },
+    {
+      "resourceId": "awesome-nba-data:source:r-4dc67cbf5824f723",
+      "url": "https://en.wikipedia.org/wiki/Player_efficiency_rating",
+      "observedAt": "2026-10-20T19:31:16+00:00",
+      "method": "HEAD",
+      "httpStatus": 200,
+      "finalUrl": "https://en.wikipedia.org/wiki/Player_efficiency_rating",
+      "redirectChain": [],
+      "error": null,
+      "classification": "reachable",
+      "crossDomainRedirect": false,
+      "contentReview": "not-performed",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "observedAt": "2026-10-20T19:31:16+00:00",
+          "httpStatus": 200,
+          "finalUrl": "https://en.wikipedia.org/wiki/Player_efficiency_rating",
+          "redirectChain": [],
+          "error": null
+        }
+      ]
+    },
+    {
+      "resourceId": "awesome-nba-data:source:r-3f479c9420f17aff",
+      "url": "https://www.basketball-reference.com/about/ws.html",
+      "observedAt": "2026-10-20T19:31:16+00:00",
+      "method": "HEAD",
+      "httpStatus": 200,
+      "finalUrl": "https://www.basketball-reference.com/about/ws.html",
+      "redirectChain": [],
+      "error": null,
+      "classification": "reachable",
+      "crossDomainRedirect": false,
+      "contentReview": "not-performed",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "observedAt": "2026-10-20T19:31:16+00:00",
+          "httpStatus": 200,
+          "finalUrl": "https://www.basketball-reference.com/about/ws.html",
+          "redirectChain": [],
+          "error": null
+        }
+      ]
+    },
+    {
+      "resourceId": "awesome-nba-data:source:r-974aada2cbc7193d",
+      "url": "https://en.wikipedia.org/wiki/Value_over_replacement_player",
+      "observedAt": "2026-10-20T19:31:17+00:00",
+      "method": "HEAD",
+      "httpStatus": 200,
+      "finalUrl": "https://en.wikipedia.org/wiki/Value_over_replacement_player",
+      "redirectChain": [],
+      "error": null,
+      "classification": "reachable",
+      "crossDomainRedirect": false,
+      "contentReview": "not-performed",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "observedAt": "2026-10-20T19:31:17+00:00",
+          "httpStatus": 200,
+          "finalUrl": "https://en.wikipedia.org/wiki/Value_over_replacement_player",
+          "redirectChain": [],
+          "error": null
+        }
+      ]
+    },
+    {
+      "resourceId": "awesome-nba-data:source:r-457a28b29d639279",
+      "url": "https://www.basketball-reference.com/about/bpm2.html",
+      "observedAt": "2026-10-20T19:31:17+00:00",
+      "method": "HEAD",
+      "httpStatus": 200,
+      "finalUrl": "https://www.basketball-reference.com/about/bpm2.html",
+      "redirectChain": [],
+      "error": null,
+      "classification": "reachable",
+      "crossDomainRedirect": false,
+      "contentReview": "not-performed",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "observedAt": "2026-10-20T19:31:17+00:00",
+          "httpStatus": 200,
+          "finalUrl": "https://www.basketball-reference.com/about/bpm2.html",
+          "redirectChain": [],
+          "error": null
+        }
+      ]
+    },
+    {
+      "resourceId": "awesome-nba-data:source:r-5be5a0861b6eb9c6",
+      "url": "https://en.wikipedia.org/wiki/True_shooting_percentage",
+      "observedAt": "2026-10-20T19:31:17+00:00",
+      "method": "HEAD",
+      "httpStatus": 200,
+      "finalUrl": "https://en.wikipedia.org/wiki/True_shooting_percentage",
+      "redirectChain": [],
+      "error": null,
+      "classification": "reachable",
+      "crossDomainRedirect": false,
+      "contentReview": "not-performed",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "observedAt": "2026-10-20T19:31:17+00:00",
+          "httpStatus": 200,
+          "finalUrl": "https://en.wikipedia.org/wiki/True_shooting_percentage",
+          "redirectChain": [],
+          "error": null
+        }
+      ]
+    },
+    {
+      "resourceId": "awesome-nba-data:source:r-03b41d29f2ae34a4",
+      "url": "https://www.breakthroughbasketball.com/stats/effective-field-goal-percentage.html",
+      "observedAt": "2026-10-20T19:31:17+00:00",
+      "method": "HEAD",
+      "httpStatus": 200,
+      "finalUrl": "https://www.breakthroughbasketball.com/stats/effective-field-goal-percentage",
+      "redirectChain": [
+        {
+          "status": 301,
+          "from": "https://www.breakthroughbasketball.com/stats/effective-field-goal-percentage.html",
+          "to": "https://www.breakthroughbasketball.com/stats/effective-field-goal-percentage"
+        }
+      ],
+      "error": null,
+      "classification": "redirected",
+      "crossDomainRedirect": false,
+      "contentReview": "not-performed",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "observedAt": "2026-10-20T19:31:17+00:00",
+          "httpStatus": 200,
+          "finalUrl": "https://www.breakthroughbasketball.com/stats/effective-field-goal-percentage",
+          "redirectChain": [
+            {
+              "status": 301,
+              "from": "https://www.breakthroughbasketball.com/stats/effective-field-goal-percentage.html",
+              "to": "https://www.breakthroughbasketball.com/stats/effective-field-goal-percentage"
+            }
+          ],
+          "error": null
+        }
+      ]
+    },
+    {
+      "resourceId": "awesome-nba-data:source:r-62b7d814b4ad0003",
+      "url": "https://www.bball-index.com/is-net-rating-still-king/",
+      "observedAt": "2026-10-20T19:31:17+00:00",
+      "method": "HEAD",
+      "httpStatus": 200,
+      "finalUrl": "https://www.bball-index.com/is-net-rating-still-king/",
+      "redirectChain": [],
+      "error": null,
+      "classification": "reachable",
+      "crossDomainRedirect": false,
+      "contentReview": "not-performed",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "observedAt": "2026-10-20T19:31:17+00:00",
+          "httpStatus": 200,
+          "finalUrl": "https://www.bball-index.com/is-net-rating-still-king/",
+          "redirectChain": [],
+          "error": null
+        }
+      ]
+    },
+    {
+      "resourceId": "awesome-nba-data:source:r-3e644526746a8fcf",
+      "url": "https://dunksandthrees.com/about/epm",
+      "observedAt": "2026-10-20T19:31:17+00:00",
+      "method": "HEAD",
+      "httpStatus": 200,
+      "finalUrl": "https://dunksandthrees.com/about/epm",
+      "redirectChain": [],
+      "error": null,
+      "classification": "reachable",
+      "crossDomainRedirect": false,
+      "contentReview": "not-performed",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "observedAt": "2026-10-20T19:31:17+00:00",
+          "httpStatus": 200,
+          "finalUrl": "https://dunksandthrees.com/about/epm",
+          "redirectChain": [],
+          "error": null
+        }
+      ]
+    },
+    {
+      "resourceId": "awesome-nba-data:source:r-acbd2392604b8051",
+      "url": "https://www.bball-index.com/lebron-introduction/",
+      "observedAt": "2026-10-20T19:31:17+00:00",
+      "method": "HEAD",
+      "httpStatus": 200,
+      "finalUrl": "https://www.bball-index.com/lebron-introduction/",
+      "redirectChain": [],
+      "error": null,
+      "classification": "reachable",
+      "crossDomainRedirect": false,
+      "contentReview": "not-performed",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "observedAt": "2026-10-20T19:31:17+00:00",
+          "httpStatus": 200,
+          "finalUrl": "https://www.bball-index.com/lebron-introduction/",
+          "redirectChain": [],
+          "error": null
+        }
+      ]
+    },
+    {
+      "resourceId": "awesome-nba-data:source:r-6d41d064689585f2",
+      "url": "https://github.com/fivethirtyeight/data/tree/master/nba-raptor",
+      "observedAt": "2026-10-20T19:31:17+00:00",
+      "method": "HEAD",
+      "httpStatus": 200,
+      "finalUrl": "https://github.com/fivethirtyeight/data/tree/master/nba-raptor",
+      "redirectChain": [],
+      "error": null,
+      "classification": "reachable",
+      "crossDomainRedirect": false,
+      "contentReview": "not-performed",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "observedAt": "2026-10-20T19:31:17+00:00",
+          "httpStatus": 200,
+          "finalUrl": "https://github.com/fivethirtyeight/data/tree/master/nba-raptor",
+          "redirectChain": [],
+          "error": null
+        }
+      ]
+    },
+    {
+      "resourceId": "awesome-nba-data:source:r-3a38915bb54b54e2",
+      "url": "https://backpicks.com/",
+      "observedAt": "2026-10-20T19:31:17+00:00",
+      "method": "HEAD",
+      "httpStatus": 200,
+      "finalUrl": "https://thinkingbasketball.net/",
+      "redirectChain": [
+        {
+          "status": 301,
+          "from": "https://backpicks.com/",
+          "to": "https://thinkingbasketball.net/"
+        }
+      ],
+      "error": null,
+      "classification": "redirected",
+      "crossDomainRedirect": true,
+      "contentReview": "not-performed",
+      "attempts": [
+        {
+          "method": "HEAD",
+          "observedAt": "2026-10-20T19:31:17+00:00",
+          "httpStatus": 200,
+          "finalUrl": "https://thinkingbasketball.net/",
+          "redirectChain": [
+            {
+              "status": 301,
+              "from": "https://backpicks.com/",
+              "to": "https://thinkingbasketball.net/"
+            }
+          ],
+          "error": null
+        }
+      ]
+    }
+  ]
+}

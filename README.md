@@ -2,6 +2,12 @@
 
 > A curated list of up-to-date NBA data sources, analytics sites, APIs, tools, and explainers. Each item includes a short description and a reliable URL.
 
+Maintained by [Jovani Pink](https://github.com/JovaniPink), with support from The Measured
+Studios and community contributors. This public catalog helps people discover useful
+sources for NBA data and analysis and understand their limitations. Everyone is welcome to
+[suggest a source, report a correction, or contribute](#contributing); no coding is
+required to open an issue. See [reuse and attribution](LICENSING.md).
+
 Catalog structure reviewed: August 2026.
 
 Catalog entries present on August 13, 2026, were reviewed on that date. Later additions carry
@@ -10,7 +16,7 @@ behavior and access classification. The [source matrix](docs/source-matrix.md) k
 coverage and use constraints separate from link availability. A responding URL is not permission
 to collect, store, model, or republish its data.
 
-The [machine-readable resource index](catalog/resources.v1.json) assigns stable public identifiers while preserving the catalog boundary: inclusion is curation, not endorsement, permission, maintenance proof, or model fitness proof. See the [resource index contract](docs/knowledge-resource-index.md) before using an entry in a model or lab.
+The [machine-readable resource index](catalog/resources.v1.json) assigns stable public identifiers while preserving the catalog boundary: inclusion is curation, not endorsement, permission, maintenance proof, or model fitness proof. The index uses schema version 1.1 and retains unknown access and source authority until reviewed evidence is supplied. See the [resource index contract](docs/knowledge-resource-index.md) before using an entry in a model or lab.
 
 ## Contents
 
@@ -33,7 +39,7 @@ About this section: Official league-operated sites. Best sources for box scores,
 - [NBA Stats (stats.nba.com)](https://www.nba.com/stats/) - Official stats portal for box scores, play-by-play, shooting, tracking summaries, lineups, and Hustle data; it is not a published bulk-data license.
 - [NBA Official (Officiating Hub)](https://official.nba.com/) - Official rulebook, Coach's Challenge, and Last Two Minute report hub.
 - [NBA Communications](https://pr.nba.com/) - Official press releases for transactions, awards, schedule changes, and league announcements.
-- [NBA Injury Report: 2025-26 Season](https://official.nba.com/nba-injury-report-2025-26-season/) - Official, season-specific reports containing participation statuses and stated reasons that teams update throughout reporting windows; this changing web reference is not a historical bulk-data API.
+- [NBA Injury Report: 2026-27 Season](https://official.nba.com/nba-injury-report-2026-27-season/) - Official, season-specific reports containing participation statuses and stated reasons that teams update throughout reporting windows; this changing web reference is not a historical bulk-data API.
 - [NBA Player Transactions](https://www.nba.com/players/transactions) - Official filterable transaction reference for signings, waivers, trades, and other roster moves; the public page does not establish a documented bulk-data license.
 
 ## Analytics & Advanced Metrics Sites
@@ -49,9 +55,11 @@ High-signal analytics destinations and dashboards (some paid). Great for impact 
 - [PBP Stats](https://www.pbpstats.com/) - Derived on-off, WOWY, lineup, and possession views with a subscriber API.
 - [NBAstuffer](https://www.nbastuffer.com/) - Aggregated dashboards, pace/strength-of-schedule, lineup tools, and analytics guides.
 - [Inpredictable](https://www.inpredictable.com/) - Win probability models and tempo/variance research for NBA and other sports.
+- [Thinking Basketball (formerly Back Picks)](https://thinkingbasketball.net/) - Ben Taylor's basketball analysis, historical series, and statistical tools; access is mixed, with some articles requiring Patreon membership.
 - [82Games](https://www.82games.com/) - Lineup, five-player-unit, on/off, physicality, and game-analysis archives with current-season research.
 - [Crafted NBA](https://craftednba.com/) - Player/team dashboards and meta-metrics (DARKO, DRIP, LEBRON, RAPTOR, CraftedPM), comparisons, and roles.
 - [NBA RAPM (nbarapm.com)](https://www.nbarapm.com/) - Career and rolling **RAPM** plus cross-metric peak summaries.
+- [Ultimate Big Board - NBA draft rankings](https://ultimatebigboard.com/nba/2027/methodology/) - Unofficial aggregate mock-draft rankings with explained methodology, a changing live CSV and fixed dated captures; these represent analyst opinions, not observed performance or draft outcomes, and access grants no blanket upstream reuse rights.
 
 ## APIs & Open Data
 
@@ -64,7 +72,9 @@ rights to the upstream data.
 - [pbpstats](https://github.com/dblackrun/pbpstats) - Open-source parser that derives possessions, lineups, and shot-zone context from NBA, WNBA, and G League play-by-play.
 - [PBP Stats API Docs](https://api.pbpstats.com/docs) - Paid API documentation for derived possession, lineup, on-off, and WOWY data.
 - [BALLDONTLIE NBA API](https://docs.balldontlie.io/) - API-key service with free teams, players, and games; statistics, play-by-play, lineups, injuries, and odds require paid tiers.
-- [Bet Better NBA model outputs](https://betbetter.world/predicted-scores/nba) - Free CSV/JSON of model score predictions (margin, total, win probability) plus results-only [power rankings](https://betbetter.world/power-rankings/nba); fixed documented columns, no key, CC BY 4.0; in-season only.
+- [Realtime Sports API - NBA](https://www.realtimesportsapi.com/apis/nba) - Commercial API-key service for NBA scores, play-by-play, box scores, rosters, injuries, and news, aggregated from public sources rather than an official league feed and typically 20-30 seconds behind live with no SLA; the free tier allows 125 calls per month, webhooks require a paid plan, and redistribution requires authorization under the service terms.
+- [Sports Odds API (Apify)](https://apify.com/publicrecords/sports-odds-api) - Unofficial paid Apify Actor for point-in-time NBA sportsbook prices from public Kambi feeds; operator coverage varies, and full-board mode is limited to 12 operators per run. Requires an Apify account; historical analysis needs saved retrieval timestamps, each provider's terms apply, and authenticated output accuracy has not been independently qualified.
+- [Bet Better NBA model outputs](https://betbetter.world/predicted-scores/nba) - Provides free, keyless CSV and JSON of modeled NBA scores, margins and totals under the publisher's CC BY 4.0 attribution statement; fields can be null, updates are not a historical archive, and forecast accuracy and upstream data rights have not been independently qualified.
 - [Kaggle - NBA Datasets](https://www.kaggle.com/search?q=NBA+dataset) - Community dataset index where provenance, license, coverage, and correction behavior must be checked per dataset.
 
 ## Licensed Production Feeds
@@ -93,9 +103,8 @@ Commercial feeds whose contract, purchased products, and approved purpose determ
 - [VORP - Value Over Replacement Player](https://en.wikipedia.org/wiki/Value_over_replacement_player) - Overview of the box-score estimate of points contributed relative to a replacement player.
 - [BPM - Box Plus/Minus](https://www.basketball-reference.com/about/bpm2.html) - Basketball-Reference methodology for estimating player contribution per 100 possessions from box-score data.
 - [TS% - True Shooting Percentage](https://en.wikipedia.org/wiki/True_shooting_percentage) - Overview of scoring efficiency that incorporates field goals, three-pointers, and free throws.
-- [eFG% - Effective Field Goal Percentage](https://www.breakthroughbasketball.com/stats/effective-field-goal-percentage.html) - Explanation of field-goal percentage adjusted for the added value of three-pointers.
+- [eFG% - Effective Field Goal Percentage](https://www.breakthroughbasketball.com/stats/effective-field-goal-percentage) - Explanation of field-goal percentage adjusted for the added value of three-pointers.
 - [Net Rating](https://www.bball-index.com/is-net-rating-still-king/) - Discussion of team or lineup point differential per 100 possessions and its limitations.
-- [RAPTOR - Intro and Method](https://fivethirtyeight.com/features/introducing-raptor-our-new-metric-for-the-modern-nba/) - Archived FiveThirtyEight explainer for its historical player-impact model.
 - [EPM - Estimated Plus-Minus Methodology](https://dunksandthrees.com/about/epm) - Dunks & Threes methodology for its player-impact estimate.
 - [LEBRON - Metric Introduction](https://www.bball-index.com/lebron-introduction/) - Basketball Index introduction to its player-impact metric and design goals.
 
@@ -103,25 +112,14 @@ Commercial feeds whose contract, purchased products, and approved purpose determ
 
 Historical or lower-activity resources - good references, but not always current.
 
-- [FiveThirtyEight NBA](https://fivethirtyeight.com/tag/nba/) - NBA coverage largely archived; RAPTOR explainer still valuable.
-- [Back Picks](https://backpicks.com/) - Ben Taylor's long-form analytics pieces and historical series.
+- [FiveThirtyEight Historical RAPTOR Data](https://github.com/fivethirtyeight/data/tree/master/nba-raptor) - Archived player-impact estimates and CSV field documentation; historical coverage uses different model inputs across eras, including box-score estimates before modern tracking data, and is not a current-season feed or a substitute for the unavailable original methodology article.
 
 ---
 
 ## Contributing
 
-Spotted a dead link, better mirror, or a new high-signal resource? Pull requests are welcome. Keep
-additions current, specific, and non-promotional; see [contributing.md](contributing.md).
-
-Before opening a pull request, run the dependency-free catalog gate with Python 3.11 or newer:
-
-```sh
-python3 -m unittest discover -s tests -v
-python3 scripts/validate_readme.py README.md
-```
-
-GitHub Actions runs the same checks on Python 3.11 and Python 3.14 for every pull request and push to
-`main`. The validator checks Contents order and anchors, required files, relative links, unique HTTPS
-resource URLs, entry formatting, and exact coverage in the dated source audit. A passing result does
-not prove permission, maintenance quality, or fit for a particular use; those require the source
-matrix and an explicit terms review.
+Help make this catalog more useful: suggest a source, report a broken link, improve a
+limitation, or clarify an explanation. First-time contributors are welcome, and opening
+an issue does not require coding. Start with the [contribution guide](contributing.md).
+We review evidence and disclose affiliations; inclusion is not endorsement or a grant
+of rights to third-party data. Please follow our [Code of Conduct](code-of-conduct.md).

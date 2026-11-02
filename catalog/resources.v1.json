@@ -24,7 +24,7 @@
         "sourceIds": []
       },
       "relationships": [],
-      "schemaVersion": "1.0",
+      "schemaVersion": "1.1",
       "semantics": {
         "domains": [
           "sports"
@@ -38,8 +38,8 @@
         ]
       },
       "source": {
-        "accessStatus": "open-access",
-        "authorityRole": "secondary-source",
+        "accessStatus": "unknown",
+        "authorityRole": "unknown",
         "canonicalUrl": "https://www.nba.com/",
         "license": "Resource-specific terms apply; catalog inclusion grants no license.",
         "methodologyWarnings": [
@@ -71,7 +71,7 @@
         "sourceIds": []
       },
       "relationships": [],
-      "schemaVersion": "1.0",
+      "schemaVersion": "1.1",
       "semantics": {
         "domains": [
           "sports"
@@ -85,8 +85,8 @@
         ]
       },
       "source": {
-        "accessStatus": "open-access",
-        "authorityRole": "secondary-source",
+        "accessStatus": "unknown",
+        "authorityRole": "unknown",
         "canonicalUrl": "https://www.nba.com/stats/",
         "license": "Resource-specific terms apply; catalog inclusion grants no license.",
         "methodologyWarnings": [
@@ -118,7 +118,7 @@
         "sourceIds": []
       },
       "relationships": [],
-      "schemaVersion": "1.0",
+      "schemaVersion": "1.1",
       "semantics": {
         "domains": [
           "sports"
@@ -132,8 +132,8 @@
         ]
       },
       "source": {
-        "accessStatus": "open-access",
-        "authorityRole": "secondary-source",
+        "accessStatus": "unknown",
+        "authorityRole": "unknown",
         "canonicalUrl": "https://official.nba.com/",
         "license": "Resource-specific terms apply; catalog inclusion grants no license.",
         "methodologyWarnings": [
@@ -165,7 +165,7 @@
         "sourceIds": []
       },
       "relationships": [],
-      "schemaVersion": "1.0",
+      "schemaVersion": "1.1",
       "semantics": {
         "domains": [
           "sports"
@@ -179,8 +179,8 @@
         ]
       },
       "source": {
-        "accessStatus": "open-access",
-        "authorityRole": "secondary-source",
+        "accessStatus": "unknown",
+        "authorityRole": "unknown",
         "canonicalUrl": "https://pr.nba.com/",
         "license": "Resource-specific terms apply; catalog inclusion grants no license.",
         "methodologyWarnings": [
@@ -195,11 +195,11 @@
     {
       "corrections": [],
       "dates": {
-        "createdAt": "2026-08-30"
+        "createdAt": "2026-10-20"
       },
       "editorialStatus": "published",
       "evidenceStatus": "unreviewed",
-      "id": "awesome-nba-data:source:r-1f3e0e44c5cec003",
+      "id": "awesome-nba-data:source:r-0709ba5d2bc45120",
       "kind": "source",
       "legacyIds": [],
       "limitations": [
@@ -212,7 +212,7 @@
         "sourceIds": []
       },
       "relationships": [],
-      "schemaVersion": "1.0",
+      "schemaVersion": "1.1",
       "semantics": {
         "domains": [
           "sports"
@@ -226,17 +226,17 @@
         ]
       },
       "source": {
-        "accessStatus": "open-access",
-        "authorityRole": "secondary-source",
-        "canonicalUrl": "https://official.nba.com/nba-injury-report-2025-26-season/",
+        "accessStatus": "unknown",
+        "authorityRole": "unknown",
+        "canonicalUrl": "https://official.nba.com/nba-injury-report-2026-27-season/",
         "license": "Resource-specific terms apply; catalog inclusion grants no license.",
         "methodologyWarnings": [
           "Review the publisher methodology, access conditions, license, retrieval date, review date, and as-of meaning before use."
         ],
-        "publisher": "NBA Injury Report: 2025-26 Season"
+        "publisher": "NBA Injury Report: 2026-27 Season"
       },
       "summary": "Official, season-specific reports containing participation statuses and stated reasons that teams update throughout reporting windows; this changing web reference is not a historical bulk-data API.",
-      "title": "NBA Injury Report: 2025-26 Season",
+      "title": "NBA Injury Report: 2026-27 Season",
       "visibility": "public"
     },
     {
@@ -259,7 +259,7 @@
         "sourceIds": []
       },
       "relationships": [],
-      "schemaVersion": "1.0",
+      "schemaVersion": "1.1",
       "semantics": {
         "domains": [
           "sports"
@@ -273,8 +273,8 @@
         ]
       },
       "source": {
-        "accessStatus": "open-access",
-        "authorityRole": "secondary-source",
+        "accessStatus": "unknown",
+        "authorityRole": "unknown",
         "canonicalUrl": "https://www.nba.com/players/transactions",
         "license": "Resource-specific terms apply; catalog inclusion grants no license.",
         "methodologyWarnings": [
@@ -306,7 +306,7 @@
         "sourceIds": []
       },
       "relationships": [],
-      "schemaVersion": "1.0",
+      "schemaVersion": "1.1",
       "semantics": {
         "domains": [
           "sports"
@@ -320,8 +320,8 @@
         ]
       },
       "source": {
-        "accessStatus": "open-access",
-        "authorityRole": "secondary-source",
+        "accessStatus": "unknown",
+        "authorityRole": "unknown",
         "canonicalUrl": "https://www.basketball-reference.com/",
         "license": "Resource-specific terms apply; catalog inclusion grants no license.",
         "methodologyWarnings": [
@@ -353,7 +353,7 @@
         "sourceIds": []
       },
       "relationships": [],
-      "schemaVersion": "1.0",
+      "schemaVersion": "1.1",
       "semantics": {
         "domains": [
           "sports"
@@ -367,8 +367,8 @@
         ]
       },
       "source": {
-        "accessStatus": "licensed",
-        "authorityRole": "secondary-source",
+        "accessStatus": "unknown",
+        "authorityRole": "unknown",
         "canonicalUrl": "https://stathead.com/basketball/",
         "license": "Resource-specific terms apply; catalog inclusion grants no license.",
         "methodologyWarnings": [
@@ -400,7 +400,7 @@
         "sourceIds": []
       },
       "relationships": [],
-      "schemaVersion": "1.0",
+      "schemaVersion": "1.1",
       "semantics": {
         "domains": [
           "sports"
@@ -414,8 +414,8 @@
         ]
       },
       "source": {
-        "accessStatus": "open-access",
-        "authorityRole": "secondary-source",
+        "accessStatus": "unknown",
+        "authorityRole": "unknown",
         "canonicalUrl": "https://www.espn.com/nba/stats",
         "license": "Resource-specific terms apply; catalog inclusion grants no license.",
         "methodologyWarnings": [
@@ -447,7 +447,7 @@
         "sourceIds": []
       },
       "relationships": [],
-      "schemaVersion": "1.0",
+      "schemaVersion": "1.1",
       "semantics": {
         "domains": [
           "sports"
@@ -461,8 +461,8 @@
         ]
       },
       "source": {
-        "accessStatus": "licensed",
-        "authorityRole": "secondary-source",
+        "accessStatus": "unknown",
+        "authorityRole": "unknown",
         "canonicalUrl": "https://cleaningtheglass.com/",
         "license": "Resource-specific terms apply; catalog inclusion grants no license.",
         "methodologyWarnings": [
@@ -494,7 +494,7 @@
         "sourceIds": []
       },
       "relationships": [],
-      "schemaVersion": "1.0",
+      "schemaVersion": "1.1",
       "semantics": {
         "domains": [
           "sports"
@@ -508,8 +508,8 @@
         ]
       },
       "source": {
-        "accessStatus": "open-access",
-        "authorityRole": "secondary-source",
+        "accessStatus": "unknown",
+        "authorityRole": "unknown",
         "canonicalUrl": "https://dunksandthrees.com/epm",
         "license": "Resource-specific terms apply; catalog inclusion grants no license.",
         "methodologyWarnings": [
@@ -541,7 +541,7 @@
         "sourceIds": []
       },
       "relationships": [],
-      "schemaVersion": "1.0",
+      "schemaVersion": "1.1",
       "semantics": {
         "domains": [
           "sports"
@@ -555,8 +555,8 @@
         ]
       },
       "source": {
-        "accessStatus": "licensed",
-        "authorityRole": "secondary-source",
+        "accessStatus": "unknown",
+        "authorityRole": "unknown",
         "canonicalUrl": "https://www.bball-index.com/lebron-database/",
         "license": "Resource-specific terms apply; catalog inclusion grants no license.",
         "methodologyWarnings": [
@@ -588,7 +588,7 @@
         "sourceIds": []
       },
       "relationships": [],
-      "schemaVersion": "1.0",
+      "schemaVersion": "1.1",
       "semantics": {
         "domains": [
           "sports"
@@ -602,8 +602,8 @@
         ]
       },
       "source": {
-        "accessStatus": "open-access",
-        "authorityRole": "secondary-source",
+        "accessStatus": "unknown",
+        "authorityRole": "unknown",
         "canonicalUrl": "https://www.pbpstats.com/",
         "license": "Resource-specific terms apply; catalog inclusion grants no license.",
         "methodologyWarnings": [
@@ -635,7 +635,7 @@
         "sourceIds": []
       },
       "relationships": [],
-      "schemaVersion": "1.0",
+      "schemaVersion": "1.1",
       "semantics": {
         "domains": [
           "sports"
@@ -649,8 +649,8 @@
         ]
       },
       "source": {
-        "accessStatus": "open-access",
-        "authorityRole": "secondary-source",
+        "accessStatus": "unknown",
+        "authorityRole": "unknown",
         "canonicalUrl": "https://www.nbastuffer.com/",
         "license": "Resource-specific terms apply; catalog inclusion grants no license.",
         "methodologyWarnings": [
@@ -682,7 +682,7 @@
         "sourceIds": []
       },
       "relationships": [],
-      "schemaVersion": "1.0",
+      "schemaVersion": "1.1",
       "semantics": {
         "domains": [
           "sports"
@@ -696,8 +696,8 @@
         ]
       },
       "source": {
-        "accessStatus": "open-access",
-        "authorityRole": "secondary-source",
+        "accessStatus": "unknown",
+        "authorityRole": "unknown",
         "canonicalUrl": "https://www.inpredictable.com/",
         "license": "Resource-specific terms apply; catalog inclusion grants no license.",
         "methodologyWarnings": [
@@ -707,6 +707,53 @@
       },
       "summary": "Win probability models and tempo/variance research for NBA and other sports.",
       "title": "Inpredictable",
+      "visibility": "public"
+    },
+    {
+      "corrections": [],
+      "dates": {
+        "createdAt": "2026-10-20"
+      },
+      "editorialStatus": "published",
+      "evidenceStatus": "unreviewed",
+      "id": "awesome-nba-data:source:r-ca74207430a0449e",
+      "kind": "source",
+      "legacyIds": [],
+      "limitations": [
+        "Catalog inclusion is curation, not endorsement, permission, maintenance proof, or model fitness proof.",
+        "This record does not establish a dataset vintage, retrieval snapshot, license grant, or current availability."
+      ],
+      "projectId": "awesome-nba-data",
+      "provenance": {
+        "methodIds": [],
+        "sourceIds": []
+      },
+      "relationships": [],
+      "schemaVersion": "1.1",
+      "semantics": {
+        "domains": [
+          "sports"
+        ],
+        "entities": [],
+        "tags": [
+          "catalog-resource"
+        ],
+        "topics": [
+          "analytics-advanced-metrics-sites"
+        ]
+      },
+      "source": {
+        "accessStatus": "unknown",
+        "authorityRole": "unknown",
+        "canonicalUrl": "https://thinkingbasketball.net/",
+        "license": "Resource-specific terms apply; catalog inclusion grants no license.",
+        "methodologyWarnings": [
+          "Review the publisher methodology, access conditions, license, retrieval date, review date, and as-of meaning before use."
+        ],
+        "publisher": "Thinking Basketball (formerly Back Picks)"
+      },
+      "summary": "Ben Taylor's basketball analysis, historical series, and statistical tools; access is mixed, with some articles requiring Patreon membership.",
+      "title": "Thinking Basketball (formerly Back Picks)",
       "visibility": "public"
     },
     {
@@ -729,7 +776,7 @@
         "sourceIds": []
       },
       "relationships": [],
-      "schemaVersion": "1.0",
+      "schemaVersion": "1.1",
       "semantics": {
         "domains": [
           "sports"
@@ -743,8 +790,8 @@
         ]
       },
       "source": {
-        "accessStatus": "open-access",
-        "authorityRole": "secondary-source",
+        "accessStatus": "unknown",
+        "authorityRole": "unknown",
         "canonicalUrl": "https://www.82games.com/",
         "license": "Resource-specific terms apply; catalog inclusion grants no license.",
         "methodologyWarnings": [
@@ -776,7 +823,7 @@
         "sourceIds": []
       },
       "relationships": [],
-      "schemaVersion": "1.0",
+      "schemaVersion": "1.1",
       "semantics": {
         "domains": [
           "sports"
@@ -790,8 +837,8 @@
         ]
       },
       "source": {
-        "accessStatus": "open-access",
-        "authorityRole": "secondary-source",
+        "accessStatus": "unknown",
+        "authorityRole": "unknown",
         "canonicalUrl": "https://craftednba.com/",
         "license": "Resource-specific terms apply; catalog inclusion grants no license.",
         "methodologyWarnings": [
@@ -823,7 +870,7 @@
         "sourceIds": []
       },
       "relationships": [],
-      "schemaVersion": "1.0",
+      "schemaVersion": "1.1",
       "semantics": {
         "domains": [
           "sports"
@@ -837,8 +884,8 @@
         ]
       },
       "source": {
-        "accessStatus": "open-access",
-        "authorityRole": "secondary-source",
+        "accessStatus": "unknown",
+        "authorityRole": "unknown",
         "canonicalUrl": "https://www.nbarapm.com/",
         "license": "Resource-specific terms apply; catalog inclusion grants no license.",
         "methodologyWarnings": [
@@ -848,6 +895,53 @@
       },
       "summary": "Career and rolling **RAPM** plus cross-metric peak summaries.",
       "title": "NBA RAPM (nbarapm.com)",
+      "visibility": "public"
+    },
+    {
+      "corrections": [],
+      "dates": {
+        "createdAt": "2026-10-09"
+      },
+      "editorialStatus": "published",
+      "evidenceStatus": "unreviewed",
+      "id": "awesome-nba-data:source:r-e101f23adadef835",
+      "kind": "source",
+      "legacyIds": [],
+      "limitations": [
+        "Catalog inclusion is curation, not endorsement, permission, maintenance proof, or model fitness proof.",
+        "This record does not establish a dataset vintage, retrieval snapshot, license grant, or current availability."
+      ],
+      "projectId": "awesome-nba-data",
+      "provenance": {
+        "methodIds": [],
+        "sourceIds": []
+      },
+      "relationships": [],
+      "schemaVersion": "1.1",
+      "semantics": {
+        "domains": [
+          "sports"
+        ],
+        "entities": [],
+        "tags": [
+          "catalog-resource"
+        ],
+        "topics": [
+          "analytics-advanced-metrics-sites"
+        ]
+      },
+      "source": {
+        "accessStatus": "unknown",
+        "authorityRole": "unknown",
+        "canonicalUrl": "https://ultimatebigboard.com/nba/2027/methodology/",
+        "license": "Resource-specific terms apply; catalog inclusion grants no license.",
+        "methodologyWarnings": [
+          "Review the publisher methodology, access conditions, license, retrieval date, review date, and as-of meaning before use."
+        ],
+        "publisher": "Ultimate Big Board - NBA draft rankings"
+      },
+      "summary": "Unofficial aggregate mock-draft rankings with explained methodology, a changing live CSV and fixed dated captures; these represent analyst opinions, not observed performance or draft outcomes, and access grants no blanket upstream reuse rights.",
+      "title": "Ultimate Big Board - NBA draft rankings",
       "visibility": "public"
     },
     {
@@ -870,7 +964,7 @@
         "sourceIds": []
       },
       "relationships": [],
-      "schemaVersion": "1.0",
+      "schemaVersion": "1.1",
       "semantics": {
         "domains": [
           "sports"
@@ -884,8 +978,8 @@
         ]
       },
       "source": {
-        "accessStatus": "licensed",
-        "authorityRole": "secondary-source",
+        "accessStatus": "unknown",
+        "authorityRole": "unknown",
         "canonicalUrl": "https://github.com/swar/nba_api",
         "license": "Resource-specific terms apply; catalog inclusion grants no license.",
         "methodologyWarnings": [
@@ -917,7 +1011,7 @@
         "sourceIds": []
       },
       "relationships": [],
-      "schemaVersion": "1.0",
+      "schemaVersion": "1.1",
       "semantics": {
         "domains": [
           "sports"
@@ -931,8 +1025,8 @@
         ]
       },
       "source": {
-        "accessStatus": "open-access",
-        "authorityRole": "secondary-source",
+        "accessStatus": "unknown",
+        "authorityRole": "unknown",
         "canonicalUrl": "https://hoopr.sportsdataverse.org/",
         "license": "Resource-specific terms apply; catalog inclusion grants no license.",
         "methodologyWarnings": [
@@ -964,7 +1058,7 @@
         "sourceIds": []
       },
       "relationships": [],
-      "schemaVersion": "1.0",
+      "schemaVersion": "1.1",
       "semantics": {
         "domains": [
           "sports"
@@ -978,8 +1072,8 @@
         ]
       },
       "source": {
-        "accessStatus": "open-access",
-        "authorityRole": "secondary-source",
+        "accessStatus": "unknown",
+        "authorityRole": "unknown",
         "canonicalUrl": "https://py.sportsdataverse.org/",
         "license": "Resource-specific terms apply; catalog inclusion grants no license.",
         "methodologyWarnings": [
@@ -1011,7 +1105,7 @@
         "sourceIds": []
       },
       "relationships": [],
-      "schemaVersion": "1.0",
+      "schemaVersion": "1.1",
       "semantics": {
         "domains": [
           "sports"
@@ -1025,8 +1119,8 @@
         ]
       },
       "source": {
-        "accessStatus": "open-access",
-        "authorityRole": "secondary-source",
+        "accessStatus": "unknown",
+        "authorityRole": "unknown",
         "canonicalUrl": "https://github.com/dblackrun/pbpstats",
         "license": "Resource-specific terms apply; catalog inclusion grants no license.",
         "methodologyWarnings": [
@@ -1058,7 +1152,7 @@
         "sourceIds": []
       },
       "relationships": [],
-      "schemaVersion": "1.0",
+      "schemaVersion": "1.1",
       "semantics": {
         "domains": [
           "sports"
@@ -1072,8 +1166,8 @@
         ]
       },
       "source": {
-        "accessStatus": "licensed",
-        "authorityRole": "secondary-source",
+        "accessStatus": "unknown",
+        "authorityRole": "unknown",
         "canonicalUrl": "https://api.pbpstats.com/docs",
         "license": "Resource-specific terms apply; catalog inclusion grants no license.",
         "methodologyWarnings": [
@@ -1105,7 +1199,7 @@
         "sourceIds": []
       },
       "relationships": [],
-      "schemaVersion": "1.0",
+      "schemaVersion": "1.1",
       "semantics": {
         "domains": [
           "sports"
@@ -1119,8 +1213,8 @@
         ]
       },
       "source": {
-        "accessStatus": "licensed",
-        "authorityRole": "secondary-source",
+        "accessStatus": "unknown",
+        "authorityRole": "unknown",
         "canonicalUrl": "https://docs.balldontlie.io/",
         "license": "Resource-specific terms apply; catalog inclusion grants no license.",
         "methodologyWarnings": [
@@ -1130,6 +1224,147 @@
       },
       "summary": "API-key service with free teams, players, and games; statistics, play-by-play, lineups, injuries, and odds require paid tiers.",
       "title": "BALLDONTLIE NBA API",
+      "visibility": "public"
+    },
+    {
+      "corrections": [],
+      "dates": {
+        "createdAt": "2026-10-09"
+      },
+      "editorialStatus": "published",
+      "evidenceStatus": "unreviewed",
+      "id": "awesome-nba-data:source:r-03cb5877091d9b7d",
+      "kind": "source",
+      "legacyIds": [],
+      "limitations": [
+        "Catalog inclusion is curation, not endorsement, permission, maintenance proof, or model fitness proof.",
+        "This record does not establish a dataset vintage, retrieval snapshot, license grant, or current availability."
+      ],
+      "projectId": "awesome-nba-data",
+      "provenance": {
+        "methodIds": [],
+        "sourceIds": []
+      },
+      "relationships": [],
+      "schemaVersion": "1.1",
+      "semantics": {
+        "domains": [
+          "sports"
+        ],
+        "entities": [],
+        "tags": [
+          "catalog-resource"
+        ],
+        "topics": [
+          "apis-open-data"
+        ]
+      },
+      "source": {
+        "accessStatus": "unknown",
+        "authorityRole": "unknown",
+        "canonicalUrl": "https://www.realtimesportsapi.com/apis/nba",
+        "license": "Resource-specific terms apply; catalog inclusion grants no license.",
+        "methodologyWarnings": [
+          "Review the publisher methodology, access conditions, license, retrieval date, review date, and as-of meaning before use."
+        ],
+        "publisher": "Realtime Sports API - NBA"
+      },
+      "summary": "Commercial API-key service for NBA scores, play-by-play, box scores, rosters, injuries, and news, aggregated from public sources rather than an official league feed and typically 20-30 seconds behind live with no SLA; the free tier allows 125 calls per month, webhooks require a paid plan, and redistribution requires authorization under the service terms.",
+      "title": "Realtime Sports API - NBA",
+      "visibility": "public"
+    },
+    {
+      "corrections": [],
+      "dates": {
+        "createdAt": "2026-10-28"
+      },
+      "editorialStatus": "published",
+      "evidenceStatus": "unreviewed",
+      "id": "awesome-nba-data:source:r-430c852305d8b0f3",
+      "kind": "source",
+      "legacyIds": [],
+      "limitations": [
+        "Catalog inclusion is curation, not endorsement, permission, maintenance proof, or model fitness proof.",
+        "This record does not establish a dataset vintage, retrieval snapshot, license grant, or current availability."
+      ],
+      "projectId": "awesome-nba-data",
+      "provenance": {
+        "methodIds": [],
+        "sourceIds": []
+      },
+      "relationships": [],
+      "schemaVersion": "1.1",
+      "semantics": {
+        "domains": [
+          "sports"
+        ],
+        "entities": [],
+        "tags": [
+          "catalog-resource"
+        ],
+        "topics": [
+          "apis-open-data"
+        ]
+      },
+      "source": {
+        "accessStatus": "unknown",
+        "authorityRole": "unknown",
+        "canonicalUrl": "https://apify.com/publicrecords/sports-odds-api",
+        "license": "Resource-specific terms apply; catalog inclusion grants no license.",
+        "methodologyWarnings": [
+          "Review the publisher methodology, access conditions, license, retrieval date, review date, and as-of meaning before use."
+        ],
+        "publisher": "Sports Odds API (Apify)"
+      },
+      "summary": "Unofficial paid Apify Actor for point-in-time NBA sportsbook prices from public Kambi feeds; operator coverage varies, and full-board mode is limited to 12 operators per run. Requires an Apify account; historical analysis needs saved retrieval timestamps, each provider's terms apply, and authenticated output accuracy has not been independently qualified.",
+      "title": "Sports Odds API (Apify)",
+      "visibility": "public"
+    },
+    {
+      "corrections": [],
+      "dates": {
+        "createdAt": "2026-09-03"
+      },
+      "editorialStatus": "published",
+      "evidenceStatus": "unreviewed",
+      "id": "awesome-nba-data:source:r-ea4550fdf034a610",
+      "kind": "source",
+      "legacyIds": [],
+      "limitations": [
+        "Catalog inclusion is curation, not endorsement, permission, maintenance proof, or model fitness proof.",
+        "This record does not establish a dataset vintage, retrieval snapshot, license grant, or current availability."
+      ],
+      "projectId": "awesome-nba-data",
+      "provenance": {
+        "methodIds": [],
+        "sourceIds": []
+      },
+      "relationships": [],
+      "schemaVersion": "1.1",
+      "semantics": {
+        "domains": [
+          "sports"
+        ],
+        "entities": [],
+        "tags": [
+          "catalog-resource"
+        ],
+        "topics": [
+          "apis-open-data"
+        ]
+      },
+      "source": {
+        "accessStatus": "unknown",
+        "authorityRole": "unknown",
+        "canonicalUrl": "https://betbetter.world/predicted-scores/nba",
+        "license": "Resource-specific terms apply; catalog inclusion grants no license.",
+        "methodologyWarnings": [
+          "Review the publisher methodology, access conditions, license, retrieval date, review date, and as-of meaning before use."
+        ],
+        "publisher": "Bet Better NBA model outputs"
+      },
+      "summary": "Provides free, keyless CSV and JSON of modeled NBA scores, margins and totals under the publisher's CC BY 4.0 attribution statement; fields can be null, updates are not a historical archive, and forecast accuracy and upstream data rights have not been independently qualified.",
+      "title": "Bet Better NBA model outputs",
       "visibility": "public"
     },
     {
@@ -1152,7 +1387,7 @@
         "sourceIds": []
       },
       "relationships": [],
-      "schemaVersion": "1.0",
+      "schemaVersion": "1.1",
       "semantics": {
         "domains": [
           "sports"
@@ -1166,8 +1401,8 @@
         ]
       },
       "source": {
-        "accessStatus": "open-access",
-        "authorityRole": "secondary-source",
+        "accessStatus": "unknown",
+        "authorityRole": "unknown",
         "canonicalUrl": "https://www.kaggle.com/search?q=NBA+dataset",
         "license": "Resource-specific terms apply; catalog inclusion grants no license.",
         "methodologyWarnings": [
@@ -1199,7 +1434,7 @@
         "sourceIds": []
       },
       "relationships": [],
-      "schemaVersion": "1.0",
+      "schemaVersion": "1.1",
       "semantics": {
         "domains": [
           "sports"
@@ -1213,8 +1448,8 @@
         ]
       },
       "source": {
-        "accessStatus": "licensed",
-        "authorityRole": "secondary-source",
+        "accessStatus": "unknown",
+        "authorityRole": "unknown",
         "canonicalUrl": "https://developer.sportradar.com/basketball/docs/nba-ig-api-basics",
         "license": "Resource-specific terms apply; catalog inclusion grants no license.",
         "methodologyWarnings": [
@@ -1246,7 +1481,7 @@
         "sourceIds": []
       },
       "relationships": [],
-      "schemaVersion": "1.0",
+      "schemaVersion": "1.1",
       "semantics": {
         "domains": [
           "sports"
@@ -1260,8 +1495,8 @@
         ]
       },
       "source": {
-        "accessStatus": "licensed",
-        "authorityRole": "secondary-source",
+        "accessStatus": "unknown",
+        "authorityRole": "unknown",
         "canonicalUrl": "https://sportsdata.io/developers/api-documentation/nba",
         "license": "Resource-specific terms apply; catalog inclusion grants no license.",
         "methodologyWarnings": [
@@ -1293,7 +1528,7 @@
         "sourceIds": []
       },
       "relationships": [],
-      "schemaVersion": "1.0",
+      "schemaVersion": "1.1",
       "semantics": {
         "domains": [
           "sports"
@@ -1307,8 +1542,8 @@
         ]
       },
       "source": {
-        "accessStatus": "open-access",
-        "authorityRole": "secondary-source",
+        "accessStatus": "unknown",
+        "authorityRole": "unknown",
         "canonicalUrl": "https://www.youtube.com/ThinkingBasketball",
         "license": "Resource-specific terms apply; catalog inclusion grants no license.",
         "methodologyWarnings": [
@@ -1340,7 +1575,7 @@
         "sourceIds": []
       },
       "relationships": [],
-      "schemaVersion": "1.0",
+      "schemaVersion": "1.1",
       "semantics": {
         "domains": [
           "sports"
@@ -1354,8 +1589,8 @@
         ]
       },
       "source": {
-        "accessStatus": "open-access",
-        "authorityRole": "secondary-source",
+        "accessStatus": "unknown",
+        "authorityRole": "unknown",
         "canonicalUrl": "https://www.youtube.com/channel/UCCl9GMgbh3IbMwyMcU3YLjA",
         "license": "Resource-specific terms apply; catalog inclusion grants no license.",
         "methodologyWarnings": [
@@ -1387,7 +1622,7 @@
         "sourceIds": []
       },
       "relationships": [],
-      "schemaVersion": "1.0",
+      "schemaVersion": "1.1",
       "semantics": {
         "domains": [
           "sports"
@@ -1401,8 +1636,8 @@
         ]
       },
       "source": {
-        "accessStatus": "open-access",
-        "authorityRole": "secondary-source",
+        "accessStatus": "unknown",
+        "authorityRole": "unknown",
         "canonicalUrl": "https://www.youtube.com/channel/UCw8h_jH2gB20wcZTJiaQNCA",
         "license": "Resource-specific terms apply; catalog inclusion grants no license.",
         "methodologyWarnings": [
@@ -1434,7 +1669,7 @@
         "sourceIds": []
       },
       "relationships": [],
-      "schemaVersion": "1.0",
+      "schemaVersion": "1.1",
       "semantics": {
         "domains": [
           "sports"
@@ -1448,8 +1683,8 @@
         ]
       },
       "source": {
-        "accessStatus": "open-access",
-        "authorityRole": "secondary-source",
+        "accessStatus": "unknown",
+        "authorityRole": "unknown",
         "canonicalUrl": "https://pola.rs/",
         "license": "Resource-specific terms apply; catalog inclusion grants no license.",
         "methodologyWarnings": [
@@ -1481,7 +1716,7 @@
         "sourceIds": []
       },
       "relationships": [],
-      "schemaVersion": "1.0",
+      "schemaVersion": "1.1",
       "semantics": {
         "domains": [
           "sports"
@@ -1495,8 +1730,8 @@
         ]
       },
       "source": {
-        "accessStatus": "open-access",
-        "authorityRole": "secondary-source",
+        "accessStatus": "unknown",
+        "authorityRole": "unknown",
         "canonicalUrl": "https://duckdb.org/",
         "license": "Resource-specific terms apply; catalog inclusion grants no license.",
         "methodologyWarnings": [
@@ -1528,7 +1763,7 @@
         "sourceIds": []
       },
       "relationships": [],
-      "schemaVersion": "1.0",
+      "schemaVersion": "1.1",
       "semantics": {
         "domains": [
           "sports"
@@ -1542,8 +1777,8 @@
         ]
       },
       "source": {
-        "accessStatus": "open-access",
-        "authorityRole": "secondary-source",
+        "accessStatus": "unknown",
+        "authorityRole": "unknown",
         "canonicalUrl": "https://github.com/jaebradley/basketball_reference_web_scraper",
         "license": "Resource-specific terms apply; catalog inclusion grants no license.",
         "methodologyWarnings": [
@@ -1575,7 +1810,7 @@
         "sourceIds": []
       },
       "relationships": [],
-      "schemaVersion": "1.0",
+      "schemaVersion": "1.1",
       "semantics": {
         "domains": [
           "sports"
@@ -1589,8 +1824,8 @@
         ]
       },
       "source": {
-        "accessStatus": "open-access",
-        "authorityRole": "secondary-source",
+        "accessStatus": "unknown",
+        "authorityRole": "unknown",
         "canonicalUrl": "https://en.wikipedia.org/wiki/Player_efficiency_rating",
         "license": "Resource-specific terms apply; catalog inclusion grants no license.",
         "methodologyWarnings": [
@@ -1622,7 +1857,7 @@
         "sourceIds": []
       },
       "relationships": [],
-      "schemaVersion": "1.0",
+      "schemaVersion": "1.1",
       "semantics": {
         "domains": [
           "sports"
@@ -1636,8 +1871,8 @@
         ]
       },
       "source": {
-        "accessStatus": "open-access",
-        "authorityRole": "secondary-source",
+        "accessStatus": "unknown",
+        "authorityRole": "unknown",
         "canonicalUrl": "https://www.basketball-reference.com/about/ws.html",
         "license": "Resource-specific terms apply; catalog inclusion grants no license.",
         "methodologyWarnings": [
@@ -1669,7 +1904,7 @@
         "sourceIds": []
       },
       "relationships": [],
-      "schemaVersion": "1.0",
+      "schemaVersion": "1.1",
       "semantics": {
         "domains": [
           "sports"
@@ -1683,8 +1918,8 @@
         ]
       },
       "source": {
-        "accessStatus": "open-access",
-        "authorityRole": "secondary-source",
+        "accessStatus": "unknown",
+        "authorityRole": "unknown",
         "canonicalUrl": "https://en.wikipedia.org/wiki/Value_over_replacement_player",
         "license": "Resource-specific terms apply; catalog inclusion grants no license.",
         "methodologyWarnings": [
@@ -1716,7 +1951,7 @@
         "sourceIds": []
       },
       "relationships": [],
-      "schemaVersion": "1.0",
+      "schemaVersion": "1.1",
       "semantics": {
         "domains": [
           "sports"
@@ -1730,8 +1965,8 @@
         ]
       },
       "source": {
-        "accessStatus": "open-access",
-        "authorityRole": "secondary-source",
+        "accessStatus": "unknown",
+        "authorityRole": "unknown",
         "canonicalUrl": "https://www.basketball-reference.com/about/bpm2.html",
         "license": "Resource-specific terms apply; catalog inclusion grants no license.",
         "methodologyWarnings": [
@@ -1763,7 +1998,7 @@
         "sourceIds": []
       },
       "relationships": [],
-      "schemaVersion": "1.0",
+      "schemaVersion": "1.1",
       "semantics": {
         "domains": [
           "sports"
@@ -1777,8 +2012,8 @@
         ]
       },
       "source": {
-        "accessStatus": "open-access",
-        "authorityRole": "secondary-source",
+        "accessStatus": "unknown",
+        "authorityRole": "unknown",
         "canonicalUrl": "https://en.wikipedia.org/wiki/True_shooting_percentage",
         "license": "Resource-specific terms apply; catalog inclusion grants no license.",
         "methodologyWarnings": [
@@ -1793,11 +2028,11 @@
     {
       "corrections": [],
       "dates": {
-        "createdAt": "2026-08-30"
+        "createdAt": "2026-10-20"
       },
       "editorialStatus": "published",
       "evidenceStatus": "unreviewed",
-      "id": "awesome-nba-data:source:r-03b41d29f2ae34a4",
+      "id": "awesome-nba-data:source:r-eb6700273e904903",
       "kind": "source",
       "legacyIds": [],
       "limitations": [
@@ -1810,7 +2045,7 @@
         "sourceIds": []
       },
       "relationships": [],
-      "schemaVersion": "1.0",
+      "schemaVersion": "1.1",
       "semantics": {
         "domains": [
           "sports"
@@ -1824,9 +2059,9 @@
         ]
       },
       "source": {
-        "accessStatus": "open-access",
-        "authorityRole": "secondary-source",
-        "canonicalUrl": "https://www.breakthroughbasketball.com/stats/effective-field-goal-percentage.html",
+        "accessStatus": "unknown",
+        "authorityRole": "unknown",
+        "canonicalUrl": "https://www.breakthroughbasketball.com/stats/effective-field-goal-percentage",
         "license": "Resource-specific terms apply; catalog inclusion grants no license.",
         "methodologyWarnings": [
           "Review the publisher methodology, access conditions, license, retrieval date, review date, and as-of meaning before use."
@@ -1857,7 +2092,7 @@
         "sourceIds": []
       },
       "relationships": [],
-      "schemaVersion": "1.0",
+      "schemaVersion": "1.1",
       "semantics": {
         "domains": [
           "sports"
@@ -1871,8 +2106,8 @@
         ]
       },
       "source": {
-        "accessStatus": "open-access",
-        "authorityRole": "secondary-source",
+        "accessStatus": "unknown",
+        "authorityRole": "unknown",
         "canonicalUrl": "https://www.bball-index.com/is-net-rating-still-king/",
         "license": "Resource-specific terms apply; catalog inclusion grants no license.",
         "methodologyWarnings": [
@@ -1882,53 +2117,6 @@
       },
       "summary": "Discussion of team or lineup point differential per 100 possessions and its limitations.",
       "title": "Net Rating",
-      "visibility": "public"
-    },
-    {
-      "corrections": [],
-      "dates": {
-        "createdAt": "2026-08-30"
-      },
-      "editorialStatus": "published",
-      "evidenceStatus": "unreviewed",
-      "id": "awesome-nba-data:source:r-6069c3321be7f4b9",
-      "kind": "source",
-      "legacyIds": [],
-      "limitations": [
-        "Catalog inclusion is curation, not endorsement, permission, maintenance proof, or model fitness proof.",
-        "This record does not establish a dataset vintage, retrieval snapshot, license grant, or current availability."
-      ],
-      "projectId": "awesome-nba-data",
-      "provenance": {
-        "methodIds": [],
-        "sourceIds": []
-      },
-      "relationships": [],
-      "schemaVersion": "1.0",
-      "semantics": {
-        "domains": [
-          "sports"
-        ],
-        "entities": [],
-        "tags": [
-          "catalog-resource"
-        ],
-        "topics": [
-          "advanced-stats-explained"
-        ]
-      },
-      "source": {
-        "accessStatus": "open-access",
-        "authorityRole": "secondary-source",
-        "canonicalUrl": "https://fivethirtyeight.com/features/introducing-raptor-our-new-metric-for-the-modern-nba/",
-        "license": "Resource-specific terms apply; catalog inclusion grants no license.",
-        "methodologyWarnings": [
-          "Review the publisher methodology, access conditions, license, retrieval date, review date, and as-of meaning before use."
-        ],
-        "publisher": "RAPTOR - Intro and Method"
-      },
-      "summary": "Archived FiveThirtyEight explainer for its historical player-impact model.",
-      "title": "RAPTOR - Intro and Method",
       "visibility": "public"
     },
     {
@@ -1951,7 +2139,7 @@
         "sourceIds": []
       },
       "relationships": [],
-      "schemaVersion": "1.0",
+      "schemaVersion": "1.1",
       "semantics": {
         "domains": [
           "sports"
@@ -1965,8 +2153,8 @@
         ]
       },
       "source": {
-        "accessStatus": "open-access",
-        "authorityRole": "secondary-source",
+        "accessStatus": "unknown",
+        "authorityRole": "unknown",
         "canonicalUrl": "https://dunksandthrees.com/about/epm",
         "license": "Resource-specific terms apply; catalog inclusion grants no license.",
         "methodologyWarnings": [
@@ -1998,7 +2186,7 @@
         "sourceIds": []
       },
       "relationships": [],
-      "schemaVersion": "1.0",
+      "schemaVersion": "1.1",
       "semantics": {
         "domains": [
           "sports"
@@ -2012,8 +2200,8 @@
         ]
       },
       "source": {
-        "accessStatus": "open-access",
-        "authorityRole": "secondary-source",
+        "accessStatus": "unknown",
+        "authorityRole": "unknown",
         "canonicalUrl": "https://www.bball-index.com/lebron-introduction/",
         "license": "Resource-specific terms apply; catalog inclusion grants no license.",
         "methodologyWarnings": [
@@ -2028,11 +2216,11 @@
     {
       "corrections": [],
       "dates": {
-        "createdAt": "2026-08-30"
+        "createdAt": "2026-10-20"
       },
       "editorialStatus": "published",
       "evidenceStatus": "unreviewed",
-      "id": "awesome-nba-data:source:r-78d771bfb38e2615",
+      "id": "awesome-nba-data:source:r-6d41d064689585f2",
       "kind": "source",
       "legacyIds": [],
       "limitations": [
@@ -2045,7 +2233,7 @@
         "sourceIds": []
       },
       "relationships": [],
-      "schemaVersion": "1.0",
+      "schemaVersion": "1.1",
       "semantics": {
         "domains": [
           "sports"
@@ -2059,66 +2247,19 @@
         ]
       },
       "source": {
-        "accessStatus": "open-access",
-        "authorityRole": "secondary-source",
-        "canonicalUrl": "https://fivethirtyeight.com/tag/nba/",
+        "accessStatus": "unknown",
+        "authorityRole": "unknown",
+        "canonicalUrl": "https://github.com/fivethirtyeight/data/tree/master/nba-raptor",
         "license": "Resource-specific terms apply; catalog inclusion grants no license.",
         "methodologyWarnings": [
           "Review the publisher methodology, access conditions, license, retrieval date, review date, and as-of meaning before use."
         ],
-        "publisher": "FiveThirtyEight NBA"
+        "publisher": "FiveThirtyEight Historical RAPTOR Data"
       },
-      "summary": "NBA coverage largely archived; RAPTOR explainer still valuable.",
-      "title": "FiveThirtyEight NBA",
-      "visibility": "public"
-    },
-    {
-      "corrections": [],
-      "dates": {
-        "createdAt": "2026-08-30"
-      },
-      "editorialStatus": "published",
-      "evidenceStatus": "unreviewed",
-      "id": "awesome-nba-data:source:r-3a38915bb54b54e2",
-      "kind": "source",
-      "legacyIds": [],
-      "limitations": [
-        "Catalog inclusion is curation, not endorsement, permission, maintenance proof, or model fitness proof.",
-        "This record does not establish a dataset vintage, retrieval snapshot, license grant, or current availability."
-      ],
-      "projectId": "awesome-nba-data",
-      "provenance": {
-        "methodIds": [],
-        "sourceIds": []
-      },
-      "relationships": [],
-      "schemaVersion": "1.0",
-      "semantics": {
-        "domains": [
-          "sports"
-        ],
-        "entities": [],
-        "tags": [
-          "catalog-resource"
-        ],
-        "topics": [
-          "legacy-archived-still-useful"
-        ]
-      },
-      "source": {
-        "accessStatus": "open-access",
-        "authorityRole": "secondary-source",
-        "canonicalUrl": "https://backpicks.com/",
-        "license": "Resource-specific terms apply; catalog inclusion grants no license.",
-        "methodologyWarnings": [
-          "Review the publisher methodology, access conditions, license, retrieval date, review date, and as-of meaning before use."
-        ],
-        "publisher": "Back Picks"
-      },
-      "summary": "Ben Taylor's long-form analytics pieces and historical series.",
-      "title": "Back Picks",
+      "summary": "Archived player-impact estimates and CSV field documentation; historical coverage uses different model inputs across eras, including box-score estimates before modern tracking data, and is not a current-season feed or a substitute for the unavailable original methodology article.",
+      "title": "FiveThirtyEight Historical RAPTOR Data",
       "visibility": "public"
     }
   ],
-  "schemaVersion": "1.0"
+  "schemaVersion": "1.1"
 }

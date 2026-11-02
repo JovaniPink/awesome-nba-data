@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+from datetime import date
 import hashlib
 import json
 import re
@@ -25,23 +26,6 @@ def _slug(value: str) -> str:
     return re.sub(r"[^a-z0-9]+", "-", value.lower()).strip("-")
 
 
-def _access_status(description: str) -> str:
-    normalized = description.lower()
-    if any(term in normalized for term in ("restricted", "limited to active")):
-        return "restricted"
-    if any(
-        term in normalized
-        for term in ("paid", "subscription", "commercial", "licensed")
-    ):
-        return "licensed"
-    if any(
-        term in normalized
-        for term in ("api key", "registration", "registered", "requires an account")
-    ):
-        return "registration-required"
-    return "open-access"
-
-
 def _resource_object(
     *,
     project_id: str,
@@ -54,7 +38,7 @@ def _resource_object(
 ) -> dict[str, Any]:
     resource_key = hashlib.sha256(url.encode("utf-8")).hexdigest()[:16]
     return {
-        "schemaVersion": "1.0",
+        "schemaVersion": "1.1",
         "id": f"{project_id}:source:r-{resource_key}",
         "projectId": project_id,
         "legacyIds": [],
@@ -81,8 +65,8 @@ def _resource_object(
         "source": {
             "canonicalUrl": url,
             "publisher": name,
-            "authorityRole": "secondary-source",
-            "accessStatus": _access_status(description),
+            "authorityRole": "unknown",
+            "accessStatus": "unknown",
             "license": "Resource-specific terms apply; catalog inclusion grants no license.",
             "methodologyWarnings": [
                 "Review the publisher methodology, access conditions, license, retrieval date, review date, and as-of meaning before use."
@@ -96,6 +80,9 @@ def build_projection() -> dict[str, Any]:
     project_id = config["projectId"]
     domains = config["domains"]
     projection_date = config["projectionDate"]
+    creation_dates = config.get("creationDates")
+    if not isinstance(creation_dates, dict):
+        raise ValueError("creationDates must map canonical URLs to explicit creation dates.")
     section = ""
     resources: list[dict[str, Any]] = []
 
@@ -110,11 +97,19 @@ def build_projection() -> dict[str, Any]:
         if not section:
             raise ValueError("Resource entry appears before a level-two section.")
         name, url, description = resource.groups()
+        if url not in creation_dates:
+            raise ValueError(f"Missing explicit catalog creation date for {url}")
+        created_at = creation_dates[url]
+        try:
+            if not isinstance(created_at, str) or date.fromisoformat(created_at).isoformat() != created_at:
+                raise ValueError
+        except ValueError as error:
+            raise ValueError(f"Invalid catalog creation date for {url}") from error
         resources.append(
             _resource_object(
                 project_id=project_id,
                 domains=domains,
-                projection_date=projection_date,
+                projection_date=created_at,
                 section=section,
                 name=name,
                 url=url,
@@ -129,7 +124,7 @@ def build_projection() -> dict[str, Any]:
         raise ValueError("Resource identifiers are not unique.")
 
     return {
-        "schemaVersion": "1.0",
+        "schemaVersion": "1.1",
         "projectId": project_id,
         "generatedFrom": "README.md",
         "projectionDate": projection_date,
