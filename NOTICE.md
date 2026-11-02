@@ -15,6 +15,7 @@ co-author trailers and the maintainer's changes.
 | PR | Contributor | Contribution | Original PR head | Inbound repository license |
 | --- | --- | --- | --- | --- |
 | [1](https://github.com/JovaniPink/awesome-nba-data/pull/1) | Alejandro Oceja (@Khavel) | Historical NbaPropLab entry and punctuation edits | `9f58c1ba946114cc057a37f1b331e57daaf586eb` | MIT |
+| [8](https://github.com/JovaniPink/awesome-nba-data/pull/8) | @edushinka | Bet Better source submission, integrated with maintainer editorial corrections | `3760174d7b49d70135574fe36f82812d521dd12a` | MIT |
 | [11](https://github.com/JovaniPink/awesome-nba-data/pull/11) | @jrg1125 | Ultimate Big Board entry and audit metadata | `b4c540f5b0362b8276c7b2635d2e08cf39cfca37` | MIT |
 | [12](https://github.com/JovaniPink/awesome-nba-data/pull/12) | Austin Hunter (@ahunter135) | Realtime Sports API entry and audit metadata | `507390e973bd68850d5cf1f9fb27be6f876b8a72` | MIT |
 
