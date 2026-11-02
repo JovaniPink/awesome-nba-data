@@ -62,6 +62,16 @@ project reporting contact remain in the file. The historical upstream
 [CC BY 4.0 license](https://github.com/ContributorCovenant/contributor_covenant/blob/519ee05a2a6c888129d5318db60893a8238f5c96/LICENSE.md)
 is retained for that adaptation; it is not newly claimed as solely authored by this project.
 
+## Source suggestions
+
+The maintainer independently wrote the entries and review records below, with AI
+assistance, following these community suggestions. Credit records the suggestion;
+it does not imply ownership transfer, endorsement, or co-authorship of maintainer prose.
+
+| Issue | Contributor | Suggestion and disclosure |
+| --- | --- | --- |
+| [22](https://github.com/JovaniPink/awesome-nba-data/issues/22) | @uguraltunbas | Clutch forecast evaluation; disclosed operating the service and AI assistance. |
+
 ## External sources
 
 Names, quotations, linked data, software, websites, logos, and trademarks belonging to
