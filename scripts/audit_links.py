@@ -298,16 +298,30 @@ def _worker_main() -> int:
     return 0
 
 
+def _incomplete_attempt(resource, method, phase, error, *, expired=False):
+    return {
+        "method": method, "observedAt": now(), "httpStatus": None,
+        "finalUrl": resource["source"]["canonicalUrl"], "redirectChain": [],
+        "error": error, "deadlineExceeded": expired, "workerFailed": not expired,
+        "timedOut": expired, "incomplete": True, "phase": phase,
+    }
+
+
 def _supervise_resource(resource: dict, command: list[str], deadline_seconds: float) -> dict:
     """Stop and reap DNS/HTTP work rather than abandoning a timed-out thread."""
     if not math.isfinite(deadline_seconds) or deadline_seconds <= 0:
         raise ValueError("Resource deadline must be finite and positive")
     expires = time.monotonic() + deadline_seconds
     expired = False
-    process = subprocess.Popen(
-        command, stdin=subprocess.PIPE, stdout=subprocess.PIPE,
-        stderr=subprocess.DEVNULL, text=True, encoding="utf-8",
-    )
+    try:
+        process = subprocess.Popen(
+            command, stdin=subprocess.PIPE, stdout=subprocess.PIPE,
+            stderr=subprocess.DEVNULL, text=True, encoding="utf-8",
+        )
+    except OSError as error:
+        return _resource_result(resource, [_incomplete_attempt(
+            resource, "HEAD", "startup", f"Audit worker could not start (OS error {error.errno})",
+        )])
     try:
         try:
             output, _ = process.communicate(
@@ -347,14 +361,12 @@ def _supervise_resource(resource: dict, command: list[str], deadline_seconds: fl
 
     # Preserve completed attempts, without inventing a response or redirect target
     # for an interrupted request. No retry or GET fallback follows this result.
-    attempts.append({
-        "method": method, "observedAt": now(), "httpStatus": None,
-        "finalUrl": resource["source"]["canonicalUrl"], "redirectChain": [],
-        "error": (f"Overall resource deadline exceeded ({deadline_seconds:g}s)"
-                  if expired else "Audit worker failed before completing a result"),
-        "deadlineExceeded": expired, "workerFailed": not expired,
-        "timedOut": expired, "incomplete": True, "phase": phase,
-    })
+    attempts.append(_incomplete_attempt(
+        resource, method, phase,
+        (f"Overall resource deadline exceeded ({deadline_seconds:g}s)"
+         if expired else "Audit worker failed before completing a result"),
+        expired=expired,
+    ))
     return _resource_result(resource, attempts)
 
 

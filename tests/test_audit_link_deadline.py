@@ -1,11 +1,15 @@
 """Exercise real process cancellation with offline DNS and drip transports."""
 
 from concurrent.futures import ThreadPoolExecutor
+from contextlib import redirect_stdout
+import errno
+import io
 import json
 from pathlib import Path
 import subprocess
 import sys
 import tempfile
+import threading
 import time
 import unittest
 from unittest.mock import patch
@@ -104,6 +108,36 @@ class OverallDeadlineTests(unittest.TestCase):
             child.wait.assert_called_once()
             child.stdin.close.assert_called_once()
             child.stdout.close.assert_called_once()
+
+    def test_launch_failure_is_a_resource_error_without_network_fallback(self):
+        with patch.object(subprocess, "Popen", side_effect=OSError(errno.EMFILE, "file descriptor limit")) as start:
+            result = audit.audit_resource(RESOURCE)
+        self.assertEqual(result["classification"], "worker-error")
+        self.assertIsNone(result["httpStatus"])
+        self.assertEqual(result["attempts"][-1]["phase"], "startup")
+        self.assertTrue(result["attempts"][-1]["incomplete"])
+        start.assert_called_once()
+
+    def test_launch_failure_does_not_discard_other_resource_observations(self):
+        create = subprocess.Popen
+        lock = threading.Lock()
+        first = True
+        def fail_one(*args, **kwargs):
+            nonlocal first
+            with lock:
+                if first:
+                    first = False
+                    raise OSError(errno.EMFILE, "file descriptor limit")
+            return create(*args, **kwargs)
+        with tempfile.TemporaryDirectory() as directory:
+            catalog, output = Path(directory) / "catalog.json", Path(directory) / "report.json"
+            resources = [{"id": str(i), "source": {"canonicalUrl": "https://publisher.example:8443/"}} for i in range(2)]
+            catalog.write_text(json.dumps({"projectId": "test", "resources": resources}))
+            with patch.object(subprocess, "Popen", fail_one), redirect_stdout(io.StringIO()):
+                self.assertEqual(audit.main(["--catalog", str(catalog), "--output", str(output)]), 0)
+            report = json.loads(output.read_text())
+            self.assertEqual(report["summary"], {"security-blocked": 1, "worker-error": 1})
+            self.assertEqual({r["resourceId"] for r in report["resources"]}, {"0", "1"})
 
     def test_cli_uses_supervision_and_versioned_deadline_settings(self):
         with tempfile.TemporaryDirectory() as directory:
