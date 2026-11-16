@@ -1370,6 +1370,53 @@
     {
       "corrections": [],
       "dates": {
+        "createdAt": "2026-11-16"
+      },
+      "editorialStatus": "published",
+      "evidenceStatus": "unreviewed",
+      "id": "awesome-nba-data:source:r-f43f48bbb3a2bc2a",
+      "kind": "source",
+      "legacyIds": [],
+      "limitations": [
+        "Catalog inclusion is curation, not endorsement, permission, maintenance proof, or model fitness proof.",
+        "This record does not establish a dataset vintage, retrieval snapshot, license grant, or current availability."
+      ],
+      "projectId": "awesome-nba-data",
+      "provenance": {
+        "methodIds": [],
+        "sourceIds": []
+      },
+      "relationships": [],
+      "schemaVersion": "1.1",
+      "semantics": {
+        "domains": [
+          "sports"
+        ],
+        "entities": [],
+        "tags": [
+          "catalog-resource"
+        ],
+        "topics": [
+          "apis-open-data"
+        ]
+      },
+      "source": {
+        "accessStatus": "unknown",
+        "authorityRole": "unknown",
+        "canonicalUrl": "https://dunkapi.com/docs",
+        "license": "Resource-specific terms apply; catalog inclusion grants no license.",
+        "methodologyWarnings": [
+          "Review the publisher methodology, access conditions, license, retrieval date, review date, and as-of meaning before use."
+        ],
+        "publisher": "DunkAPI"
+      },
+      "summary": "Commercial API-key service (REST and MCP) for NBA, WNBA and NCAA Division I games, box scores, play-by-play with located shots from 2004-05, point-in-time team stats, injuries and sportsbook lines; a free tier of 500 credits a month, paid plans above it, and terms that allow storing and modeling the data but bar redistributing it as a dataset, feed or API.",
+      "title": "DunkAPI",
+      "visibility": "public"
+    },
+    {
+      "corrections": [],
+      "dates": {
         "createdAt": "2026-10-28"
       },
       "editorialStatus": "published",
