@@ -1410,7 +1410,7 @@
         ],
         "publisher": "DunkAPI"
       },
-      "summary": "Commercial API-key service (REST and MCP) for NBA, WNBA and NCAA Division I games, box scores, play-by-play with located shots from 2004-05, point-in-time team stats, injuries and sportsbook lines; a free tier of 500 credits a month, paid plans above it, and terms that allow storing and modeling the data but bar redistributing it as a dataset, feed or API.",
+      "summary": "Commercial API-key service (REST and MCP) for NBA, WNBA and NCAA Division I games, box scores, play-by-play with located shots from 2003-04, team statistics filtered to games before a selected date, injuries and sportsbook lines; a free tier of 500 credits a month, paid plans above it, and terms that allow storing and modeling the data but bar redistributing it as a dataset, feed or API.",
       "title": "DunkAPI",
       "visibility": "public"
     },
