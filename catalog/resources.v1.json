@@ -705,8 +705,55 @@
         ],
         "publisher": "Keel Stats"
       },
-      "summary": "NBA statistical comparisons, usage and defense-versus-position views alongside proprietary ratings and projections; public pages are free, some tools require Pro, and documented MCP access requires an account. Editorial quotation of its own charts and numbers is permitted with credit; bulk extraction and raw redistribution are restricted.",
+      "summary": "NBA statistical views alongside Keel's modeled ratings and projections; public pages are free, documented MCP access includes limited account-free coverage, a free account expands historical access, and some tools require Pro. Credited editorial quotation of its own charts and numbers is permitted; bulk extraction and raw redistribution are restricted, and MCP behavior has not been independently tested here.",
       "title": "Keel Stats",
+      "visibility": "public"
+    },
+    {
+      "corrections": [],
+      "dates": {
+        "createdAt": "2026-11-25"
+      },
+      "editorialStatus": "published",
+      "evidenceStatus": "unreviewed",
+      "id": "awesome-nba-data:source:r-822085e63eb79dea",
+      "kind": "source",
+      "legacyIds": [],
+      "limitations": [
+        "Catalog inclusion is curation, not endorsement, permission, maintenance proof, or model fitness proof.",
+        "This record does not establish a dataset vintage, retrieval snapshot, license grant, or current availability."
+      ],
+      "projectId": "awesome-nba-data",
+      "provenance": {
+        "methodIds": [],
+        "sourceIds": []
+      },
+      "relationships": [],
+      "schemaVersion": "1.1",
+      "semantics": {
+        "domains": [
+          "sports"
+        ],
+        "entities": [],
+        "tags": [
+          "catalog-resource"
+        ],
+        "topics": [
+          "analytics-advanced-metrics-sites"
+        ]
+      },
+      "source": {
+        "accessStatus": "unknown",
+        "authorityRole": "unknown",
+        "canonicalUrl": "https://statsnext.com/nba/defense-vs-position",
+        "license": "Resource-specific terms apply; catalog inclusion grants no license.",
+        "methodologyWarnings": [
+          "Review the publisher methodology, access conditions, license, retrieval date, review date, and as-of meaning before use."
+        ],
+        "publisher": "StatsNext NBA defense vs position"
+      },
+      "summary": "Public tables of observed box-score allowances to guards, forwards and centers per game and per 100 possessions, with sample dates and counts; dual-position players are excluded from position tables, results are not opponent-adjusted, and small samples limit interpretation. Free reading does not grant API, bulk-download or redistribution rights.",
+      "title": "StatsNext NBA defense vs position",
       "visibility": "public"
     },
     {
